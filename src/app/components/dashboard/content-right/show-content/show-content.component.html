@@ -1,0 +1,35 @@
+<div class="show-content-right mt-5">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+     <li class="nav-item ">
+       <a class="nav-link active text-uppercase" id="live-tab" data-toggle="tab" routerLink="#live" role="tab" aria-controls="home" aria-selected="true"><i class="fas fa-eye mr-2"></i>LIVE</a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link text-uppercase" id="overview-tab" data-toggle="tab" routerLink="#overview" role="tab" aria-controls="profile" aria-selected="false">OVERVIEW</a>
+     </li>
+     <div class="chat" onclick="openChatBox('#chat-box')"><img src="assets/images/icon/ico_chat.png" alt=""></div>
+
+
+   </ul>
+   <div class="tab-content rounded" id="myTabContent">
+     <div class="tab-pane fade show active h-100" id="live" role="tabpanel" aria-labelledby="live-tab">
+     <!--Content tab-->
+         <!--report-->
+         <app-current-report></app-current-report>
+         <!--report-->
+         <div class="w-100 float-right btn-zoom-group my-4">
+             <div class="btn-zoom d-inline-block">
+                 <button class="zoom-out bg-light d-inline-block p-2" id="zoom-out"  onclick="zoomin()"><i class="fas fa-plus fa-2x"></i></button>
+                 <button class="zoom-out bg-light d-inline-block p-2" id="zoom-in"  onclick="zoomout()"><i class="fas fa-minus fa-2x"></i></button>
+              </div>
+          </div>
+         <!--Map-->
+         <div class="map mt-5 pt-5 w-100 text-center" id="map">
+              <img src="assets/images/map_office.jpg" alt="map of Cluphouse" id="map-office" class="" title="Click on map to ZoomIn and Use mouse to move">
+              <app-one-person></app-one-person>
+         </div>
+         <!--End Map-->
+     <!--End Content tab-->
+      </div>
+     <div class="tab-pane fade" id="overview" role="tabpanel" aria-labelledby="overview-tab">dashboard</div>
+   </div>
+</div>
