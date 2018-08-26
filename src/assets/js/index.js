@@ -14,20 +14,21 @@ $(document).ready(function () {
         if (zoomIn) zoomin();
         else zoomout();
     })
-    setHeightElement('#myTabContent');
-    setHeightElement('#map');
+    // setHeightElement('#myTabContent');
+    // setHeightElement('#map');
     $(window).resize(function () {
         setHeightElement('#myTabContent');
         setHeightElement('#map');
     })
-    //set width progress bar
-    setWidthProgressBar();
     //set Background profile
     $('.menu .item').click(function () {
         setTimeout(function () {
             setBackgroundProfile();
         }, 100);
     })
+  //set width progress bar
+  setWidthProgressBar();
+  setColorProfile('.favarite-title','color');
     // set icon color profile
     setColorProfile('.ico-profile','color');
     // set border list profile
@@ -36,7 +37,6 @@ $(document).ready(function () {
     setColorProfile('.title-profile','color');
     setColorProfile('.number-percent','color');
     setColorProfile('.progress-bar','background-color');
-    setColorProfile('.favarite-title','color');
 
 });
 

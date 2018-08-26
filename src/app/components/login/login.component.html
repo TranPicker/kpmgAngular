@@ -1,26 +1,24 @@
 <div class="wrap-login h-100 d-flex align-items-center">
-<div class="form-signin pt-4" #formLogin="ngForm" name="formLogin">
+<form class="form-signin pt-4" name="form login" #formLogin="ngForm">
   <div class="mb-4 logo text-uppercase w-50 m-auto">
       <div class="brands-name text-capitalize">KPMG<br>Clubhouse</div>
       <span class="sologan text-uppercase d-block">ppc Admin portal</span>
   </div>
 
   <div class="form-label-group mt-5">
-    <input type="email" #inputEmail="ngModel" [(ngModel)]="user.emailAdress" id="inputEmail" class="form-control" placeholder="Email address" required autofocus="" >
+    <input type="email"  [(ngModel)]="user.emailAdress" id="inputEmail" name="inputEmail" #inputEmail="ngModel" class="form-control" placeholder="Email address" required autofocus="" >
     <div *ngIf="inputEmail.invalid && (inputEmail.dirty || inputEmail.touched)">
-        <div *ngIf="inputEmail.errors.require" class="text-danger"> Name is required.</div>
-        <div *ngIf="inputEmail.errors.invalid" class="text-danger">Your email</div>
+        <div *ngIf="inputEmail.errors.required" class="text-danger"> Email Adress is required.</div>
      </div>
   </div>
 
   <div class="form-label-group my-3 mb-5">
-    <input type="password" #imputPassword="ngModel" [(ngModel)]="user.passWord" id="inputPassword" class="form-control" placeholder="Password" required>
-    <div *ngIf="imputPassword.invalid && (imputPassword.dirty || imputPassword.touched)">
-       <div *ngIf="imputPassword.errors.required" class="text-danger"> Name is required.</div>
-       <div *ngIf="imputPassword.errors.minlength" class="text-danger">UserName must be at least 1 characters long.</div>
+    <input type="password" [(ngModel)]="user.passWord" id="inputPassword" #inputPassword="ngModel"  name="inputPassword" class="form-control" placeholder="Password" required>
+    <div *ngIf="inputPassword.invalid && (inputPassword.dirty || inputPassword.touched)">
+       <div *ngIf="inputPassword.errors.required" class="text-danger"> Name is required.</div>
     </div>
   </div>
-  <button class="btn btn-lg  btn-block  text-capitalize" type="submit">Log In</button>
+  <button class="btn btn-lg  btn-block  text-capitalize" type="submit" (click)="loginUser()" [disabled]="formLogin.invalid"> Log In</button>
   <a href="#" class="mb-5 d-block mt-3"> Forgot your password?</a>
-</div>
+</form>
 </div>

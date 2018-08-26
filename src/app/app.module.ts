@@ -16,6 +16,8 @@ import { SearchProfileComponent } from './components/dashboard/content-right/sea
 import { ShowContentComponent } from './components/dashboard/content-right/show-content/show-content.component';
 import { CurrentReportComponent } from './components/dashboard/content-right/show-content/current-report/current-report.component';
 import { OnePersonComponent } from './components/dashboard/content-right/show-content/one-person/one-person.component';
+import { OverViewComponent } from './components/dashboard/content-right/show-content/over-view/over-view.component';
+import { DetailProfileComponent } from './components/dashboard/content-right/show-content/detail-profile/detail-profile.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { OnePersonComponent } from './components/dashboard/content-right/show-co
     SearchProfileComponent,
     ShowContentComponent,
     CurrentReportComponent,
-    OnePersonComponent
+    OnePersonComponent,
+    OverViewComponent,
+    DetailProfileComponent
   ],
   imports: [
     BrowserModule,

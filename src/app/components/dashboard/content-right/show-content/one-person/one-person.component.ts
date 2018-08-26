@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import './../../../../../../assets/js/index';
+
+declare var setWidthProgressBar: any;
+declare var setColorProfile: any;
 
 @Component({
   selector: 'app-one-person',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OnePersonComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+    // set width progress bar
+    setWidthProgressBar();
+    setColorProfile('.progress-bar', 'background-color');
+    setColorProfile('.favarite-title', 'color');
   }
 
 }
