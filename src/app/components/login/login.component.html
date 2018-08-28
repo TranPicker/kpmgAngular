@@ -6,14 +6,14 @@
   </div>
 
   <div class="form-label-group mt-5">
-    <input type="email"  [(ngModel)]="user.emailAdress" id="inputEmail" name="inputEmail" #inputEmail="ngModel" class="form-control" placeholder="Email address" required autofocus="" >
+    <input type="email"  [(ngModel)]="user.email" id="inputEmail" name="inputEmail" #inputEmail="ngModel" class="form-control" placeholder="Email address" required autofocus="" >
     <div *ngIf="inputEmail.invalid && (inputEmail.dirty || inputEmail.touched)">
         <div *ngIf="inputEmail.errors.required" class="text-danger"> Email Adress is required.</div>
      </div>
   </div>
 
   <div class="form-label-group my-3 mb-5">
-    <input type="password" [(ngModel)]="user.passWord" id="inputPassword" #inputPassword="ngModel"  name="inputPassword" class="form-control" placeholder="Password" required>
+    <input type="password" [(ngModel)]="user.password" id="inputPassword" #inputPassword="ngModel"  name="inputPassword" class="form-control" placeholder="Password" required>
     <div *ngIf="inputPassword.invalid && (inputPassword.dirty || inputPassword.touched)">
        <div *ngIf="inputPassword.errors.required" class="text-danger"> Name is required.</div>
     </div>

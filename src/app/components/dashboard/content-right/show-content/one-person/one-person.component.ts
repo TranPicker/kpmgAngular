@@ -1,8 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import './../../../../../../assets/js/index';
+import './../../../../../../assets/js/dasboard';
 
 declare var setWidthProgressBar: any;
 declare var setColorProfile: any;
+declare var $: any;
+declare var openNav: any;
+declare var closeNav: any;
 
 @Component({
   selector: 'app-one-person',
@@ -20,5 +23,4 @@ export class OnePersonComponent implements OnInit {
     setColorProfile('.progress-bar', 'background-color');
     setColorProfile('.favarite-title', 'color');
   }
-
 }

@@ -5,7 +5,6 @@ var advisoryColor = '#eaaa00';
 var centralsrvColor = '#c3007b';
 
 $(document).ready(function () {
-
     // Dragable
     $('#map-office').draggable();
     $('.avatar-office').draggable();
@@ -26,19 +25,29 @@ $(document).ready(function () {
             setBackgroundProfile();
         }, 100);
     })
+
   //set width progress bar
   setWidthProgressBar();
   setColorProfile('.favarite-title','color');
-    // set icon color profile
-    setColorProfile('.ico-profile','color');
+
     // set border list profile
     setColorProfile('.border-profile','border-color');
-    // set title-profile
-    setColorProfile('.title-profile','color');
     setColorProfile('.number-percent','color');
-    setColorProfile('.progress-bar','background-color');
 
 });
+// map
+function mapAction() {
+  $('#map-office').draggable();
+  $('.avatar-office').draggable();
+  // click map office zoomin
+  $('#map-office').click(function () {
+    if (zoomIn) {
+      zoomin();
+    } else {
+      zoomout();
+    }
+  });
+}
 
 // set icon profile color
 function setColorProfile(obj,css) {
@@ -134,7 +143,7 @@ function openChatBox(ele){
     $(ele).css('right','20px');
 }
 function closeChatBox(ele) {
-    $(ele).css('right', '-350px');
+    $(ele).css('right', '-355px');
 }
 
 //close form create

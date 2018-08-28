@@ -16,8 +16,17 @@ import { SearchProfileComponent } from './components/dashboard/content-right/sea
 import { ShowContentComponent } from './components/dashboard/content-right/show-content/show-content.component';
 import { CurrentReportComponent } from './components/dashboard/content-right/show-content/current-report/current-report.component';
 import { OnePersonComponent } from './components/dashboard/content-right/show-content/one-person/one-person.component';
-import { OverViewComponent } from './components/dashboard/content-right/show-content/over-view/over-view.component';
 import { DetailProfileComponent } from './components/dashboard/content-right/show-content/detail-profile/detail-profile.component';
+import { HomeComponent } from './components/dashboard/pages/home/home.component';
+import { ChatComponent } from './components/dashboard/content-right/show-content/chat/chat.component';
+import { RulesComponent } from './components/dashboard/content-right/show-content/chat/rules/rules.component';
+import { StaffComponent } from './components/dashboard/pages/staff/staff.component';
+import { HomeContentComponent } from './components/dashboard/content-right/show-content/home-content/home-content.component';
+import { StaffContentComponent } from './components/dashboard/content-right/show-content/staff-content/staff-content.component';
+import { FeedsComponent } from './components/dashboard/pages/feeds/feeds.component';
+import { FeedsContentComponent } from './components/dashboard/content-right/show-content/feeds-content/feeds-content.component';
+import { SettingComponent } from './components/dashboard/pages/setting/setting.component';
+import { SettingContentComponent } from './components/dashboard/content-right/show-content/setting-content/setting-content.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +39,17 @@ import { DetailProfileComponent } from './components/dashboard/content-right/sho
     ShowContentComponent,
     CurrentReportComponent,
     OnePersonComponent,
-    OverViewComponent,
-    DetailProfileComponent
+    DetailProfileComponent,
+    HomeComponent,
+    ChatComponent,
+    RulesComponent,
+    StaffComponent,
+    HomeContentComponent,
+    StaffContentComponent,
+    FeedsComponent,
+    FeedsContentComponent,
+    SettingComponent,
+    SettingContentComponent
   ],
   imports: [
     BrowserModule,

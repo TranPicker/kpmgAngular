@@ -12,7 +12,7 @@ import swal from 'sweetalert';
 })
 export class LoginComponent implements OnInit {
 
-  private user: Login = new Login();
+  user: Login = new Login();
   returnUrl: string;
 
   constructor(
@@ -27,19 +27,18 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
-    swal('Login Success!', 'Welcome to home page!', 'success');
-    this.router.navigate([this.returnUrl]);
-    // this.loginService.checkLogin(this.user).subscribe(token => {
-    //   localStorage.setItem('currentUser', JSON.stringify(token));
-    //   this.router.navigate([this.returnUrl]);
-    //   swal('Login Success!', 'Welcome to home page!', 'success')
-    // }, (error: HttpErrorResponse) => {
-    //   if (error.error instanceof Error) {
-    //     console.log('An error occurred: ' + error.error.message);
-    //   } else {
-    //     console.log(`Backend return code ${error.message},body was: ${error.error}`);
-    //   }
-    // });
+    this.loginService.checkLogin(this.user).subscribe(token => {
+      localStorage.setItem('currentUser', JSON.stringify(token));
+      this.router.navigate([this.returnUrl]);
+      swal('Login Success!', 'Welcome to home page!', 'success');
+    }, (error: HttpErrorResponse) => {
+      if (error.error instanceof Error) {
+        console.log('An error occurred: ' + error.error.message);
+      } else {
+        console.log(`Backend return code ${error.message},body was: ${error.error}`);
+      }
+      swal('Login Failure!', 'Your email or password Wrong', 'error');
+    });
   }
 
   logOut() {

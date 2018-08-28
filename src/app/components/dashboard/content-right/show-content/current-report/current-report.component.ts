@@ -14,6 +14,8 @@ export class CurrentReportComponent implements OnInit {
     setColorProfile('.ico-profile', 'color');
     // set border list profile
     setColorProfile('.border-profile', 'border-color');
+    // set title-profile
+    setColorProfile('.title-profile', 'color');
   }
 
 }

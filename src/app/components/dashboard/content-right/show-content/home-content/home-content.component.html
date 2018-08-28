@@ -1,0 +1,210 @@
+<div class="show-content-right mt-5">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+     <li class="nav-item ">
+        <a class="nav-link active text-uppercase" id="live-tab" data-toggle="tab" href="#live" role="tab" aria-controls="home" aria-selected="false"> <i class="fas fa-eye mr-2"></i>LIVE</a>
+    </li>
+     <li class="nav-item">
+         <a class="nav-link text-uppercase" id="overview-tab" data-toggle="tab"  href="#overview" role="tab" aria-controls="profile"  aria-selected="true">OVERVIEW</a>
+     </li>
+      <li class="position-absolute" style="right:10px;top:-10px;">
+          <app-chat></app-chat>
+      </li>
+   </ul>
+   <div class="tab-content rounded" id="myTabContent">
+     <div class="tab-pane fade show active h-100" id="live" role="tabpanel" aria-labelledby="live-tab">
+          <!--Content tab-->
+              <!--report-->
+              <app-current-report></app-current-report>
+              <!--report-->
+              <div class="w-100 float-right btn-zoom-group my-4">
+                  <div class="btn-zoom d-inline-block">
+                      <button class="zoom-out bg-light d-inline-block p-2" id="zoom-out"  onclick="zoomin()"><i class="fas fa-plus fa-2x"></i></button>
+                      <button class="zoom-out bg-light d-inline-block p-2" id="zoom-in"  onclick="zoomout()"><i class="fas fa-minus fa-2x"></i></button>
+                   </div>
+               </div>
+              <!--Map-->
+              <div class="map mt-5 pt-5 w-100 text-center" id="map">
+                   <img src="assets/images/map_office.jpg" alt="map of Cluphouse" id="map-office" class="" title="Click on map to ZoomIn and Use mouse to move">
+                   <app-one-person></app-one-person>
+              </div>
+              <!--End Map-->
+          <!--End Content tab-->
+     </div>
+      <div class="tab-pane fade h-100" id="overview" role="tabpanel"  aria-labelledby="overview-tab">
+          <!--over view-->
+          <div id="carouselExampleFade" class="carousel slide carousel-fade"
+             data-ride="carousel">
+            <div class="carousel-inner">
+                <!--CHART 1-->
+                <div class="carousel-item active">
+                    <!--HEAD-->
+                    <div class="chart1--head justify-content-between">
+                        <div class="head--left">
+                            <a style="letter-spacing: 1px;">VIEW BY DAY </a> &nbsp;
+                            <input type="text" class="text-uppercase" id="datepicker">&nbsp;&nbsp;&nbsp;<i
+                                onclick="show_dp();"
+                                class="fas fa-caret-down dropdate"></i>
+                        </div>
+                        <button id="abc">DOWNLOAD REPORT</button>
+                    </div>
+                    <!--CHART-->
+                    <div class="chart1--body w-75 m-auto">
+                        <div id="container"
+                             style="min-width: 100%; height: 400px; margin: 0 auto"></div>
+                    </div>
+                    <!--FOOTER-->
+                    <div class="chart--footer">
+                        <a style="color: #b3aeae;"> Toltal number of visits: <a id="sumNum">157</a></a>
+                        <div class="row">
+                            <div class="col-6 col-md-3">
+                                <div align="center" class="box box--1">
+                                    <p class="text-white box--1--txt">Audit</p>
+                                    <p class="text-white box--1--num">20</p>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div align="center" class="box box--2">
+                                    <p class="text-white box--1--txt">Tax</p>
+                                    <p class="text-white box--1--num">42</p>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div align="center" class="box box--3">
+                                    <p class="text-white box--1--txt">Advisory</p>
+                                    <p class="text-white box--1--num">40</p>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div align="center" class="box box--4">
+                                    <p class="text-white box--1--txt">Central Services</p>
+                                    <p class="text-white box--1--num">55</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--CHART 2-->
+                <div class="carousel-item">
+                    <!--HEAD-->
+                    <div class="chart1--head justify-content-between">
+                        <div class="head--left">
+                            <a style="letter-spacing: 1px;">VIEW BY MONTH </a> &nbsp;
+                            <input type="text" class="text-uppercase" id="datepicker2">&nbsp;&nbsp;&nbsp;<i
+                                onclick="show_dp2();"
+                                class="fas fa-caret-down dropdate"></i>
+                        </div>
+                        <button id="abc2">DOWNLOAD REPORT</button>
+                    </div>
+                    <!--CHART-->
+                    <div class="chart2--body m-auto">
+                        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                    </div>
+                    <!--FOOTER-->
+                    <div class="chart--footer">
+                        <a style="color: #b3aeae;"> Toltal number of visits: <a id="sumNum2">602</a></a>
+                        <div class="row">
+                            <div class="col-6 col-md-3">
+                                <div align="center" class="box box--1">
+                                    <p class="text-white box--1--txt">Audit</p>
+                                    <p class="text-white box--1--num">200</p>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div align="center" class="box box--2">
+                                    <p class="text-white box--1--txt">Tax</p>
+                                    <p class="text-white box--1--num">102</p>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div align="center" class="box box--3">
+                                    <p class="text-white box--1--txt">Advisory</p>
+                                    <p class="text-white box--1--num">100</p>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div align="center" class="box box--4">
+                                    <p class="text-white box--1--txt">Central Services</p>
+                                    <p class="text-white box--1--num">200</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--CHART 3-->
+                <div class="carousel-item">
+                    <div class="carousel-item active">
+                        <!--HEAD-->
+                        <div class="chart1--head justify-content-between">
+                            <div class="head--left">
+                                <a style="letter-spacing: 1px;">VIEW BY ZONES </a> &nbsp;
+                                <input type="text" class="text-uppercase" id="datepicker3">&nbsp;&nbsp;&nbsp;<i
+                                    onclick="show_dp3();"
+                                    class="fas fa-caret-down dropdate"></i>
+                            </div>
+                            <button id="abc3">DOWNLOAD REPORT</button>
+                        </div>
+                        <!--CHART-->
+                        <div class="chart1--body w-75 m-auto">
+                            <div id="container3"
+                                 style="min-width: 100%; height: 400px; margin: 0 auto"></div>
+                        </div>
+                        <!--FOOTER-->
+                        <div class="chart--footer">
+                            <a style="color: #b3aeae;"> Top 3 Zones in : <a id="sumNum3">August</a></a>
+                            <div class="row">
+                                <div class="col-6 col-md-4">
+                                    <div align="center" class="box box--5">
+                                        <p class="text-white box--1--txt">Bar</p>
+                                        <div class="d-flex">
+                                            <div class="border--icon"><img src="assets/images/icon/ico_bar.png" ></div>
+                                            <p class="text-white box--1--num">613</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-4">
+                                    <div align="center" class="box box--6">
+                                        <p class="text-white box--1--txt">Bar</p>
+                                        <div class="d-flex">
+                                            <div class="border--icon bor--icon2"><img src="assets/images/icon/ico_fun.png" ></div>
+                                            <p class="text-white box--1--num">613</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-4">
+                                    <div align="center" class="box box--7">
+                                        <p class="text-white box--1--txt">Bar</p>
+                                        <div class="d-flex">
+                                            <div class="border--icon bor--icon2"><img src="assets/images/icon/ico_collaborate.png"></div>
+                                            <p class="text-white box--1--num">613</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleFade"
+               role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="false"><i
+                        style="color: black" class="fa fa-chevron-left"
+                        aria-hidden="true"></i></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleFade"
+               role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"><i
+                        style="color: black" class="fa fa-chevron-right"
+                        aria-hidden="true"></i></span>
+                <span class="sr-only">Next</span>
+            </a>
+      </div>
+          <!-- end over view-->
+</div>
+   </div>
+</div>
+
+

@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.wrap-login {
+  background: url("./../../../assets/images/bg-login.png") !important;
+  -webkit-background-size: cover !important;
+  background-size: cover !important;
+  background-position: center center; }
+.wrap-login .form-signin {
+  width: 400px;
+  margin: auto;
+  background: #4f37e0;
+  -webkit-border-radius: 7px !important;
+  -moz-border-radius: 7px !important;
+  border-radius: 7px !important;
+  padding-left: 70px !important;
+  padding-right: 70px !important; }
+.wrap-login .form-signin .logo {
+  color: white;
+  font-weight: bold;
+  font-family: KPMG; }
+.wrap-login .form-signin .logo .brands-name {
+  font-size: 35px;
+  line-height: 30px;
+  margin-top: 20px !important;
+  letter-spacing: 3px; }
+.wrap-login .form-signin .logo .brands-name:after {
+  content: '';
+  width: 140px;
+  height: 1px;
+  background: #fff;
+  display: block;
+  transform: translateX(-10px);
+  margin: 5px 0; }
+.wrap-login .form-signin .logo .sologan {
+  font-size: 12px !important;
+  color: #c8cbe3;
+  letter-spacing: 2px;}
+.wrap-login .form-signin input {
+  color: #90959a !important;
+  padding: 8px;
+  font-size: 19px;
+  background: transparent !important; }
+.wrap-login .form-signin button {
+  font-size: 19px;
+  background: #eceefd;
+  color: #90959a !important;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px; }

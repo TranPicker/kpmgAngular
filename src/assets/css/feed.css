@@ -1,0 +1,158 @@
+/*html{*/
+    /*height: auto;*/
+    /*min-height: 100%;*/
+/*}*/
+.fc-left h2{
+    width: 180px;
+}
+.fc-left button {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+.img_event{
+    display: inline-block;
+    vertical-align: top;
+}
+.content{
+    display: inline-block;
+    margin-left: 5px;
+}
+.content_event{
+    background-color: rgba(218, 214, 214, 0.5);
+    padding: 10px;
+    border: 1px solid #ded5d5;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.time{
+    position: absolute;
+    right: 40px;
+}
+.button_addfeed{
+    width: 180px;
+    border: 2px solid #dad6d6 !important;
+    border-radius: 15px;
+}
+#modal_head{
+    display: inline-block;
+    border-bottom: none;
+}
+#modal_footer{
+    display: inline-block;
+    text-align: center;
+    border-top: none;
+}
+#add_img{
+    background: none;
+    width: 80%;
+    border: 1px solid #cdc9c9;
+    border-radius: 10px;
+    padding: 10px;
+  cursor: pointer;
+}
+.input-group-addon{
+    padding:5px 8px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0px 4px 4px 0px;;
+}
+.form-control:focus{
+    border-color:#3c8dbc;box-shadow:none
+}
+.recurrence{
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    background-color: #dedbdb;
+    color: #c3bfbf;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px;
+}
+.minute{
+    display: block;
+    font-weight: bold;
+    font-size: 30px;
+    height: 55%;
+}
+#add_feed{
+    width: 44%;
+    border-radius: 10px;
+    border: 1px;
+    color: white;
+    padding: 10px;
+    background-color: #e36877;
+  cursor: pointer;
+}
+.fc-left h2{
+    font-size: 1.5em;
+}
+div.fc-right button{
+    border: none;
+    background: none;
+}
+div.fc-right button.fc-state-active{
+    border: none;
+    box-shadow: none;
+    color: black!important;
+}
+div.fc-right button.fc-state-default{
+    box-shadow: none;
+    color: #dad6d6;
+}
+.nav-link{
+    color: #afaeae;
+}
+.item_list{
+    box-shadow: 0 0 12px -4px;
+    padding: 7px 0;
+}
+.content_card{
+    line-height: initial;
+    margin-top: 23px;
+}
+.card_list{
+    display: none;
+}
+.month{
+    font-size: 1.5em;
+    width: 180px;
+    margin-left: 28px;
+    text-align: center;
+}
+div.fc-content{
+    display: none;
+}
+a.fc-event{
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+.list-calendar{
+    width: 88%;
+}
+#add_image{
+    border: 1px dashed #cdc9c9;
+    text-align: center;
+    padding: 5px;
+}
+/*html body #menuLeft{*/
+    /*position: fixed;*/
+    /*height: 100%;*/
+/*}*/
+
+.feed-content{
+  overflow-y: scroll;
+}
+.remove_item{
+  cursor: pointer;
+}
+
