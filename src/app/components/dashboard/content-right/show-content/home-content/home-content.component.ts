@@ -3,11 +3,9 @@ import './../../../../../../assets/js/dasboard.js';
 import './../../../../../../assets/js/mychart.js';
 
 declare var $: any;
-declare var EXPORT_WIDTH: any;
-declare var CanvasJS: any;
-declare var Highcharts: any;
 declare var setHeightElement: any;
 declare var mapAction: any;
+declare var drawChart: any;
 
 
 
@@ -21,6 +19,7 @@ export class HomeContentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    drawChart();
     mapAction();
     setHeightElement('#myTabContent');
     setHeightElement('#map');

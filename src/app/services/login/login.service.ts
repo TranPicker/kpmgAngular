@@ -14,7 +14,7 @@ export class LoginService {
   private urlLogin = '';
 
   constructor(private http: HttpClient) {
-    this.urlLogin = 'http://kpmg.dev-altamedia.com/api/user/login';
+    this.urlLogin = 'http://192.168.10.41/api/user/login';
   }
 
   checkLogin(user: Login): Observable<any> {

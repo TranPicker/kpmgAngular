@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import './../../../../../assets/js/index.js';
-import './../../../../../assets/js/feed.js';
 declare var $: any;
 declare var setHeightElement: any;
-declare var feedFunction: any;
 
 @Component({
   selector: 'app-feeds',
@@ -16,6 +14,7 @@ export class FeedsComponent implements OnInit {
   }
 
   ngOnInit() {
+
     setHeightElement('#external');
     setHeightElement('#feed-content');
 
@@ -23,6 +22,6 @@ export class FeedsComponent implements OnInit {
       setHeightElement('#feed-content');
       setHeightElement('#external');
     });
-    feedFunction();
+
   }
 }

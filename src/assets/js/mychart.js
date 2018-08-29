@@ -1,5 +1,5 @@
-$(document).ready(function () {
-// CHART 1
+function drawChart(){
+  // CHART 1
   $('#datepicker').datepicker({
     autoclose: true
   });
@@ -12,36 +12,6 @@ $(document).ready(function () {
     interval: 0
   });
   EXPORT_WIDTH = 1000;
-
-  function save_chart(chart, filename) {
-    var render_width = EXPORT_WIDTH;
-    var render_height = render_width * chart.chartHeight / chart.chartWidth
-    var svg = chart.getSVG({
-      exporting: {
-        sourceWidth: chart.chartWidth,
-        sourceHeight: chart.chartHeight
-      }
-    });
-    var canvas = document.createElement('canvas');
-    canvas.height = render_height;
-    canvas.width = render_width;
-    var image = new Image;
-    image.onload = function () {
-      canvas.getContext('2d').drawImage(this, 0, 0, render_width, render_height);
-      var data = canvas.toDataURL("image/png")
-      download(data, filename + '.png');
-    };
-    image.src = 'data:image/svg+xml;base64,' + window.btoa(svg);
-  }
-
-  function download(data, filename) {
-    var a = document.createElement('a');
-    a.download = filename;
-    a.href = data
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-  }
 
   Highcharts.chart('container', {
     chart: {
@@ -125,7 +95,6 @@ $(document).ready(function () {
     $("#datepicker2").datepicker('show');
   }
 
-  window.onload = function () {
     CanvasJS.addColorSet("greenShades",
       [//colorSet Array
         "deepskyblue",
@@ -328,7 +297,6 @@ $(document).ready(function () {
       chart.render();
     }
 
-  }
 
 
 // CHART 3
@@ -418,4 +386,35 @@ $(document).ready(function () {
       }]
   });
 
-});
+}
+
+
+function save_chart(chart, filename) {
+  var render_width = EXPORT_WIDTH;
+  var render_height = render_width * chart.chartHeight / chart.chartWidth
+  var svg = chart.getSVG({
+    exporting: {
+      sourceWidth: chart.chartWidth,
+      sourceHeight: chart.chartHeight
+    }
+  });
+  var canvas = document.createElement('canvas');
+  canvas.height = render_height;
+  canvas.width = render_width;
+  var image = new Image;
+  image.onload = function () {
+    canvas.getContext('2d').drawImage(this, 0, 0, render_width, render_height);
+    var data = canvas.toDataURL("image/png")
+    download(data, filename + '.png');
+  };
+  image.src = 'data:image/svg+xml;base64,' + window.btoa(svg);
+}
+
+function download(data, filename) {
+  var a = document.createElement('a');
+  a.download = filename;
+  a.href = data
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}

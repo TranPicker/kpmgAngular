@@ -1,7 +1,7 @@
-function feedFunction(){
+function feedFunction(data){
+  console.log(data);
   var array_id =[];
   $(function () {
-
     /* initialize the external events
      -----------------------------------------------------------------*/
     function init_events(ele) {
