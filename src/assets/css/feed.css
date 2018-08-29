@@ -16,14 +16,14 @@
 }
 .content{
     display: inline-block;
-    margin-left: 5px;
+
 }
 .content_event{
     background-color: rgba(218, 214, 214, 0.5);
     padding: 10px;
     border: 1px solid #ded5d5;
     position: relative;
-    white-space: nowrap;
+   // white-space: nowrap;
     overflow: hidden;
 }
 .time{

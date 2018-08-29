@@ -22,11 +22,9 @@ $(document).ready(function () {
         var srcNormal = $(this).children('.nav-link').children('.icon-nav').data('link-normal');
         if($(this).hasClass('active'))
         {
-            console.log('yes')
             $(this).children('.nav-link').children('.icon-nav').attr('src',srcActive);
         }
         else{
-            console.log('noop');
             $(this).children('.nav-link').mouseover(function(){
                 var src = $(this).children('.icon-nav').data('link-active');
                 $(this).children('.icon-nav').attr('src',src);

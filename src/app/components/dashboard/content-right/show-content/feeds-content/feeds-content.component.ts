@@ -3,6 +3,7 @@ import {Subscription} from 'rxjs';
 import './../../../../../../assets/js/dasboard';
 import {FeedsService} from '../../../../../services/feeds/feeds.service';
 import './../../../../../../assets/js/feed.js';
+import {forEach} from '@angular/router/src/utils/collection';
 
 declare var $: any;
 declare var setHeightElement: any;
@@ -14,7 +15,10 @@ declare var feedFunction: any;
   styleUrls: ['./feeds-content.component.css']
 })
 export class FeedsContentComponent implements OnInit, OnDestroy {
-  private subcription: Subscription;
+  private subcription1: Subscription;
+  private subcription2: Subscription;
+  public datas = [];
+
   constructor(private feedService: FeedsService) {
   }
 
@@ -25,19 +29,38 @@ export class FeedsContentComponent implements OnInit, OnDestroy {
     });
 
     this.getAllFeed();
+    this.getFeedsMonth();
+
   }
 
   getAllFeed() {
     // get All Data
-    this.subcription = this.feedService.getAllFeed().subscribe(res => {
+    this.subcription1 = this.feedService.getAllFeed().subscribe(res => {
       feedFunction(res.data);
     }, error1 => {
       console.log(error1);
     });
   }
 
+  getFeedsMonth() {
+    this.subcription2 = this.feedService.getFeedsWithMonth().subscribe(res => {
+      $.each(res.data, function (index, item) {
+        // this.datas.push({
+        //   title: index,
+        //   event: item
+        // });
+      });
+    }, error1 => {
+      console.log(error1);
+    });
+  }
+
+  deleteFeed() {
+  }
+
   ngOnDestroy() {
-    this.subcription.unsubscribe();
+    this.subcription1.unsubscribe();
+    this.subcription2.unsubscribe();
   }
 
 }
