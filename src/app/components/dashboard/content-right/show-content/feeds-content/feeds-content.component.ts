@@ -17,7 +17,8 @@ declare var feedFunction: any;
 export class FeedsContentComponent implements OnInit, OnDestroy {
   private subcription1: Subscription;
   private subcription2: Subscription;
-  public datas = [];
+
+  private data: any;
 
   constructor(private feedService: FeedsService) {
   }
@@ -43,13 +44,16 @@ export class FeedsContentComponent implements OnInit, OnDestroy {
   }
 
   getFeedsMonth() {
+    const datas = [];
     this.subcription2 = this.feedService.getFeedsWithMonth().subscribe(res => {
       $.each(res.data, function (index, item) {
-        // this.datas.push({
-        //   title: index,
-        //   event: item
-        // });
+        datas.push({
+          title: index,
+          event: item
+        });
       });
+      this.data = datas;
+      console.log(this.data);
     }, error1 => {
       console.log(error1);
     });
