@@ -90,212 +90,52 @@ function drawChart(){
     startView: "months",
     minViewMode: "months"
   });
-
   function show_dp2() {
     $("#datepicker2").datepicker('show');
   }
-
-    CanvasJS.addColorSet("greenShades",
-      [//colorSet Array
-        "deepskyblue",
-        "#cc0f4e",
-        "#bda052",
-        "#8f0da9"
-      ]);
-    var chart = new CanvasJS.Chart("chartContainer", {
-      colorSet: "greenShades",
-      animationEnabled: true,
-      width: 1000,
-      axisX: {
-        valueFormatString: "DD"
-      },
-      axisY: {
-        prefix: ""
-      },
-      toolTip: {
-        shared: true
-      },
-      legend: {
-        options: {
-          showInLegend: false,
+  $.ajax({
+    url: 'http://192.168.10.41/api/statitic',
+    type: 'POST',
+    data: {
+      "month":8,
+      "year":2018,
+      "function":["Audit","Tax","Central Services"]
+    },
+    success: function(data){
+      console.log(data)
+      Highcharts.chart('container2', {
+        chart: {
+          type: 'column'
         },
-      },
-      data: [{
-        type: "stackedColumn",
-        name: "Meals",
-        showInLegend: "true",
-        colorSet: "pink",
-        xValueFormatString: "DD, MMM",
-        yValueFormatString: "#,##0",
-        showInLegend: false,
-        dataPoints: [
-          {x: new Date(2017, 3, 1), y: 71},
-          {x: new Date(2017, 3, 2), y: 41},
-          {x: new Date(2017, 3, 3), y: 60},
-          {x: new Date(2017, 3, 4), y: 75},
-          {x: new Date(2017, 3, 5), y: 98},
-          {x: new Date(2017, 3, 6), y: 50},
-          {x: new Date(2017, 3, 7), y: 45},
-          {x: new Date(2017, 3, 8), y: 71},
-          {x: new Date(2017, 3, 9), y: 41},
-          {x: new Date(2017, 3, 10), y: 60},
-          {x: new Date(2017, 3, 11), y: 75},
-          {x: new Date(2017, 3, 12), y: 98},
-          {x: new Date(2017, 3, 13), y: 50},
-          {x: new Date(2017, 3, 14), y: 45},
-          {x: new Date(2017, 3, 15), y: 98},
-          {x: new Date(2017, 3, 16), y: 50},
-          {x: new Date(2017, 3, 17), y: 45},
-          {x: new Date(2017, 3, 18), y: 71},
-          {x: new Date(2017, 3, 19), y: 41},
-          {x: new Date(2017, 3, 20), y: 41},
-          {x: new Date(2017, 3, 21), y: 71},
-          {x: new Date(2017, 3, 22), y: 41},
-          {x: new Date(2017, 3, 23), y: 60},
-          {x: new Date(2017, 3, 24), y: 75},
-          {x: new Date(2017, 3, 25), y: 98},
-          {x: new Date(2017, 3, 26), y: 50},
-          {x: new Date(2017, 3, 27), y: 45},
-          {x: new Date(2017, 3, 28), y: 71},
-          {x: new Date(2017, 3, 29), y: 41},
-          {x: new Date(2017, 3, 30), y: 71},
-        ]
-      },
-        {
-          type: "stackedColumn",
-          name: "Snacks",
-          showInLegend: "true",
-          xValueFormatString: "DD, MMM",
-          yValueFormatString: "#,##0",
-          showInLegend: false,
-          dataPoints: [
-            {x: new Date(2017, 3, 1), y: 71},
-            {x: new Date(2017, 3, 2), y: 41},
-            {x: new Date(2017, 3, 3), y: 60},
-            {x: new Date(2017, 3, 4), y: 75},
-            {x: new Date(2017, 3, 5), y: 98},
-            {x: new Date(2017, 3, 6), y: 50},
-            {x: new Date(2017, 3, 7), y: 45},
-            {x: new Date(2017, 3, 8), y: 71},
-            {x: new Date(2017, 3, 9), y: 41},
-            {x: new Date(2017, 3, 10), y: 60},
-            {x: new Date(2017, 3, 11), y: 75},
-            {x: new Date(2017, 3, 12), y: 98},
-            {x: new Date(2017, 3, 13), y: 50},
-            {x: new Date(2017, 3, 14), y: 45},
-            {x: new Date(2017, 3, 15), y: 98},
-            {x: new Date(2017, 3, 16), y: 50},
-            {x: new Date(2017, 3, 17), y: 45},
-            {x: new Date(2017, 3, 18), y: 71},
-            {x: new Date(2017, 3, 19), y: 41},
-            {x: new Date(2017, 3, 20), y: 41},
-            {x: new Date(2017, 3, 21), y: 71},
-            {x: new Date(2017, 3, 22), y: 41},
-            {x: new Date(2017, 3, 23), y: 60},
-            {x: new Date(2017, 3, 24), y: 75},
-            {x: new Date(2017, 3, 25), y: 98},
-            {x: new Date(2017, 3, 26), y: 50},
-            {x: new Date(2017, 3, 27), y: 45},
-            {x: new Date(2017, 3, 28), y: 71},
-            {x: new Date(2017, 3, 29), y: 41},
-            {x: new Date(2017, 3, 30), y: 71},
-          ]
+        title: {
+          text: ' '
         },
-        {
-          type: "stackedColumn",
-          name: "Drinks",
-          showInLegend: "true",
-          xValueFormatString: "DD, MMM",
-          yValueFormatString: "#,##0",
-          showInLegend: false,
-          dataPoints: [
-            {x: new Date(2017, 3, 1), y: 71},
-            {x: new Date(2017, 3, 2), y: 41},
-            {x: new Date(2017, 3, 3), y: 60},
-            {x: new Date(2017, 3, 4), y: 75},
-            {x: new Date(2017, 3, 5), y: 98},
-            {x: new Date(2017, 3, 6), y: 50},
-            {x: new Date(2017, 3, 7), y: 45},
-            {x: new Date(2017, 3, 8), y: 71},
-            {x: new Date(2017, 3, 9), y: 41},
-            {x: new Date(2017, 3, 10), y: 60},
-            {x: new Date(2017, 3, 11), y: 75},
-            {x: new Date(2017, 3, 12), y: 98},
-            {x: new Date(2017, 3, 13), y: 50},
-            {x: new Date(2017, 3, 14), y: 45},
-            {x: new Date(2017, 3, 15), y: 98},
-            {x: new Date(2017, 3, 16), y: 50},
-            {x: new Date(2017, 3, 17), y: 45},
-            {x: new Date(2017, 3, 18), y: 71},
-            {x: new Date(2017, 3, 19), y: 41},
-            {x: new Date(2017, 3, 20), y: 41},
-            {x: new Date(2017, 3, 21), y: 71},
-            {x: new Date(2017, 3, 22), y: 41},
-            {x: new Date(2017, 3, 23), y: 60},
-            {x: new Date(2017, 3, 24), y: 75},
-            {x: new Date(2017, 3, 25), y: 98},
-            {x: new Date(2017, 3, 26), y: 50},
-            {x: new Date(2017, 3, 27), y: 45},
-            {x: new Date(2017, 3, 28), y: 71},
-            {x: new Date(2017, 3, 29), y: 41},
-            {x: new Date(2017, 3, 30), y: 71},
-          ]
+        xAxis: {
+          categories: data.created
         },
-        {
-          type: "stackedColumn",
-          name: "Takeaway",
-          showInLegend: "true",
-          xValueFormatString: "DD, MMM",
-          yValueFormatString: "#,##0",
-          showInLegend: false,
-          dataPoints: [
-            {x: new Date(2017, 3, 1), y: 71},
-            {x: new Date(2017, 3, 2), y: 41},
-            {x: new Date(2017, 3, 3), y: 60},
-            {x: new Date(2017, 3, 4), y: 75},
-            {x: new Date(2017, 3, 5), y: 98},
-            {x: new Date(2017, 3, 6), y: 50},
-            {x: new Date(2017, 3, 7), y: 45},
-            {x: new Date(2017, 3, 8), y: 71},
-            {x: new Date(2017, 3, 9), y: 41},
-            {x: new Date(2017, 3, 10), y: 60},
-            {x: new Date(2017, 3, 11), y: 75},
-            {x: new Date(2017, 3, 12), y: 98},
-            {x: new Date(2017, 3, 13), y: 50},
-            {x: new Date(2017, 3, 14), y: 45},
-            {x: new Date(2017, 3, 15), y: 98},
-            {x: new Date(2017, 3, 16), y: 50},
-            {x: new Date(2017, 3, 17), y: 45},
-            {x: new Date(2017, 3, 18), y: 71},
-            {x: new Date(2017, 3, 19), y: 41},
-            {x: new Date(2017, 3, 20), y: 41},
-            {x: new Date(2017, 3, 21), y: 71},
-            {x: new Date(2017, 3, 22), y: 41},
-            {x: new Date(2017, 3, 23), y: 60},
-            {x: new Date(2017, 3, 24), y: 75},
-            {x: new Date(2017, 3, 25), y: 98},
-            {x: new Date(2017, 3, 26), y: 50},
-            {x: new Date(2017, 3, 27), y: 45},
-            {x: new Date(2017, 3, 28), y: 71},
-            {x: new Date(2017, 3, 29), y: 41},
-            {x: new Date(2017, 3, 30), y: 71},
-          ]
-        }]
-    });
-    chart.render();
-    document.getElementById("abc2").addEventListener("click", function () {
-      chart.exportChart({format: "png"});
-    });
-
-    function toggleDataSeries(e) {
-      if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-        e.dataSeries.visible = false;
-      }
-      else {
-        e.dataSeries.visible = true;
-      }
-      chart.render();
+        yAxis: {
+          min: 0,
+          title: {
+            text: ' '
+          }
+        },
+        tooltip: {
+          useHTML: true,
+          headerFormat: '<b>{point.key}<br></b>',
+          pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b><br/>',
+          shared: true
+        },
+        plotOptions: {
+          column: {
+            stacking: 'normal'
+          }
+        }, legend: {
+          reversed: true
+        },
+        series: data.data
+      });
     }
+  });
 
 
 

@@ -89,29 +89,7 @@ function setHeightElement(ele) {
     $(ele).css('height', height);
 }
 // set background profile
-function setBackgroundProfile() {
-  $('.label').each(function () {
-    var type = $(this).data('value');
-    switch (type) {
-      case 'audit': {
-        $(this).addClass('bg-audit');
-        break;
-      }
-      case 'tax': {
-        $(this).addClass('bg-tax');
-        break;
-      }
-      case 'advisory': {
-        $(this).addClass('bg-advisory');
-        break;
-      }
-      case 'centralsrv': {
-        $(this).addClass('bg-centralsrv');
-        break;
-      }
-    }
-  });
-}
+
 function zoomin() {
     zoomIn = true;
     var myImg = $("#map-office");

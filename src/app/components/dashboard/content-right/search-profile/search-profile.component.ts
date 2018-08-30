@@ -1,15 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, AfterContentInit} from '@angular/core';
 import {SearchProfileService} from '../../../../services/searchProfile/search-profile.service';
+import './../../../../../assets/js/dasboard';
 import {Subscription} from 'rxjs';
 
 declare var $: any;
-declare var setBackgroundProfile: any;
+declare var actionSetBackGroundProfile: any;
+declare var setBackgroundProfileColor: any;
+
 @Component({
   selector: 'app-search-profile',
   templateUrl: './search-profile.component.html',
   styleUrls: ['./search-profile.component.css']
 })
-export class SearchProfileComponent implements OnInit {
+export class SearchProfileComponent implements OnInit, AfterContentInit {
   private allFunction: any;
   private subscription: Subscription;
 
@@ -17,29 +20,26 @@ export class SearchProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    // get data
+    this.getAllFunction();
     $('#multi-select').dropdown();
     // click icon search
     $('#icon-search').click(function () {
       $('#multi-select').click();
     });
-    // set Background profile
-    $('.menu .item').click(function () {
-        setTimeout(function () {
-            setBackgroundProfile();
-        }, 100);
-
-    });
-    // get data
-    this.getAllFunction();
+    setBackgroundProfileColor(this.allFunction);
   }
 
   getAllFunction() {
     this.subscription = this.searchProfileComponent.getFunctions().subscribe(res => {
       this.allFunction = res.data;
-      console.log(this.allFunction);
+      actionSetBackGroundProfile(this.allFunction);
+      setBackgroundProfileColor(this.allFunction);
     }, error1 => {
       console.log(error1);
     });
+  }
 
+  ngAfterContentInit() {
   }
 }

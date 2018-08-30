@@ -69,7 +69,7 @@ function feedFunction(data) {
         // if (event.imageurl) {
         //     eventElement.find("div.fc-event-container").prepend("<img src='" + event.imageurl +"' width='30' height='30'>");
         // }
-        eventElement.append('<div class="content_event"><img style="float: right;height: 16px" src="assets/images/icon/close.png" class="remove_event"  data-id="'+event.id+'"><span class="time">' + event.start + '-' + event.end + '</span>' +
+        eventElement.append('<div class="content_event"><img style="float: right;height: 16px" src="assets/images/icon/close.png" class="remove_event"  data-id="'+event.id+'"><span class="time">' + event.start.format('HH:mma') + '-' + event.end.format('HH:mm  ') + '</span>' +
           '<div class="img_event mr-3"><img src="' + event.imageurl + '" width=' + 50 + ' height=' + 40 + '></div>' +
           '<div class="content"><div style="font-weight: bold"><span>' + event.title + '</span></div><div><span>' + event.description + '</span></div></div>' +
           '</div>');
