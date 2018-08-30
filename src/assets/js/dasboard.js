@@ -53,13 +53,7 @@ $(document).ready(function () {
     });
     //set width progress bar
     setWidthProgressBar();
-    //set Background profile
-    $('.menu .item').click(function () {
-        setTimeout(function () {
-            setBackgroundProfile();
-        }, 100);
 
-    });
     // set icon color profile
     setColorProfile('.ico-profile','color');
     // set border list profile
@@ -106,27 +100,7 @@ function setBackgroundProfile() {
         'position':'relative',
         'padding-left': '20px'
       });
-        var type = $(this).data('value');
-        switch (type) {
-            case 'audit': {
-                $(this).addClass('bg-audit');
-                break;
-            }
-            case 'tax': {
-                $(this).addClass('bg-tax');
-                break;
-            }
-            case 'advisory': {
-                $(this).addClass('bg-advisory');
-                break;
-            }
-            case 'centralsrv': {
-                $(this).addClass('bg-centralsrv');
-                break;
-            }
-        }
     });
-
 }
 // map
 function mapAction() {
@@ -194,3 +168,4 @@ function closeChatBox(ele) {
 function closeFormCreate(){
     $('#close-create-rule').click();
 }
+

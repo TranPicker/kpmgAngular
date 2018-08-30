@@ -3,11 +3,13 @@ import {Subscription} from 'rxjs';
 import './../../../../../../assets/js/dasboard';
 import {FeedsService} from '../../../../../services/feeds/feeds.service';
 import './../../../../../../assets/js/feed.js';
-import {forEach} from '@angular/router/src/utils/collection';
+import {Feed} from '../../../../../models/feed/feed';
+import swal from 'sweetalert';
 
 declare var $: any;
 declare var setHeightElement: any;
 declare var feedFunction: any;
+
 
 @Component({
   selector: 'app-feeds-content',
@@ -17,8 +19,9 @@ declare var feedFunction: any;
 export class FeedsContentComponent implements OnInit, OnDestroy {
   private subcription1: Subscription;
   private subcription2: Subscription;
-
-  private data: any;
+  private dataMonth: any;
+  private feed: Feed = new Feed();
+  private input = new FormData();
 
   constructor(private feedService: FeedsService) {
   }
@@ -28,7 +31,11 @@ export class FeedsContentComponent implements OnInit, OnDestroy {
     $(window).resize(function () {
       setHeightElement('#myTabContent');
     });
-
+    $(document).on('click', '.remove_event', function () {
+      const id = $(this).data('id');
+      console.log(id);
+      this.deleteEvent(id);
+    });
     this.getAllFeed();
     this.getFeedsMonth();
 
@@ -52,14 +59,43 @@ export class FeedsContentComponent implements OnInit, OnDestroy {
           event: item
         });
       });
-      this.data = datas;
-      console.log(this.data);
+      this.dataMonth = datas;
     }, error1 => {
       console.log(error1);
     });
   }
 
-  deleteFeed() {
+  addFeed(file, dateStart, dateEnd) {
+    this.feed.file = file.files[0];
+    this.feed.date_start = dateStart.value;
+    this.feed.date_end = dateEnd.value;
+    this.input.append('title', this.feed.title);
+    this.input.append('description', this.feed.description);
+    this.input.append('date_start', this.feed.date_start);
+    this.input.append('date_end', this.feed.date_end);
+    this.input.append('favorite', '1,2');
+    this.input.append('file', this.feed.file);
+    console.log(this.feed);
+    this.feedService.addFeed(this.input).subscribe(res => {
+      swal('Add Success!', '', 'success');
+    }, error => {
+      console.log(error);
+    });
+    // reset fields
+    file.file[0].value = '';
+  }
+
+  getRecurrence(value) {
+    this.feed.time_repeat = value;
+  }
+
+  deleteEvent(id) {
+    this.feedService.deleteEvent(id).subscribe(res => {
+      console.log(res);
+      swal('Delete Success!', '', 'success');
+    }, error1 => {
+      console.log(error1);
+    });
   }
 
   ngOnDestroy() {

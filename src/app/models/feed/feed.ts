@@ -1,17 +1,17 @@
 export class Feed {
   public title: string;
   public description: string;
-  public file: string;
-  public date_start: string;
-  public date_end: string;
+  public file: any;
+  public date_start: any;
+  public date_end: any;
   public favorite: string;
+  public time_repeat: string;
 
   constructor() {
     this.title = '';
     this.description = '';
     this.file = '';
-    this.date_start = '';
-    this.date_end = '';
-    this.favorite = '';
+    this.favorite = '1,2';
+    this.time_repeat = '';
   }
 }

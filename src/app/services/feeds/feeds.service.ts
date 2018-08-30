@@ -10,9 +10,8 @@ import {Feed} from '../../models/feed/feed';
 export class FeedsService {
   private urlGetAllFeed = 'http://192.168.10.41/api/feed_data/anyData';
   private urlGetFeedMonth = 'http://192.168.10.41/api/feed_data/get_month';
+  private urlAddFeed = 'http://192.168.10.41/api/feed_data';
 
-  private urlAddFeed = '';
-  private feed: Feed;
 
   constructor(private http: HttpClient) {
   }
@@ -27,7 +26,13 @@ export class FeedsService {
 
   }
 
-  addFeed(): Observable<any> {
-    return this.http.post<any>(this.urlAddFeed, this.feed);
+  addFeed(feed: FormData): Observable<any> {
+    return this.http.post<any>(this.urlAddFeed, feed);
+  }
+
+  deleteEvent(id): Observable<any> {
+    const url = `${this.urlAddFeed}/${id}`;
+    return this.http.delete(url);
+
   }
 }

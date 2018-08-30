@@ -1,8 +1,12 @@
 function feedFunction(data) {
+  $('#plus_img').click(function(){
+    $('#add_img').click();
+  })
   var len = data.length;
   var events = [];
   for (i = 0; i < len; i++) {
     events.push({
+      id : data[i].id,
       title: data[i].title,
       start: data[i].date_start,
       end: data[i].date_end,
@@ -10,7 +14,6 @@ function feedFunction(data) {
       description: data[i].description
     });
   }
-
   var array_id = [];
   $(function () {
     /* initialize the external events
@@ -57,29 +60,7 @@ function feedFunction(data) {
         month: 'MONTH',
       },
       //Random default events
-      events: [
-        {
-          title          : '1$ Housepour',
-          start          : moment('2018-07-30').format('YYYY-MM-DD') + ' 08:00',
-          end            : moment('2018-08-03').format('YYYY-MM-DD') + ' 22:00',
-          imageurl: 'assets/images/beer.jpeg',
-          description: 'Enjoy your $1 drink with the Live Streaming of football match'
-        },
-        {
-          title          : '1-for-1 Coffee',
-          start          : moment('2018-07-30').format('YYYY-MM-DD') + ' 08:00',
-          end            : moment('2018-08-01').format('YYYY-MM-DD') + ' 22:00',
-          imageurl: 'assets/images/coffee.jpg',
-          description: 'Enjoy artisan coffee on a busy day'
-        },
-        {
-          title          : '1$ Housepour',
-          start          : moment('2018-08-06').format('YYYY-MM-DD') + ' 08:00',
-          end            : moment('2018-08-06').format('YYYY-MM-DD') + ' 22:00',
-          imageurl: 'assets/images/beer.jpeg',
-          description: 'Enjoy your $1 drink with the Live Streaming of football ...'
-        },
-      ],
+      events: events,
       eventRender: function (event, eventElement) {
         // return $('<div class="content_event"><img style="float: right;height: 16px" src="./../images/icon/close.png" class="remove_event"><span class="time">'+event.start.format('hh:mma')+'-'+event.end.format('hh:mma')+'</span>' +
         //     '<div class="img_event"><img src=" '+ event.imageurl +'" width='+50+' height='+40+'></div>' +
@@ -88,19 +69,20 @@ function feedFunction(data) {
         // if (event.imageurl) {
         //     eventElement.find("div.fc-event-container").prepend("<img src='" + event.imageurl +"' width='30' height='30'>");
         // }
-        eventElement.append('<div class="content_event"><img style="float: right;height: 16px" src="assets/images/icon/close.png" class="remove_event" onclick="console.log(11)"><span class="time">' + event.start.format('HH:mm') + '-' + event.end.format('HH:mm') + '</span>' +
+        eventElement.append('<div class="content_event"><img style="float: right;height: 16px" src="assets/images/icon/close.png" class="remove_event"  data-id="'+event.id+'"><span class="time">' + event.start + '-' + event.end + '</span>' +
           '<div class="img_event mr-3"><img src="' + event.imageurl + '" width=' + 50 + ' height=' + 40 + '></div>' +
           '<div class="content"><div style="font-weight: bold"><span>' + event.title + '</span></div><div><span>' + event.description + '</span></div></div>' +
           '</div>');
-        eventElement.find(".remove_event").click(function () {
-          swal("You want to delete this event!")
-            .then((value) => {
-              $('#calendar').fullCalendar('removeEvents', event._id);
-              swal("Comlete!", 'Comlete!', 'success')
-            });
-
-        });
+        // eventElement.find(".remove_event").click(function () {
+        //   swal("You want to delete this event!")
+        //     .then((value) => {
+        //       $('#calendar').fullCalendar('removeEvents', event._id);
+        //       swal("Comlete!", 'Comlete!', 'success')
+        //     });
+        //
+        // });
       },
+
       // editable: true,
       // droppable: true, // this allows things to be dropped onto the calendar !!!
       // drop: function (date, allDay) { // this function is called when something is dropped
@@ -130,7 +112,30 @@ function feedFunction(data) {
       // }
     })
 
-    $('.fc-left').append('<button type="button" data-toggle="modal" data-target="#modal-addfeed" class="button_addfeed fc-addFeed-button fc-button fc-state-default fc-corner-left fc-corner-right">ADD FEED</button>');
+      // [
+      // {
+      //   title          : '1$ Housepour',
+      //   start          : moment('2018-07-30').format('YYYY-MM-DD') + ' 08:00',
+      //   end            : moment('2018-08-03').format('YYYY-MM-DD') + ' 22:00',
+      //   imageurl: 'assets/images/beer.jpeg',
+      //   description: 'Enjoy your $1 drink with the Live Streaming of football match'
+      // },
+      //   {
+      //     title          : '1-for-1 Coffee',
+      //     start          : moment('2018-07-30').format('YYYY-MM-DD') + ' 08:00',
+      //     end            : moment('2018-08-01').format('YYYY-MM-DD') + ' 22:00',
+      //     imageurl: 'assets/images/coffee.jpg',
+      //     description: 'Enjoy artisan coffee on a busy day'
+      //   },
+      //   {
+      //     title          : '1$ Housepour',
+      //     start          : moment('2018-08-06').format('YYYY-MM-DD') + ' 08:00',
+      //     end            : moment('2018-08-06').format('YYYY-MM-DD') + ' 22:00',
+      //     imageurl: 'assets/images/beer.jpeg',
+      //     description: 'Enjoy your $1 drink with the Live Streaming of football ...'
+      //   },
+      // ]
+    $('.fc-left').append('<button type="button" data-toggle="modal" data-target="#modal-addfeed" class="button_addfeed fc-addFeed-button fc-button fc-state-default fc-corner-left fc-corner-right" >ADD FEED</button>');
     $('.fc-right').append('<button type="button" class="button_list fc-list-button fc-button fc-state-default fc-corner-right">LIST</button>')
 
 
@@ -174,6 +179,7 @@ function feedFunction(data) {
       $('.fc-view-container').css('display', 'none');
       $('.fc-month-button').removeClass("fc-state-active");
       $('button.fc-prev-button').css('display', 'none');
+      $('.fc-left h2').addClass('invisible')
       $('button.fc-next-button').css('display', 'none');
       $(this).addClass('fc-state-active');
       $('.card_list').css('display', 'block');
@@ -187,6 +193,7 @@ function feedFunction(data) {
       $('.fc-view-container').css('display', 'block');
       $('button.fc-prev-button').css('display', 'block');
       $('button.fc-next-button').css('display', 'block');
+      $('.fc-left h2').css('display', 'block');
       $('.fc-month-button').addClass("fc-state-active");
       $('.button_list').removeClass("fc-state-active");
       $('.fc-left h2').text(array[0]);
@@ -213,7 +220,6 @@ var formData = new FormData();
 
 // arrImg.push($('.item').length);
 function readURL(input) {
-  console.log(input.files)
   if (input.files && input.files[0]) {
     var reader = new FileReader()
     reader.onload = function (e) {
@@ -233,3 +239,4 @@ function readURL(input) {
     $('#btn_addimg').css('display', 'block');
   }
 }
+
