@@ -90,13 +90,13 @@ function setColorProfile(obj, css) {
 
 function actionSetBackGroundProfile(data) {
   // set Background profile
-  setBackgroundProfile(data);
-  // $('.menu .item').click(function (data) {
-  //   setTimeout(function () {
-  //
-  //   }, 100);
-  //
-  // });
+
+  $('.menu .item').click(function (data) {
+    setTimeout(function () {
+      setBackgroundProfile(data);
+    }, 100);
+
+  });
 
 }
 
@@ -104,7 +104,6 @@ function actionSetBackGroundProfile(data) {
 function setBackgroundProfile() {
   $('.label').each(function () {
     $(this).css({
-      'min-width': '210px',
       'position': 'relative',
       'padding-left': '25px'
     });

@@ -6,10 +6,12 @@ import {SearchProfileService} from '../../../../../services/searchProfile/search
 import {Subscription} from 'rxjs';
 
 declare var $: any;
+declare var setHeightElement: any;
 declare var mapAction: any;
 declare var drawChart: any;
 declare var setBackgroundProfileColor: any;
 declare var actionSetBackGroundProfile: any;
+declare var setBackgroundProfile: any;
 
 @Component({
   selector: 'app-home-content',
@@ -33,6 +35,8 @@ export class HomeContentComponent implements OnInit, OnChanges {
 
     actionSetBackGroundProfile(this.allFunction);
     drawChart();
+    setHeightElement('#myTabContent');
+    setHeightElement('#map');
     // this.getDataChart2();
     this.getAllFunction();
   }
@@ -66,5 +70,6 @@ export class HomeContentComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+
   }
 }

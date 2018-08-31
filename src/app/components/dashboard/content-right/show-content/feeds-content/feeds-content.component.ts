@@ -71,7 +71,6 @@ export class FeedsContentComponent implements OnInit, OnDestroy {
     this.input.append('date_end', this.feed.date_end);
     this.input.append('favorite', '1,2');
     this.input.append('file', this.feed.file);
-    console.log(this.feed);
     this.feedService.addFeed(this.input).subscribe(res => {
       swal('Add Success!', '', 'success');
     }, error => {
