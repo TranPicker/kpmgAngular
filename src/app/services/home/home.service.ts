@@ -7,16 +7,12 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class HomeService {
-  private urlChart = 'http://192.168.10.41/api/statitic';
+  private urlGetTimesZone = 'http://192.168.10.41/api/timezone';
 
   constructor(private http: HttpClient) {
   }
 
-  // getDataChart(): Observable<any> {
-  //   return this.http.post<any>(this.urlChart, {
-  //     'month': 8,
-  //     'year': 2018,
-  //     'function': ['Audit', 'Tax', 'Central Services']
-  //   });
-  // }
+  getTimeZone(): Observable<any> {
+    return this.http.get<any>(this.urlGetTimesZone);
+  }
 }

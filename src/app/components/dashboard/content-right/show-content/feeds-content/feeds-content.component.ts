@@ -27,10 +27,6 @@ export class FeedsContentComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    setHeightElement('#myTabContent');
-    $(window).resize(function () {
-      setHeightElement('#myTabContent');
-    });
     $(document).on('click', '.remove_event', function () {
       const id = $(this).data('id');
       console.log(id);

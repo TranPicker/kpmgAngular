@@ -1,4 +1,4 @@
-                    <div class="show-content-right mt-5 mr-4">
+                    <div class="show-content-right mt-5">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item ">
                                 <a class="nav-link active text-uppercase" id="live-tab" data-toggle="tab" href="#live" role="tab" aria-controls="home" aria-selected="true" data-title="User Settings">user settings</a>
@@ -9,28 +9,27 @@
                             <li class="nav-item">
                                 <a class="nav-link text-uppercase" id="yitu-tab" data-toggle="tab" href="#yitu" role="tab" aria-controls="profile" aria-selected="false" data-title="Yitu Log">Yitu Log</a>
                             </li>
-                           <li class="position-absolute" style="right:10px;top:-10px;">
+                             <li class="position-absolute" style="right:10px;top:-10px;">
                                       <app-chat></app-chat>
-                            </li>
-
+                                  </li>
                         </ul>
                         <div class="tab-content  d-flex align-items-center " id="myTabContent">
 
                             <div class="tab-pane fade show active m-auto text-center w-100" id="live" role="tabpanel" aria-labelledby="live-tab">
                                 <div class="content-table" id="content-table">
                                     <div>
-                                        <a class="btn btn-primary m-2" style="float: right" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add New User</a>
+                                        <button type="button" class="btn btn-edit m-2" style="float: right" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add New User</button>
                                     </div>
 
                                     <div style=" margin-bottom: 33px;">
-                                        <table class="table" style="margin-top: 10px;width: 95%" id="table">
+                                        <table class="table table_setting" style="margin-top: 10px;width: 95%" id="table_user">
                                             <thead>
                                             <tr>
-                                                <th style="width: 9%"># <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
-                                                <th>Name <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
-                                                <th>Email <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
-                                                <th>Permission <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
-                                                <th>Created At <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                                                <th style="width: 9%"># <img  class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                                                <th>Name <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                                                <th>Email <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                                                <th>Permission <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                                                <th>Created At <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
@@ -52,8 +51,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -73,8 +72,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -94,8 +93,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -115,8 +114,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -136,8 +135,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -157,8 +156,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -178,8 +177,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -199,8 +198,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -220,8 +219,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -241,8 +240,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -262,8 +261,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -283,8 +282,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -304,8 +303,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -325,8 +324,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -346,8 +345,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -367,8 +366,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -388,8 +387,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -409,8 +408,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -430,8 +429,8 @@
                                                     2018-08-07 11:28:53
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
 
@@ -451,15 +450,15 @@
                             <div class="tab-pane fade m-auto text-center w-100" id="zone" role="tabpanel" aria-labelledby="overview-tab">
                                 <div class="content-table">
                                     <div>
-                                        <a class="btn btn-primary m-2" style="float: right" data-toggle="modal" data-target="#modalZone"><i class="fa fa-plus"></i> Add New Zone</a>
+                                        <button type="button" class="btn btn-edit m-2" style="float: right" data-toggle="modal" data-target="#modalZone"><i class="fa fa-plus"></i> Add New Zone</button>
                                     </div>
                                     <div style="width: 95%; margin-bottom: 33px;">
-                                        <table class="table" style="margin-top: 10px;" id="table_zone">
+                                        <table class="table table_setting" style="margin-top: 10px;" id="table_zone">
                                             <thead>
                                             <tr>
-                                                <th style="width: 9%;"># <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
-                                                <th>Code <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
-                                                <th>Name <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                                                <th style="width: 9%;"># <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                                                <th>Code <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                                                <th>Name <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
                                                 <th style="width: 18%;">Action</th>
                                             </tr>
                                             </thead>
@@ -475,8 +474,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -490,8 +489,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -505,8 +504,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -520,8 +519,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -535,8 +534,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -550,8 +549,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -565,8 +564,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -580,8 +579,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -595,8 +594,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -610,8 +609,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -625,8 +624,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -640,8 +639,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -655,8 +654,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -670,8 +669,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -685,8 +684,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -700,8 +699,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -715,8 +714,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -730,8 +729,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -745,8 +744,8 @@
                                                     Employee
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-sm btn-success"><i class="fa fa-edit"></i> Update</a>
-                                                    <a class="btn btn-sm btn-danger"><i class="fa fa-times"> Delete</i></a>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
 
@@ -789,8 +788,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="p-3">
-                                                    <a href="#" class="btn btn-primary">Update Demo</a>
-                                                    <a href="#" class="btn btn-success">Send Demo</a>
+                                                    <button type="button" class="btn btn-edit">Update Demo</button>
+                                                    <button type="button" class="btn btn-update">Send Demo</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -800,16 +799,16 @@
                                             <h3 class="m-3" style="display: inline-block">History</h3>
                                         </div>
                                             <div style="margin-bottom: 33px;">
-                                                <table class="table" style="margin-top: 10px;" id="table_yitu">
+                                                <table class="table table_setting" style="margin-top: 10px;" id="table_yitu">
                                                     <thead>
                                                     <tr>
-                                                        <th style="width: 9%;"># <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
-                                                        <th>Session Id <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
-                                                        <th>Url <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
-                                                        <th style="width: 14%">Time Request <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
-                                                        <th style="width: 14%">Time Respone <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
-                                                        <th>Content <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
-                                                        <th>Create At <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                                                        <th style="width: 9%;"># <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                                                        <th>Session Id <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                                                        <th>Url <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                                                        <th style="width: 14%">Time Request <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                                                        <th style="width: 14%">Time Respone <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                                                        <th>Content <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                                                        <th>Create At <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -830,7 +829,7 @@
                                                             2018-08-29 15:05:01
                                                         </td>
                                                         <td>
-                                                            gsss
+                                                            dd
                                                         </td>
                                                         <td>
                                                             2018-08-29 15:05:01
@@ -857,7 +856,8 @@
                         <!--End content right-->
                     </div>
 
-<!--Modal box-->
+
+
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-lg">
 
@@ -868,10 +868,10 @@
                         <h2 class="modal-title">User Settings</h2>
                     </div>
                     <div class="modal-body">
-                        <form id="addForm" style="width: 100%">
+                        <div id="addForm" style="width: 100%">
                             <div class="row p-4">
-                                <div class="col-md-6 add_user">
-                                        <div class="box box-primary">
+                                <div class="col-md-6 box add_user">
+                                        <div class="">
                                             <div class="box-header p-2 pt-3 pb-3">
                                                 <h3 class="box-title update">
                                                     Add New User
@@ -904,8 +904,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                <div class="col-md-5 add_user offset-md-1">
-                                        <div class="box box-primary">
+                                <div class="col-md-5 box add_user offset-md-1">
+                                        <div class="">
                                             <div class="box-header p-2 pt-3 pb-3">
                                                 <h3 class="box-title update">
                                                     Permisson For User
@@ -970,7 +970,7 @@
                                         </div>
                                     </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Add User</button>
@@ -979,9 +979,7 @@
 
             </div>
         </div>
-<!--End User-->
 
-<!--Zone-->
         <div class="modal fade" id="modalZone" role="dialog">
             <div class="modal-dialog modal-lg">
 
@@ -993,8 +991,8 @@
                     </div>
                     <div class="modal-body">
                         <form id="addForm" style="width: 100%">
-                                <div class="col-md-12 add_user">
-                                    <div class="box box-primary">
+                                <div class="col-md-12 box add_user">
+                                    <div class="">
                                         <div class="box-header p-2 pt-3 pb-3">
                                             <h3 class="box-title update">
                                                 Add Zone
@@ -1040,5 +1038,3 @@
 
             </div>
         </div>
-
-<!--Zone-->

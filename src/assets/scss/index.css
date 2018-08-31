@@ -34,7 +34,7 @@ html {
       html body #menuLeft .brands-kpmg .name-brands {
         font-weight: bold;
         position: relative;
-        font-size: 3em; }
+        font-size: 38px; }
         html body #menuLeft .brands-kpmg .name-brands:hover {
           text-decoration: none; }
         html body #menuLeft .brands-kpmg .name-brands:after {
@@ -46,6 +46,11 @@ html {
           left: 35%;
           bottom: -5px;
           display: block; }
+      html body #menuLeft .brands-kpmg .sologan-brands {
+        text-transform: uppercase;
+        font-size: 15px;
+        word-spacing: 4px;
+        margin-top: 8px; }
       html body #menuLeft .list-menu ul .nav-item {
         font-size: 17px;
         margin-bottom: 15px;
@@ -61,8 +66,12 @@ html {
           html body #menuLeft .list-menu ul .nav-item:hover i, html body #menuLeft .list-menu ul .nav-item.active i {
             color: #b2b2b2; }
     html body #content-right .acount-user a {
-      font-size: 1.5em;
-      cursor: pointer; }
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 35px;
+      font-weight: bold; }
+      html body #content-right .acount-user a i {
+        font-size: 24px; }
     html body #content-right .title {
       color: #505050;
       font-size: 4em; }
@@ -82,12 +91,15 @@ html {
       html body #content-right .show-content-right .nav-tabs .nav-item {
         border: none; }
         html body #content-right .show-content-right .nav-tabs .nav-item .nav-link {
-          padding: 8px 65px;
+          padding: 8px 75px;
           font-weight: bold; }
+          html body #content-right .show-content-right .nav-tabs .nav-item .nav-link :hover {
+            font-weight: bold !important; }
         html body #content-right .show-content-right .nav-tabs .nav-item .nav-link.active {
           background: transparent !important;
           border-color: transparent;
-          border-bottom: 3px solid #4b39db; }
+          border-bottom: 3px solid #4b39db;
+          font-weight: bold; }
     html body #content-right .show-content-right .tab-content {
       background: #ffffff; }
       html body #content-right .show-content-right .tab-content .tab-pane {
@@ -108,8 +120,7 @@ html {
             right: 10px;
             top: 0; }
         html body #content-right .show-content-right .tab-content .tab-pane .map {
-          height: 500px;
-          z-index: 0; }
+          height: 500px; }
           html body #content-right .show-content-right .tab-content .tab-pane .map::-webkit-scrollbar {
             display: none; }
           html body #content-right .show-content-right .tab-content .tab-pane .map #map-office {
@@ -154,9 +165,13 @@ i.icon.delete:before {
     width: 80px;
     height: 80px; }
   .sidenav .member-infor-detail .more-detail .name {
-    color: #6a6a6a; }
+    color: #6a6a6a;
+    font-size: 25px; }
   .sidenav .member-infor-detail .more-detail .position {
     color: #939393; }
+  .sidenav .member-infor-detail .more-detail .sub-name {
+    color: #6c757d8f;
+    font-size: 17px !important; }
   .sidenav .title {
     display: inline-block;
     text-align: right;
@@ -186,7 +201,8 @@ i.icon.delete:before {
     border-radius: 15px; }
   .sidenav .more-detail-lg {
     text-align: right;
-    cursor: pointer; }
+    cursor: pointer;
+    color: #90959a; }
     .sidenav .more-detail-lg img {
       cursor: pointer; }
   .sidenav .total-profile .one-profile .title-profile {
@@ -198,6 +214,10 @@ i.icon.delete:before {
     border-radius: 50%;
     border: 2px solid transparent;
     float: left; }
+  .sidenav .total-profile .one-profile .list-group .list-group-item:first-child {
+    border-top: 0px solid #ffffff; }
+  .sidenav .total-profile .one-profile .list-group .list-group-item:last-child {
+    border-bottom: 1px solid #8080803d; }
 
 .detail-member .modal-dialog {
   max-width: 85% !important; }
@@ -207,8 +227,8 @@ i.icon.delete:before {
     border-radius: 15px !important; }
     .detail-member .modal-dialog .modal-content .left .member-infor-detail .avatar {
       border: 2px solid red;
-      width: 80px;
-      height: 80px; }
+      width: 80px !important;
+      height: 80px !important; }
     .detail-member .modal-dialog .modal-content .left .member-infor-detail .more-detail .name {
       font-size: 24px;
       color: #6a6a6a; }
@@ -265,7 +285,8 @@ i.icon.delete:before {
   border-radius: 50%; }
 
 .chat .icon-chat {
-  cursor: pointer !important; }
+  cursor: pointer !important;
+  transform: translateY(-3px); }
 
 #chat-box {
   box-shadow: 1px 1px 9px 1px #888888;
@@ -305,6 +326,9 @@ i.icon.delete:before {
     height: 35px; }
   #chat-box .chat .input-chat img {
     cursor: pointer; }
+
+#moreDetailInforMember .title {
+  font-size: 22px !important; }
 
 .rules-box .modal-dialog {
   max-width: 60% !important;
@@ -361,5 +385,71 @@ i.icon.delete:before {
   background: #bc204b;
   color: white;
   font-weight: bold; }
+
+.main-content {
+  padding-top: 82px; }
+
+#modalbox-rules .title {
+  width: 182px;
+  font-size: 30px !important;
+  font-weight: bold; }
+
+#rules-informaition {
+  display: inline !important;
+  width: 100%; }
+
+/*nam*/
+/*staff*/
+html body #menuLeft .brands-kpmg .name-brands {
+  font-size: 2em !important; }
+
+#myTabContent {
+  height: 100% !important; }
+
+html body #menuLeft .brands-kpmg .sologan-brands {
+  font-size: 13px;
+  margin-left: 6px !important;
+  word-spacing: normal;
+  margin-right: 0 !important; }
+
+html body #content-right .title {
+  margin-bottom: 13px; }
+
+div.show-content-right {
+  margin-top: 5% !important; }
+
+#content-right {
+  padding-right: 3rem !important; }
+
+.dot {
+  margin-right: 2%; }
+
+/*feed*/
+#clubhouse-tab, #external-tab {
+  font-size: 17px; }
+
+.button_addfeed {
+  width: 180px;
+  border: 2px solid #dad6d6 !important;
+  color: #999999 !important;
+  font-weight: bold; }
+
+/*setting*/
+.btn-edit, .btn-delete, .btn-update {
+  margin-right: 5px;
+  color: #ffffff; }
+
+#rules {
+  overflow: auto !important; }
+
+/*menu left*/
+.nav-item {
+  height: 57px; }
+
+#start_day, #end_day {
+  border: none !important; }
+
+.bold {
+  font-weight: bold !important; }
 
 /*# sourceMappingURL=index.css.map */

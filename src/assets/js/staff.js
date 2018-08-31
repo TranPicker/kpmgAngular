@@ -8,25 +8,7 @@
       $(this).find("td:last").css("opacity", "0")
     });
 
-    CKEDITOR.replace('editor1', {
-      removePlugins: 'elementspath',
-      resize_enabled: false,
-      toolbar: [
-        {name: 'document', items: ['NewPage', 'Preview', '-', 'Templates']},	// Defines toolbar group with name (used to create voice label) and items in 3 subgroups.
-        ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'],			// Defines toolbar group without name.
-        '/',																					// Line break - next group will be placed in new line.
-        {
-          name: 'basicstyles',
-          items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat']
-        },
-        {
-          name: 'paragraph',
-          groups: ['list', 'indent', 'blocks', 'align', 'bidi'],
-          items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language']
-        },
-      ]
-    });
-
+   
     $('#table').after('<div id="nav"></div>');
     var rowsShown = 9;
     var rowsTotal = $('#table tbody tr').length;
@@ -42,6 +24,7 @@
     var array_table = [];
     $('#nav a').each(function (a) {
       array_table.push(a)
+      console.log(array_table.length)
     });
     var i = 0;
     var j = 1;

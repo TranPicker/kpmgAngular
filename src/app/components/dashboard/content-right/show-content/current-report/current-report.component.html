@@ -1,191 +1,39 @@
-<div class="current-report pt-2 ml-4  d-inline-block p-3">
-  <div class="current-time d-inline mr-3">7:12 PM</div>
-  <button class="current-total bg-dark d-inline-block text-white mr-3 py-1 rounded border-0" onclick="openNav('#list-profile'),closeNav('#member-detail')" id="current-people">CURRENT: 57</button>
+<div class="current-report pt-2 ml-4  d-inline-block p-3" *ngIf="currentTotal">
+  <div class="current-time d-inline mr-3" >{{currentTotal.time}}</div>
+  <button class="current-total bg-dark d-inline-block text-white mr-3 py-1 rounded border-0" onclick="openNav('#list-profile'),closeNav('#member-detail')" id="current-people"  (click)="getAllCustomers()" >CURRENT: {{currentTotal.sum}}</button>
   <div class="current-detail d-inline">
-      <div class="audit d-inline-block mr-5"><i class="fas fa-circle ico-profile mr-2" data-profile="audit"></i>23</div>
-      <div class="audit d-inline-block  mr-5"><i class="fas fa-circle  ico-profile mr-2" data-profile="tax"></i>50</div>
-      <div class="audit d-inline-block mr-5"><i class="fas fa-circle  ico-profile mr-2" data-profile="advisory"></i>50</div>
-      <div class="audit d-inline-block"><i class="fas fa-circle  ico-profile mr-2" data-profile="centralsrv"></i>50</div>
+  <ng-container *ngFor="let item of functions">
+      <div class="audit d-inline-block mr-5"><i class="fas fa-circle ico-profile mr-2" [style.color]="item.color" (click)="getOneFunction(item.title)" ></i>{{item.count}}</div>
+   </ng-container>
+
    </div>
 </div>
 <div id="list-profile" class="sidenav p-3 w-100">
             <div class="sideBarSearch d-flex align-items-center mt-5 pb-3">
                 <i class="fas fa-search fa-2x bg-transparent mx-2"></i>
-                <button class="current-total bg-dark d-inline-block text-white mr-3 py-1 rounded border-0 mr-auto" onclick="openNav()" id="current-people">CURRENT: 57</button>
+                <button class="current-total bg-dark d-inline-block text-white mr-3 py-1 rounded border-0 mr-auto" onclick="openNav()" id="current-people" *ngIf="currentTotal">CURRENT: {{currentTotal.sum}}</button>
                 <a href="javascript:void(0)" class="closebtn d-inline-block text-secondary" onclick="closeNav('#list-profile')">&times;</a>
             </div>
             <div class="total-profile mt-4">
                 <!--One Group profile-->
+                <ng-container *ngFor="let item of allCustomer ">
                 <div class="one-profile mt-4">
-                    <label for="audit" class="title-profile" data-profile="audit">Audit<span class="members ml-3">(4)</span></label>
+                    <label for="audit" class="title-profile" data-profile="audit" [style.color]="item.color" >{{item.title}}<span class="members ml-3">({{item.count}})</span></label>
                     <ul class="list-group list-group-flush">
+                      <ng-container *ngFor="let one of item.list">
                         <!--One member-->
                         <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail'),closeNav('#list-profile')">
-                            <img src="./../../../../../../assets/images/avatar.jpg" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="audit">
+                            <img [attr.src]="one.file" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="audit">
                             <div class="member-infor">
-                                <a href="#" class="member-position d-block text-dark">Merry Lim</a>
-                                <span class="member-objet text-muted">Director / 98766541</span>
+                                <a routerLink="{{one.id}}" class="member-position d-block text-dark">{{one.name}}</a>
+                                <span class="member-objet text-muted">{{one.department}} / {{one.person_id}}</span>
                             </div>
                         </li>
                         <!--One member-->
-                        <!--One member-->
-                        <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail'),closeNav('#list-profile')">
-                            <img src="./../../../../../../assets/images/avatar.jpg" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="audit">
-                            <div class="member-infor">
-                                <a href="#" class="member-position d-block text-dark">Merry Lim</a>
-                                <span class="member-objet text-muted">Director / 98766541</span>
-                            </div>
-                        </li>
-                        <!--One member-->
-                        <!--One member-->
-                        <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail'),closeNav('#list-profile')">
-                            <img src="./../../../../../../assets/images/avatar.jpg" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="audit">
-                            <div class="member-infor">
-                                <a href="#" class="member-position d-block text-dark">Merry Lim</a>
-                                <span class="member-objet text-muted">Director / 98766541</span>
-                            </div>
-                        </li>
-                        <!--One member-->
-                        <!--One member-->
-                        <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail'),closeNav('#list-profile')">
-                            <img src="./../../../../../../assets/images/avatar.jpg" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="audit">
-                            <div class="member-infor">
-                                <a href="#" class="member-position d-block text-dark">Merry Lim</a>
-                                <span class="member-objet text-muted">Director / 98766541</span>
-                            </div>
-                        </li>
-                        <!--One member-->
+                    </ng-container>
                     </ul>
                 </div>
-                <!--One Group profile-->
-                <!--One Group profile-->
-                <div class="one-profile mt-4">
-                    <label for="audit" class="title-profile" data-profile="tax">Tax <span class="members ml-3">(3)</span></label>
-                    <ul class="list-group list-group-flush">
-                        <!--One member-->
-                        <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail'),closeNav('#list-profile')">
-                            <img src="./../../../../../../assets/images/avatar.jpg" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="tax">
-                            <div class="member-infor">
-                                <a href="#" class="member-position d-block text-dark">Merry Lim</a>
-                                <span class="member-objet text-muted">Director / 98766541</span>
-                            </div>
-                        </li>
-                        <!--One member-->
-                        <!--One member-->
-                        <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail'),closeNav('#list-profile')">
-                            <img src="./../../../../../../assets/images/avatar.jpg" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="tax">
-                            <div class="member-infor">
-                                <a href="#" class="member-position d-block text-dark">Merry Lim</a>
-                                <span class="member-objet text-muted">Director / 98766541</span>
-                            </div>
-                        </li>
-                        <!--One member-->
-                        <!--One member-->
-                        <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail'),closeNav('#list-profile')">
-                            <img src="./../../../../../../assets/images/avatar.jpg" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="tax">
-                            <div class="member-infor">
-                                <a href="#" class="member-position d-block text-dark">Merry Lim</a>
-                                <span class="member-objet text-muted">Director / 98766541</span>
-                            </div>
-                        </li>
-                        <!--One member-->
-                    </ul>
-                </div>
-                <!--One Group profile-->
-                <!--One Group profile-->
-                <div class="one-profile mt-4">
-                    <label for="audit" class="title-profile" data-profile="advisory">Advisory <span class="members ml-3">(5)</span></label>
-                    <ul class="list-group list-group-flush">
-                        <!--One member-->
-                        <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail'),closeNav('#list-profile')">
-                            <img src="./../../../../../../assets/images/avatar.jpg" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="advisory">
-                            <div class="member-infor">
-                                <a href="#" class="member-position d-block text-dark">Merry Lim</a>
-                                <span class="member-objet text-muted">Director / 98766541</span>
-                            </div>
-                        </li>
-                        <!--One member-->
-                        <!--One member-->
-                        <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail'),closeNav('#list-profile')">
-                            <img src="./../../../../../../assets/images/avatar.jpg" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="advisory">
-                            <div class="member-infor">
-                                <a href="#" class="member-position d-block text-dark">Merry Lim</a>
-                                <span class="member-objet text-muted">Director / 98766541</span>
-                            </div>
-                        </li>
-                        <!--One member-->
-                        <!--One member-->
-                        <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail'),closeNav('#list-profile')">
-                            <img src="./../../../../../../assets/images/avatar.jpg" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="advisory">
-                            <div class="member-infor">
-                                <a href="#" class="member-position d-block text-dark">Merry Lim</a>
-                                <span class="member-objet text-muted">Director / 98766541</span>
-                            </div>
-                        </li>
-                        <!--One member-->
-                        <!--One member-->
-                        <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail'),closeNav('#list-profile')">
-                            <img src="./../../../../../../assets/images/avatar.jpg" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="advisory">
-                            <div class="member-infor">
-                                <a href="#" class="member-position d-block text-dark">Merry Lim</a>
-                                <span class="member-objet text-muted">Director / 98766541</span>
-                            </div>
-                        </li>
-                        <!--One member-->
-                        <!--One member-->
-                        <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail'),closeNav('#list-profile')">
-                            <img src="./../../../../../../assets/images/avatar.jpg" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="advisory">
-                            <div class="member-infor">
-                                <a href="#" class="member-position d-block text-dark">Merry Lim</a>
-                                <span class="member-objet text-muted">Director / 98766541</span>
-                            </div>
-                        </li>
-                        <!--One member-->
-                    </ul>
-                </div>
-                <!--One Group profile-->
-                <!--One Group profile-->
-                <div class="one-profile mt-4">
-                    <label for="audit" class="title-profile" data-profile="centralsrv">Central Srv <span class="members ml-3">(4)</span></label>
-                    <ul class="list-group list-group-flush">
-                        <!--One member-->
-                        <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail'),closeNav('#list-profile')">
-                            <img src="./../../../../../../assets/images/avatar.jpg" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="centralsrv">
-                            <div class="member-infor">
-                                <a href="#" class="member-position d-block text-dark">Merry Lim</a>
-                                <span class="member-objet text-muted">Director / 98766541</span>
-                            </div>
-                        </li>
-                        <!--One member-->
-                        <!--One member-->
-                        <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail'),closeNav('#list-profile')">
-                            <img src="./../../../../../../assets/images/avatar.jpg" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="centralsrv">
-                            <div class="member-infor">
-                                <a href="#" class="member-position d-block text-dark">Merry Lim</a>
-                                <span class="member-objet text-muted">Director / 98766541</span>
-                            </div>
-                        </li>
-                        <!--One member-->
-                        <!--One member-->
-                        <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail'),closeNav('#list-profile')">
-                            <img src="./../../../../../../assets/images/avatar.jpg" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="centralsrv">
-                            <div class="member-infor">
-                                <a href="#" class="member-position d-block text-dark">Merry Lim</a>
-                                <span class="member-objet text-muted">Director / 98766541</span>
-                            </div>
-                        </li>
-                        <!--One member-->
-                        <!--One member-->
-                        <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail'),closeNav('#list-profile')">
-                            <img src="./../../../../../../assets/images/avatar.jpg" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="centralsrv">
-                            <div class="member-infor">
-                                <a href="#" class="member-position d-block text-dark">Merry Lim</a>
-                                <span class="member-objet text-muted">Director / 98766541</span>
-                            </div>
-                        </li>
-                        <!--One member-->
-                    </ul>
-                </div>
+                </ng-container>
                 <!--One Group profile-->
 
             </div>

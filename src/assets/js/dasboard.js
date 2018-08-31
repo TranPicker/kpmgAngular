@@ -38,9 +38,7 @@ $(document).ready(function () {
 
   $('#multi-select').dropdown();
   //click icon search
-  $('#icon-search').click(function () {
-    $('#multi-select').click();
-  });
+
   // Dragable
   $('#map-office').draggable();
   $('.avatar-office').draggable();
@@ -115,9 +113,7 @@ function setBackgroundProfile() {
 }
 
 function setBackgroundProfileColor(data = []) {
-  console.log(data)
   for (i = 0; i < data.length; i++) {
-    console.log(data[i].key);
     value = data[i].key;
     color = data[i].value
 ;    $('.item[data-value= value]').css('background', color);

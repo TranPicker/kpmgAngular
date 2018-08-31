@@ -1,12 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import './../../../../../assets/js/index.js';
 import './../../../../../assets/js/mychart.js';
 
-declare var $: any;
-declare var EXPORT_WIDTH: any;
-declare var CanvasJS: any;
-declare var Highcharts: any;
-declare var setHeightElement: any;
 declare var mapAction: any;
 
 
@@ -22,12 +16,6 @@ export class ShowContentComponent implements OnInit {
 
   ngOnInit() {
     mapAction();
-    setHeightElement('#myTabContent');
-    setHeightElement('#map');
-    $(window).resize(function () {
-      setHeightElement('#myTabContent');
-      setHeightElement('#map');
-    });
   }
 
 

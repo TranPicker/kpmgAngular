@@ -102,7 +102,6 @@ function drawChart(){
       "function":["Audit","Tax","Central Services"]
     },
     success: function(data){
-      console.log(data)
       Highcharts.chart('container2', {
         chart: {
           type: 'column'

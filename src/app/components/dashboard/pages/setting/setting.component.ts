@@ -13,8 +13,6 @@ export class SettingComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Set Title Page
-    setHeightElement('#myTabContent');
     $('.nav-item').click(function () {
       const tt = $(this).children('.nav-link').data('title');
       $('.title').text(tt);

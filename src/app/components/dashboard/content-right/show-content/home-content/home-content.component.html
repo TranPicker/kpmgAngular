@@ -1,9 +1,23 @@
+  <h1 class="title"> {{title}}</h1>
+<div class="content-top d-flex align-content-center">
+   <div class="d-block mr-2 search-btn"><img src="./../../../../../assets/images/icon/search.png" alt="icon search" id="icon-search" (click)="getFunctionSearch(getdata.value)"></div>
+   <div class="ui multiple search selection dropdown" id="multi-select">
+     <input type="hidden" name="profile" #getdata>
+     <div class="default text">Choose...</div>
+     <div class="menu"  >
+     <ng-container *ngFor="let item of allFunction">
+         <div class="item" [attr.data-value]="item.key"  [attr.data-color]="item.value" [id]="item.value">{{item.key}}</div>
+      </ng-container>
+     </div>
+     </div>
+ </div>
+
 <div class="show-content-right mt-5 mr-4">
   <ul class="nav nav-tabs" id="myTab" role="tablist">
-     <li class="nav-item ">
+     <li class="nav-item" (click)="setTitleLive()">
         <a class="nav-link active text-uppercase" id="live-tab" data-toggle="tab" href="#live" role="tab" aria-controls="home" aria-selected="false"> <i class="fas fa-eye mr-2"></i>LIVE</a>
     </li>
-     <li class="nav-item">
+     <li class="nav-item" (click)="setTitleTimeZone()">
          <a class="nav-link text-uppercase" id="overview-tab" data-toggle="tab"  href="#overview" role="tab" aria-controls="profile"  aria-selected="true">OVERVIEW</a>
      </li>
       <li class="position-absolute" style="right:10px;top:-10px;">
@@ -14,7 +28,7 @@
      <div class="tab-pane fade show active h-100" id="live" role="tabpanel" aria-labelledby="live-tab">
           <!--Content tab-->
               <!--report-->
-              <app-current-report></app-current-report>
+              <app-current-report [searchResult]="functionsSearch"></app-current-report>
               <!--report-->
               <div class="w-100 float-right btn-zoom-group my-4">
                   <div class="btn-zoom d-inline-block">
@@ -25,7 +39,7 @@
               <!--Map-->
               <div class="map mt-5 pt-5 w-100 text-center" id="map"  style="position: relative">
                    <img src="assets/images/map_office.jpg" alt="map of Cluphouse" id="map-office" class="" title="Click on map to ZoomIn and Use mouse to move" style="position: absolute">
-                   <app-one-person></app-one-person>
+                   <app-one-person [id]="95"></app-one-person>
               </div>
               <!--End Map-->
           <!--End Content tab-->

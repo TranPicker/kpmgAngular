@@ -1,12 +1,9 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import './../../../../../../assets/js/dasboard.js';
 import './../../../../../../assets/js/staff.js';
 import {Staff} from '../../../../../models/staff/staff';
 import {Subscription} from 'rxjs';
 import {StaffService} from '../../../../../services/staff/staff.service';
 
-declare var $: any;
-declare var setHeightElement: any;
 declare var paginationTableContent: any;
 
 @Component({
@@ -23,10 +20,6 @@ export class StaffContentComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     paginationTableContent();
-    setHeightElement('#myTabContent');
-    $(window).resize(function () {
-      setHeightElement('#myTabContent');
-    });
 
     // get data
     this.getAllCustomer();
@@ -35,6 +28,7 @@ export class StaffContentComponent implements OnInit, OnDestroy {
   getAllCustomer() {
     this.subscription = this.staffService.getAllCustomer().subscribe(res => {
       this.listCustomer = res.data;
+      console.log(this.listCustomer);
     }, error1 => {
       console.log('Loi nhe');
     });
