@@ -9,33 +9,112 @@
    </div>
 </div>
 <div id="list-profile" class="sidenav p-3 w-100">
-            <div class="sideBarSearch d-flex align-items-center mt-5 pb-3">
-                <i class="fas fa-search fa-2x bg-transparent mx-2"></i>
-                <button class="current-total bg-dark d-inline-block text-white mr-3 py-1 rounded border-0 mr-auto" onclick="openNav()" id="current-people" *ngIf="currentTotal">CURRENT: {{currentTotal.sum}}</button>
-                <a href="javascript:void(0)" class="closebtn d-inline-block text-secondary" onclick="closeNav('#list-profile')">&times;</a>
-            </div>
-            <div class="total-profile mt-4">
-                <!--One Group profile-->
-                <ng-container *ngFor="let item of allCustomer ">
-                <div class="one-profile mt-4">
-                    <label for="audit" class="title-profile" data-profile="audit" [style.color]="item.color" >{{item.title}}<span class="members ml-3">({{item.count}})</span></label>
-                    <ul class="list-group list-group-flush">
-                      <ng-container *ngFor="let one of item.list">
-                        <!--One member-->
-                        <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail'),closeNav('#list-profile')">
-                            <img [attr.src]="one.file" class="avatar ml-2 mr-4 border-profile" alt="Avatar image" data-profile="audit">
-                            <div class="member-infor">
-                                <a routerLink="{{one.id}}" class="member-position d-block text-dark">{{one.name}}</a>
-                                <span class="member-objet text-muted">{{one.department}} / {{one.person_id}}</span>
-                            </div>
-                        </li>
-                        <!--One member-->
-                    </ng-container>
-                    </ul>
-                </div>
-                </ng-container>
-                <!--One Group profile-->
+  <div class="sideBarSearch d-flex align-items-center mt-5 pb-3">
+      <i class="fas fa-search fa-2x bg-transparent mx-2"></i>
+      <button class="current-total bg-dark d-inline-block text-white mr-3 py-1 rounded border-0 mr-auto" onclick="openNav()" id="current-people" *ngIf="currentTotal">CURRENT: {{currentTotal.sum}}</button>
+      <a href="javascript:void(0)" class="closebtn d-inline-block text-secondary" onclick="closeNav('#list-profile')">&times;</a>
+  </div>
+  <div class="total-profile mt-4">
+      <!--One Group profile-->
+      <ng-container *ngFor="let item of allCustomer ">
+      <div class="one-profile mt-4">
+          <label for="audit" class="title-profile" data-profile="audit" [style.color]="item.color" >{{item.title}}<span class="members ml-3">({{item.count}})</span></label>
+          <ul class="list-group list-group-flush">
+            <ng-container *ngFor="let one of item.list">
+              <!--One member-->
+              <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMemberCurrent" onclick="closeNav('#member-detail'),closeNav('#list-profile')" (click)="getInforPerson(one.id)">
+                  <img [attr.src]="one.file" class="avatar ml-2 mr-4" alt="Avatar image" data-profile="audit" [style.border-color]="item.color">
+                  <div class="member-infor">
+                      <a  class="member-position d-block text-dark">{{one.name}}</a>
+                      <span class="member-objet text-muted">{{one.department}} / {{one.person_id}}</span>
+                  </div>
+              </li>
+              <!--One member-->
+          </ng-container>
+          </ul>
+      </div>
+      </ng-container>
+      <!--One Group profile-->
 
-            </div>
+  </div>
         </div>
         <!--end List profile-->
+<!--More Detail Profile modal box-->
+        <div class="detail-member modal fade" id="moreDetailInforMemberCurrent" tabindex="-1" role="dialog" aria-labelledby="moreDetailInforMemberTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header border-0 m-4 pr-5">
+                        <button type="button" class="close p-0" data-dismiss="modal" aria-label="Close">
+                            <span class="h1" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body h-100 p-0">
+                        <div class="container-fluid h-100">
+                            <div class="row h-100">
+                                <div class="col-4 left">
+                                    <div class="p-5 border-right" >
+                                        <div class="member-infor-detail d-flex" >
+                                            <img src="{{infor.file}}" alt="Avatar Mr-bean" class="avatar mr-4" [style.border-color]="infor.color">
+                                            <div class="more-detail text-left">
+                                                <span class="profile title-profile d-block h4 m-0" data-profile="tax" [style.color]="infor.color">{{infor.office_location}}</span>
+                                                <div class="name d-block font-weight-bold h1 m-0">{{infor.name}}</div>
+                                                <span class="position d-block h4 m-0">{{infor.department}} / {{infor.person_id}}</span>
+                                                <span class="sub-name text-muted h4 m-0">{{infor.email}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="dob py-3 contact-detail mt-4 h4">
+                                            <div class="title mr-4">DOB</div>
+                                            <div class="dateofbirth bold">{{infor.birthday}}</div>
+                                        </div>
+                                        <div class="contact py-3 contact-detail h4">
+                                            <div class="title mr-4">Contact</div>
+                                            <div class="list-number d-inline-block bold">
+                                                <div class="number d-block">{{infor.contract_no}}</div>
+
+                                            </div>
+                                        </div>
+                                        <div class="top-favorite mt-4">
+                                            <div class="my-4 favarite-title h4" data-profile="tax" [style.color]="infor.color" >Top 3 Favorite Zones</div>
+                                             <!-- each favorite -->
+                                               <ng-container *ngFor="let fv of infor.detailfavorite">
+                                               <div class="each-favorite d-flex align-items-center h5">
+                                                   <div class="title">{{fv.favorite.name}}</div>
+                                                   <div class="progress-bar mr-2" [style.width.px]="fv.percent" data-profile="tax" [style.background]="infor.color"></div>
+                                                   <span class="number-percent" data-profile="tax" [style.color]="infor.color">{{fv.percent}} %</span>
+                                               </div>
+                                               <!-- each favorite -->
+                                             </ng-container>
+
+                                        </div>
+                                        <!-- button Send Email-->
+                                        <button class="btn btn-email btn-lg w-100 font-weight-bold">Email</button>
+                                        <!-- button Send Email-->
+                                    </div>
+                                </div>
+                                <!--Right modal box detail profile-->
+                                <div class="col-8 right">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Day <img src="./../../../../../../assets/images/icon/ico_sort.png" alt=""></th>
+                                                <th scope="col">Time In <img src="./../../../../../../assets/images/icon/ico_sort.png" alt=""></th>
+                                                <th scope="col">Zones <img src="./../../../../../../assets/images/icon/ico_sort.png" alt=""></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let log of logs ">
+                                                <th scope="row">{{log.ngay}}</th>
+                                                <td>{{log.gio}}</td>
+                                                <td>{{log.zone_name}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--End right modal box detail profile-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--More Detail Profile modal box-->

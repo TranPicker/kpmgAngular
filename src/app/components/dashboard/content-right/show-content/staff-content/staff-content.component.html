@@ -1,3 +1,17 @@
+  <h1 class="title"> {{title}}</h1>
+<div class="content-top d-flex align-content-center">
+   <div class="d-block mr-2 search-btn"><img src="./../../../../../assets/images/icon/search.png" alt="icon search" id="icon-search" (click)="getFunctionSearch(getdata.value)"></div>
+   <div class="ui multiple search selection dropdown" id="multi-select">
+     <input type="hidden" name="profile" #getdata>
+     <div class="default text">Choose...</div>
+     <div class="menu"  >
+     <ng-container *ngFor="let item of allFunction">
+         <div class="item" [attr.data-value]="item.key"  [attr.data-color]="item.value" [id]="item.value">{{item.key}}</div>
+      </ng-container>
+     </div>
+     </div>
+ </div>
+
 <div class="show-content-right mt-5">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item">

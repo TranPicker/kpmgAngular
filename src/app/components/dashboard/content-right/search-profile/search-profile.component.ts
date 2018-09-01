@@ -14,7 +14,6 @@ declare var setBackgroundProfileColor: any;
 export class SearchProfileComponent implements OnInit, AfterContentInit {
   private allFunction: any;
   private subscription: Subscription;
-
   constructor(private searchProfileComponent: SearchProfileService) {
   }
 
@@ -26,14 +25,11 @@ export class SearchProfileComponent implements OnInit, AfterContentInit {
     $('#icon-search').click(function () {
       $('#multi-select').click();
     });
-    setBackgroundProfileColor(this.allFunction);
   }
 
   getAllFunction() {
     this.subscription = this.searchProfileComponent.getFunctions().subscribe(res => {
       this.allFunction = res.data;
-      actionSetBackGroundProfile(this.allFunction);
-      setBackgroundProfileColor(this.allFunction);
     }, error1 => {
       console.log(error1);
     });

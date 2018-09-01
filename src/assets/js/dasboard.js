@@ -51,21 +51,18 @@ $(document).ready(function () {
   //set width progress bar
   setWidthProgressBar();
 
-  // set icon color profile
-  setColorProfile('.ico-profile', 'color');
-  // set border list profile
-  setColorProfile('.border-profile', 'border-color');
-  // set title-profile
-  setColorProfile('.title-profile', 'color');
-  setColorProfile('.number-percent', 'color');
-  setColorProfile('.progress-bar', 'background-color');
-  setColorProfile('.favarite-title', 'color');
 
   // set color background menu item
-  $('.menu .item').click(function(){
+  clickItem()
+});
+
+function clickItem() {
+  console.log('click item work');
+  console.log(datas);
+  $(document).on('click','.menu .item',function(){
     set();
   })
-});
+}
 
 // set icon profile color
 function setColorProfile(obj, css) {
@@ -101,7 +98,6 @@ function set () {
 
 // set background profile
 function setBackgroundProfile() {
-
   $('.label').each(function () {
     for(i =0; i < datas.length; i++){
       if($(this).data('value') === datas[i].key){

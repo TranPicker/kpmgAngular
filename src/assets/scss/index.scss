@@ -301,7 +301,7 @@ i.icon.delete:before {
     display: inline-block;
     text-align: right;
     font-size: 1em !important;
-    width: 73px;
+    width: 90px;
   }
 
   .dob {
@@ -732,4 +732,9 @@ div.show-content-right{
 }
 .bold{
   font-weight: bold!important;
+}
+#moreDetailInforMemberCurrent{
+  .title{
+    font-size: 22px!important;
+  }
 }

@@ -1,4 +1,4 @@
-function drawChart(){
+function drawChart(dl){
   // CHART 1
   $('#datepicker').datepicker({
     autoclose: true

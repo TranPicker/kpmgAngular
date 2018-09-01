@@ -1,8 +1,8 @@
 import {Component, OnInit, Input, OnChanges, OnDestroy} from '@angular/core';
 import {CurrentReportService} from '../../../../../services/report/current-report.service';
 import {Subscription} from 'rxjs';
+import {DetailPersonService} from '../../../../../services/detailPerson/detail-person.service';
 
-declare var setColorProfile: any;
 
 @Component({
   selector: 'app-current-report',
@@ -14,20 +14,19 @@ export class CurrentReportComponent implements OnInit, OnChanges, OnDestroy {
   private allCustomer: any = '';
   private functions: any = '';
   private subscription: Subscription;
+  private infor: any = '';
+  private logs: any = '';
 
-  constructor(private currentReportService: CurrentReportService) {
+  constructor(private currentReportService: CurrentReportService, private detailPersonService: DetailPersonService) {
   }
-
-  @Input('searchResult') searchResult: any = '';
-
   ngOnInit() {
-    // this.getAllCurrent();
+    this.getAllCurrent();
   }
 
   ngOnChanges() {
   }
 
-  getAllCurrent() {
+  getAllCurrent(data?) {
     this.currentReportService.getAllCurrentReport().subscribe(res => {
       this.currentTotal = res.data;
       this.functions = res.data.functions;
@@ -44,6 +43,24 @@ export class CurrentReportComponent implements OnInit, OnChanges, OnDestroy {
       console.log(err);
     });
 
+  }
+
+  getInforPerson(id) {
+    this.getLogPerson(95);
+    this.detailPersonService.getInfomation(95).subscribe(res => {
+      this.infor = res.data;
+      console.log(this.infor);
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  getLogPerson(id) {
+    this.detailPersonService.getLog(95).subscribe(res => {
+      this.logs = res;
+    }, error => {
+      console.log(error);
+    });
   }
 
   ngOnDestroy() {

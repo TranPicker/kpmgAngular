@@ -23,9 +23,8 @@ export class OnePersonComponent implements OnInit {
 
   ngOnInit() {
     this.getInforPerson();
-    this.getZonePerson();
+    this.getLogPerson();
     // set width progress bar
-    setWidthProgressBar();
     setColorProfile('.progress-bar', 'background-color');
     setColorProfile('.favarite-title', 'color');
   }
@@ -38,7 +37,7 @@ export class OnePersonComponent implements OnInit {
     });
   }
 
-  getZonePerson() {
+  getLogPerson() {
     this.detailPersonService.getLog(this.id).subscribe(res => {
       this.logs = res;
     }, error => {
