@@ -15,91 +15,18 @@
                          <thead>
                              <tr>
                                  <th scope="col"></th>
-                                 <th scope="col">Mai Condition <img src="./../../../../../../../assets/images/icon/ico_sort.png" alt=""></th>
+                                 <th scope="col">Main Condition <img src="./../../../../../../../assets/images/icon/ico_sort.png" alt=""></th>
                                  <th scope="col">Description <img src="./../../../../../../../assets/images/icon/ico_sort.png" alt=""></th>
                              </tr>
                          </thead>
                          <tbody>
+                         <ng-container *ngFor="let item of rules">
                              <tr>
-                                 <th scope="row">1</th>
-                                 <td>1 visit_clubhouse</td>
-                                 <td>Hellop Tran! Welcome to KPMG Clubhouse!</td>
+                                 <th scope="row">{{item.id}}</th>
+                                 <td>{{item.main_condition}}</td>
+                                 <td>{{item.content}}</td>
                              </tr>
-                             <tr>
-                                 <th scope="row">2</th>
-                                 <td>Birthday</td>
-                                 <td>Happy Birthday Tram! Slice of Cafe on the house:)</td>
-                             </tr>
-                             <tr>
-                                 <th scope="row">3</th>
-                                 <td>> 10 visit_clubhouse</td>
-                                 <td>Hi Tran! Great to see uou again. Have a great day ahead :D</td>
-                             </tr>
-                             <tr>
-                                 <th scope="row">3</th>
-                                 <td>> 10 visit_clubhouse</td>
-                                 <td>Hi Tran! Great to see uou again. Have a great day ahead :D</td>
-                             </tr>
-                             <tr>
-                                 <th scope="row">3</th>
-                                 <td>> 10 visit_clubhouse</td>
-                                 <td>Hi Tran! Great to see uou again. Have a great day ahead :D</td>
-                             </tr>
-                             <tr>
-                                 <th scope="row">3</th>
-                                 <td>> 10 visit_clubhouse</td>
-                                 <td>Hi Tran! Great to see uou again. Have a great day ahead :D</td>
-                             </tr>
-                             <tr>
-                                 <th scope="row">3</th>
-                                 <td>> 10 visit_clubhouse</td>
-                                 <td>Hi Tran! Great to see uou again. Have a great day ahead :D</td>
-                             </tr>
-                             <tr>
-                                 <th scope="row">3</th>
-                                 <td>> 10 visit_clubhouse</td>
-                                 <td>Hi Tran! Great to see uou again. Have a great day ahead :D</td>
-                             </tr>
-                             <tr>
-                                 <th scope="row">3</th>
-                                 <td>> 10 visit_clubhouse</td>
-                                 <td>Hi Tran! Great to see uou again. Have a great day ahead :D</td>
-                             </tr>
-                             <tr>
-                                 <th scope="row">3</th>
-                                 <td>> 10 visit_clubhouse</td>
-                                 <td>Hi Tran! Great to see uou again. Have a great day ahead :D</td>
-                             </tr>
-                             <tr>
-                                 <th scope="row">3</th>
-                                 <td>> 10 visit_clubhouse</td>
-                                 <td>Hi Tran! Great to see uou again. Have a great day ahead :D</td>
-                             </tr>
-                             <tr>
-                                 <th scope="row">3</th>
-                                 <td>> 10 visit_clubhouse</td>
-                                 <td>Hi Tran! Great to see uou again. Have a great day ahead :D</td>
-                             </tr>
-                             <tr>
-                                 <th scope="row">3</th>
-                                 <td>> 10 visit_clubhouse</td>
-                                 <td>Hi Tran! Great to see uou again. Have a great day ahead :D</td>
-                             </tr>
-                             <tr>
-                                 <th scope="row">3</th>
-                                 <td>> 10 visit_clubhouse</td>
-                                 <td>Hi Tran! Great to see uou again. Have a great day ahead :D</td>
-                             </tr>
-                             <tr>
-                                 <th scope="row">3</th>
-                                 <td>> 10 visit_clubhouse</td>
-                                 <td>Hi Tran! Great to see uou again. Have a great day ahead :D</td>
-                             </tr>
-                             <tr>
-                                 <th scope="row">3</th>
-                                 <td>> 10 visit_clubhouse</td>
-                                 <td>Hi Tran! Great to see uou again. Have a great day ahead :D</td>
-                             </tr>
+                          </ng-container>
                          </tbody>
                      </table>
                  </div>

@@ -13,19 +13,18 @@ export class CurrentReportService {
   constructor(private http: HttpClient) {
   }
 
-  getAllCurrentReport(): Observable<any> {
+  getAllCurrentReport(data): Observable<any> {
+    console.log(data);
     return this.http.post<any>(this.urlGetAllCurrent, {
-      'function': ['Audit', 'Central Services']
+      'function': data
     });
   }
-
-  getAllCustomer(): Observable<any> {
+  getAllCustomer(data): Observable<any> {
     return this.http.post<any>(this.urlGetAll, {
-        'function': ['Audit', 'Central Services']
+        'function': data
       }
     );
   }
-
   getWithId(): Observable<any> {
     return this.http.get<any>(this.urlGetId);
   }

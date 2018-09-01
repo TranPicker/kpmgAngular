@@ -10,15 +10,15 @@
                                 <a class="nav-link text-uppercase" id="yitu-tab" data-toggle="tab" href="#yitu" role="tab" aria-controls="profile" aria-selected="false" data-title="Yitu Log">Yitu Log</a>
                             </li>
                              <li class="position-absolute" style="right:10px;top:-10px;">
-                                      <app-chat></app-chat>
-                                  </li>
+                                  <app-chat></app-chat>
+                             </li>
                         </ul>
                         <div class="tab-content  d-flex align-items-center " id="myTabContent">
 
                             <div class="tab-pane fade show active m-auto text-center w-100" id="live" role="tabpanel" aria-labelledby="live-tab">
                                 <div class="content-table" id="content-table">
                                     <div>
-                                        <button type="button" class="btn btn-edit m-2" style="float: right" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i> Add New User</button>
+                                        <button type="button" class="btn btn-edit m-2" style="float: right" data-toggle="modal" data-target="#myModal" (click)="getRole()"><i class="fa fa-plus"></i> Add New User</button>
                                     </div>
 
                                     <div style=" margin-bottom: 33px;">
@@ -34,406 +34,29 @@
                                             </tr>
                                             </thead>
                                             <tbody>
+                                            <ng-container *ngFor="let user of users">
                                             <tr>
                                                 <td>
-                                                    1
+                                                    {{user.id}}
                                                 </td>
                                                 <td>
-                                                    Amanda Tan
+                                                    {{user.full_name}}
                                                 </td>
                                                 <td>
-                                                    amandatan@gmail.com
+                                                    {{user.email}}
                                                 </td>
                                                 <td>
-                                                    Employee
+                                                    permission
                                                 </td>
                                                 <td>
-                                                    2018-08-07 11:28:53
+                                                    {{user.created_at}}
                                                 </td>
                                                 <td>
                                                     <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
+                                                    <button type="button" class="btn btn-sm btn-delete" (click)="deleteUser(user.user_id)"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    2
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    3
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    4
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    5
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    6
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    7
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    8
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    9
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    10
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    11
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    12
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    13
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    14
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    15
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    16
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    17
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    18
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    19
-                                                </td>
-                                                <td>
-                                                    Amanda Tan
-                                                </td>
-                                                <td>
-                                                    amandatan@gmail.com
-                                                </td>
-                                                <td>
-                                                    Employee
-                                                </td>
-                                                <td>
-                                                    2018-08-07 11:28:53
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
-                                                </td>
-                                            </tr>
-
+                                           </ng-container>
                                             </tbody>
                                         </table>
                                     </div>
@@ -613,22 +236,19 @@
                                             <div class="box-body m-2">
                                                 <div class="form-group">
                                                     <label>Full name</label>
-                                                    <input type="text" name="full_name" class="form-control"
-                                                           placeholder="Full name">
+                                                    <input type="text" name="full_name" class="form-control"  placeholder="Full name" [(ngModel)]="adUser.full_name">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Phone number</label>
-                                                    <input type="text" name="phone" class="form-control"
-                                                           placeholder="Phone number" onkeypress="return isNumberKey(event)">
+                                                    <input type="text" name="phone" class="form-control" placeholder="Phone number" onkeypress="return isNumberKey(event)" [(ngModel)]="adUser.phone">
                                                 </div>
                                                 <div class="form-group email">
                                                     <label>Email</label>
-                                                    <input type="email" name="email" class="form-control" placeholder="Email">
+                                                    <input type="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="adUser.email">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Password</label>
-                                                    <input type="password" name="password" class="form-control"
-                                                           placeholder="Password">
+                                                    <input type="password" name="password" class="form-control" [(ngModel)]="adUser.password" placeholder="Password">
                                                 </div>
                                             </div>
                                             <div class="box-footer">
@@ -648,55 +268,15 @@
                                                     Permission list: (<a href="#" id="select_all">Select all</a>)
                                                 </label>
                                                 <div id="list-permission">
+                                                <ng-container *ngFor="let role of roles">
                                                     <div class="checkbox del_per" id="check-sample-permission">
                                                         <label>
-                                                            <input class="check-permission" type="checkbox" name="permission[]" value="1">
-                                                            <span>Superadmin</span>
-                                                            <code>Full all roles</code>
+                                                            <input class="check-permission" type="checkbox" name="permission[]" value="{{role.id}}">
+                                                            <span>{{role.name}}</span>
+                                                            <code>{{role.description}}</code>
                                                         </label>
                                                     </div>
-                                                    <div class="checkbox del_per" id="check-sample-permission">
-                                                        <label>
-                                                            <input class="check-permission" type="checkbox" name="permission[]" value="2">
-                                                            <span>Employee</span>
-                                                            <code>Full role employee</code>
-                                                        </label>
-                                                    </div>
-                                                    <div class="checkbox del_per" id="check-sample-permission">
-                                                        <label>
-                                                            <input class="check-permission" type="checkbox" name="permission[]" value="3">
-                                                            <span>Clubhouse Feed</span>
-                                                            <code>Full role Feed Data</code>
-                                                        </label>
-                                                    </div>
-                                                    <div class="checkbox del_per" id="check-sample-permission">
-                                                        <label>
-                                                            <input class="check-permission" type="checkbox" name="permission[]" value="4">
-                                                            <span>Message Rule</span>
-                                                            <code>Full role Rule</code>
-                                                        </label>
-                                                    </div>
-                                                    <div class="checkbox del_per" id="check-sample-permission">
-                                                        <label>
-                                                            <input class="check-permission" type="checkbox" name="permission[]" value="5">
-                                                            <span>Preference Tag</span>
-                                                            <code>Full all tag</code>
-                                                        </label>
-                                                    </div>
-                                                    <div class="checkbox del_per" id="check-sample-permission">
-                                                        <label>
-                                                            <input class="check-permission" type="checkbox" name="permission[]" value="6">
-                                                            <span>Information Feeds</span>
-                                                            <code>Full all feed</code>
-                                                        </label>
-                                                    </div>
-                                                    <div class="checkbox del_per" id="check-sample-permission">
-                                                        <label>
-                                                            <input class="check-permission" type="checkbox" name="permission[]" value="7">
-                                                            <span>User</span>
-                                                            <code>Full all user</code>
-                                                        </label>
-                                                    </div>
+                                                   </ng-container>
                                                 </div>
                                             </div>
                                         </div>
@@ -705,7 +285,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Add User</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addUser()">Add User</button>
                     </div>
                 </div>
 

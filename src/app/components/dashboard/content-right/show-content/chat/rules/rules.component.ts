@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {RuleService} from '../../../../../../services/rules/rule.service';
 
 @Component({
   selector: 'app-rules',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rules.component.css']
 })
 export class RulesComponent implements OnInit {
+  private rules: any = '';
 
-  constructor() { }
+  constructor(private ruleService: RuleService) {
+  }
 
   ngOnInit() {
+    this.getRules();
+  }
+
+  getRules() {
+    this.ruleService.getRuleChat().subscribe(res => {
+      this.rules = res.data;
+      console.log(this.rules);
+    }, err => {
+      console.log(err);
+    });
   }
 
 }

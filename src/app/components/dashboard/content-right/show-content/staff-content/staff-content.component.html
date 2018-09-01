@@ -54,7 +54,7 @@
                               <tr *ngFor="let item of listCustomer">
                                   <td style="padding-left: 50px;">
                                       <div class="rounded-circle dot"></div>
-                                      <img src="./../../../../../../../src/assets/images/avatar.jpg" class="rounded-circle img">
+                                      <img src="{{item.image[0].file}}" class="rounded-circle img" [attr.border-color]="item.color">
                                       <div style="display: inline-block; margin-left: 10px;">
                                           <span>{{item.name}}</span>
                                           <span style="color: #c5c0c0; display: block">{{item.department}} /{{item.person_id}} </span>

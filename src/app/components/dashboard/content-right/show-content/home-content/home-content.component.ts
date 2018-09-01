@@ -38,8 +38,10 @@ export class HomeContentComponent implements OnInit, OnChanges, AfterViewInit {
     setHeightElement('#map');
     clickItem();
   }
+
   ngAfterViewInit() {
   }
+
   getAllFunction() {
     this.subscription = this.searchProfileService.getFunctions().subscribe(res => {
       this.allFunction = res.data;
@@ -54,7 +56,9 @@ export class HomeContentComponent implements OnInit, OnChanges, AfterViewInit {
     drawChart(this.functionsSearch);
     this.currentReport.searchresult = this.functionsSearch;
     const arr = data.split(',');
-    console.log(arr);
+    this.currentReport.searchOk = arr;
+    this.currentReport.getAllCurrent();
+    this.currentReport.getAllCustomers();
   }
 
   setTitleLive() {

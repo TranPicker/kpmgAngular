@@ -16,18 +16,20 @@ export class CurrentReportComponent implements OnInit, OnChanges, OnDestroy {
   private subscription: Subscription;
   private infor: any = '';
   private logs: any = '';
+  private searchOk: any = '';
 
   constructor(private currentReportService: CurrentReportService, private detailPersonService: DetailPersonService) {
   }
+
   ngOnInit() {
-    this.getAllCurrent();
+    this.getAllCurrent([]);
   }
 
   ngOnChanges() {
   }
 
   getAllCurrent(data?) {
-    this.currentReportService.getAllCurrentReport().subscribe(res => {
+    this.currentReportService.getAllCurrentReport(data).subscribe(res => {
       this.currentTotal = res.data;
       this.functions = res.data.functions;
     }, err => {
@@ -36,7 +38,11 @@ export class CurrentReportComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   getAllCustomers() {
-    this.subscription = this.currentReportService.getAllCustomer().subscribe(res => {
+    if (!this.searchOk) {
+      this.searchOk = [];
+    }
+    this.getAllCurrent(this.searchOk);
+    this.subscription = this.currentReportService.getAllCustomer(this.searchOk).subscribe(res => {
       this.allCustomer = res.data;
       console.log(this.allCustomer);
     }, err => {

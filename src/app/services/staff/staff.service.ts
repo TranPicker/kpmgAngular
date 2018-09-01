@@ -6,12 +6,15 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class StaffService {
-  private urlGetAllCustomer = 'http://192.168.10.41/api/customer/anyData';
+  private urlGetAllCustomer = 'http://192.168.10.41/api/customer/anyData?function=';
 
   constructor(private http: HttpClient) {
   }
 
-  getAllCustomer(): Observable<any> {
+  getAllCustomer(data): Observable<any> {
+
+    const  url = this.urlGetAllCustomer + data;
+    console.log(url);
     return this.http.get<any>(this.urlGetAllCustomer);
   }
 }
