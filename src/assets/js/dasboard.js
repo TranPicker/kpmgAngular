@@ -3,6 +3,7 @@ var auditColor = '#0191d8';
 var taxColor = '#bc1f4a';
 var advisoryColor = '#eaaa00';
 var centralsrvColor = '#c3007b';
+var datas='';
 $(document).ready(function () {
   // Set Title Page
   $('.nav-item').click(function () {
@@ -60,7 +61,10 @@ $(document).ready(function () {
   setColorProfile('.progress-bar', 'background-color');
   setColorProfile('.favarite-title', 'color');
 
-
+  // set color background menu item
+  $('.menu .item').click(function(){
+    set();
+  })
 });
 
 // set icon profile color
@@ -88,37 +92,24 @@ function setColorProfile(obj, css) {
   });
 }
 
-function actionSetBackGroundProfile(data) {
-  // set Background profile
 
-  $('.menu .item').click(function (data) {
-    setTimeout(function () {
-      setBackgroundProfile(data);
-    }, 100);
-
-  });
-
+function set () {
+  setTimeout(function () {
+    setBackgroundProfile();
+  }, 50);
 }
 
 // set background profile
 function setBackgroundProfile() {
+
   $('.label').each(function () {
-    $(this).css({
-      'position': 'relative',
-      'padding-left': '25px'
-    });
+    for(i =0; i < datas.length; i++){
+      if($(this).data('value') === datas[i].key){
+        $(this).css('background-color',datas[i].value)
+      }
+    }
   });
-
 }
-
-function setBackgroundProfileColor(data = []) {
-  for (i = 0; i < data.length; i++) {
-    value = data[i].key;
-    color = data[i].value
-;    $('.item[data-value= value]').css('background', color);
-  }
-}
-
 // map
 function mapAction() {
   $('#map-office').draggable();

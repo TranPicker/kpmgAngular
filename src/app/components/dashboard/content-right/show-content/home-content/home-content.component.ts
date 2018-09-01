@@ -1,5 +1,4 @@
 import {Component, OnInit, OnChanges} from '@angular/core';
-import './../../../../../../assets/js/dasboard.js';
 import './../../../../../../assets/js/mychart.js';
 import {HomeService} from '../../../../../services/home/home.service';
 import {SearchProfileService} from '../../../../../services/searchProfile/search-profile.service';
@@ -9,9 +8,8 @@ declare var $: any;
 declare var setHeightElement: any;
 declare var mapAction: any;
 declare var drawChart: any;
-declare var setBackgroundProfileColor: any;
-declare var actionSetBackGroundProfile: any;
-declare var setBackgroundProfile: any;
+declare var datas: any;
+
 
 @Component({
   selector: 'app-home-content',
@@ -31,9 +29,8 @@ export class HomeContentComponent implements OnInit, OnChanges {
     mapAction();
     // search
     $('#multi-select').dropdown();
-    // click icon search
 
-    actionSetBackGroundProfile(this.allFunction);
+
     drawChart();
     setHeightElement('#myTabContent');
     setHeightElement('#map');
@@ -44,8 +41,7 @@ export class HomeContentComponent implements OnInit, OnChanges {
   getAllFunction() {
     this.subscription = this.searchProfileService.getFunctions().subscribe(res => {
       this.allFunction = res.data;
-      actionSetBackGroundProfile(this.allFunction);
-      setBackgroundProfileColor(this.allFunction);
+      datas = this.allFunction;
     }, error1 => {
       console.log(error1);
     });

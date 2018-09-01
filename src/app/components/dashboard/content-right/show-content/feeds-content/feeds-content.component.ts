@@ -1,6 +1,5 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Subscription} from 'rxjs';
-import './../../../../../../assets/js/dasboard';
 import {FeedsService} from '../../../../../services/feeds/feeds.service';
 import './../../../../../../assets/js/feed.js';
 import {Feed} from '../../../../../models/feed/feed';

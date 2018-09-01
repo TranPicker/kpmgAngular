@@ -138,7 +138,8 @@ html {
   color: white;
   margin-right: 18px;
   min-width: 210px;
-  position: relative; }
+  position: relative;
+  padding-left: 25px; }
 
 i.icon.delete:before {
   content: url("./../images/icon/close.png") !important; }

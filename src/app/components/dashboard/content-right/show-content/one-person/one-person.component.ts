@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import './../../../../../../assets/js/dasboard';
 import {DetailPersonService} from '../../../../../services/detailPerson/detail-person.service';
 import {PersonInfor} from '../../../../../models/personInfor/personInfor';
 
@@ -42,7 +41,6 @@ export class OnePersonComponent implements OnInit {
   getZonePerson() {
     this.detailPersonService.getLog(this.id).subscribe(res => {
       this.logs = res;
-      console.log(this.logs)
     }, error => {
       console.log(error);
     });

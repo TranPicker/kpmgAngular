@@ -1,6 +1,5 @@
 import {Component, OnInit, AfterContentInit} from '@angular/core';
 import {SearchProfileService} from '../../../../services/searchProfile/search-profile.service';
-import './../../../../../assets/js/dasboard';
 import {Subscription} from 'rxjs';
 
 declare var $: any;
