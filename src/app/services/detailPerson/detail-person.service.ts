@@ -8,17 +8,17 @@ import {Observable} from 'rxjs';
 export class DetailPersonService {
   private urlGetInfo = 'http://192.168.10.41/api/customer/show/';
   private urlGetLog = 'http://192.168.10.41/api/statitic/log_customer/';
-
   constructor(private http: HttpClient) {
   }
 
   getInfomation(id): Observable<any> {
-    const url = this.urlGetInfo + id;
+    const url = this.urlGetInfo + 94;
     return this.http.get<any>(url);
   }
 
   getLog(id): Observable<any> {
-    const url = this.urlGetLog + id;
+    const url = this.urlGetLog + 94;
+    console.log(url);
     return this.http.get<any>(url);
   }
 }

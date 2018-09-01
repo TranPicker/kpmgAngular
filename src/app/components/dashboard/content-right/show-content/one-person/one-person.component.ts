@@ -15,10 +15,10 @@ declare var closeNav: any;
 })
 export class OnePersonComponent implements OnInit {
   @Input('id') id;
-  private infor = new PersonInfor();
-  private logs: any;
+  public infor: any = '';
+  public logs: any = '';
 
-  constructor(private detailPersonService: DetailPersonService) {
+  constructor(public detailPersonService: DetailPersonService) {
   }
 
   ngOnInit() {

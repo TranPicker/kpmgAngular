@@ -12,14 +12,14 @@ declare var $: any;
   styleUrls: ['./setting-content.component.css']
 })
 export class SettingContentComponent implements OnInit {
-  private zones: any = '';
-  private roles: any = '';
-  private users: any = '';
+  public zones: any = '';
+  public roles: any = '';
+  public users: any = '';
   // Ytu
-  private listYtu: any = '';
-  private adUser: User = new User();
+  public listYtu: any = '';
+  public adUser: User = new User();
 
-  constructor(private settingService: SettingService) {
+  constructor(public settingService: SettingService) {
   }
 
   ngOnInit() {

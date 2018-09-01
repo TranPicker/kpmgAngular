@@ -15,13 +15,13 @@ declare var $: any;
   styleUrls: ['./staff-content.component.css']
 })
 export class StaffContentComponent implements OnInit, OnDestroy {
-  private allFunction: any;
-  private listCustomer: Staff[] = [];
-  private subscription: Subscription;
-  private functionsSearch: any = '';
-  private title = 'Staff Management';
+  public allFunction: any;
+  public listCustomer: Staff[] = [];
+  public subscription: Subscription;
+  public functionsSearch: any = '';
+  public title = 'Staff Management';
 
-  constructor(private staffService: StaffService, private searchProfileService: SearchProfileService) {
+  constructor(public staffService: StaffService, public searchProfileService: SearchProfileService) {
   }
 
   ngOnInit() {

@@ -12,9 +12,9 @@ declare var setBackgroundProfileColor: any;
   styleUrls: ['./search-profile.component.css']
 })
 export class SearchProfileComponent implements OnInit, AfterContentInit {
-  private allFunction: any;
-  private subscription: Subscription;
-  constructor(private searchProfileComponent: SearchProfileService) {
+  public allFunction: any;
+  public subscription: Subscription;
+  constructor(public searchProfileComponent: SearchProfileService) {
   }
 
   ngOnInit() {

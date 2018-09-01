@@ -18,14 +18,14 @@ declare var clickItem: any;
   styleUrls: ['./home-content.component.css']
 })
 export class HomeContentComponent implements OnInit, OnChanges, AfterViewInit {
-  private allFunction: any;
-  private subscription: Subscription;
+  public allFunction: any;
+  public subscription: Subscription;
   public functionsSearch: any = '';
   public title = 'Overview: Day';
 
   @ViewChild(CurrentReportComponent) currentReport;
 
-  constructor(private homeService: HomeService, private searchProfileService: SearchProfileService) {
+  constructor(public homeService: HomeService, public searchProfileService: SearchProfileService) {
     this.getAllFunction();
   }
 

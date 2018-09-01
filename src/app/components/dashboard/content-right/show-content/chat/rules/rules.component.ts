@@ -7,9 +7,9 @@ import {RuleService} from '../../../../../../services/rules/rule.service';
   styleUrls: ['./rules.component.css']
 })
 export class RulesComponent implements OnInit {
-  private rules: any = '';
+  public rules: any = '';
 
-  constructor(private ruleService: RuleService) {
+  constructor(public ruleService: RuleService) {
   }
 
   ngOnInit() {

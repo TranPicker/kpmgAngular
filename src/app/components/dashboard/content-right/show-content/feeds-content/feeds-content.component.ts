@@ -16,13 +16,13 @@ declare var feedFunction: any;
   styleUrls: ['./feeds-content.component.css']
 })
 export class FeedsContentComponent implements OnInit, OnDestroy {
-  private subcription1: Subscription;
-  private subcription2: Subscription;
-  private dataMonth: any;
-  private feed: Feed = new Feed();
-  private input = new FormData();
+  public subcription1: Subscription;
+  public subcription2: Subscription;
+  public dataMonth: any;
+  public feed: Feed = new Feed();
+  public input = new FormData();
 
-  constructor(private feedService: FeedsService) {
+  constructor(public feedService: FeedsService) {
   }
 
   ngOnInit() {

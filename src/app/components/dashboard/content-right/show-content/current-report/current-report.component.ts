@@ -10,15 +10,15 @@ import {DetailPersonService} from '../../../../../services/detailPerson/detail-p
   styleUrls: ['./current-report.component.css']
 })
 export class CurrentReportComponent implements OnInit, OnChanges, OnDestroy {
-  private currentTotal: any = '';
-  private allCustomer: any = '';
-  private functions: any = '';
-  private subscription: Subscription;
-  private infor: any = '';
-  private logs: any = '';
-  private searchOk: any = '';
+  public currentTotal: any = '';
+  public allCustomer: any = '';
+  public functions: any = '';
+  public subscription: Subscription;
+  public infor: any = '';
+  public logs: any = '';
+  public searchOk: any = '';
 
-  constructor(private currentReportService: CurrentReportService, private detailPersonService: DetailPersonService) {
+  constructor(public currentReportService: CurrentReportService, public detailPersonService: DetailPersonService) {
   }
 
   ngOnInit() {
@@ -52,8 +52,8 @@ export class CurrentReportComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   getInforPerson(id) {
-    this.getLogPerson(95);
-    this.detailPersonService.getInfomation(95).subscribe(res => {
+    this.getLogPerson(94);
+    this.detailPersonService.getInfomation(94).subscribe(res => {
       this.infor = res.data;
       console.log(this.infor);
     }, err => {
@@ -62,7 +62,7 @@ export class CurrentReportComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   getLogPerson(id) {
-    this.detailPersonService.getLog(95).subscribe(res => {
+    this.detailPersonService.getLog(94).subscribe(res => {
       this.logs = res;
     }, error => {
       console.log(error);
