@@ -30,7 +30,7 @@
                          </tbody>
                      </table>
                  </div>
-                 <div class="btn-create-rule btn-danger btn px-5 py-2 text-uppercase" data-toggle="modal" data-target="#create-rule"> create new rule</div>
+                 <div class="btn-create-rule btn-danger btn px-5 py-2 text-uppercase" data-toggle="modal" data-target="#create-rule" (click)="getConditions()"> create new rule</div>
              </div>
          </div>
      </div>
@@ -51,23 +51,23 @@
                              <div class="form-group d-flex">
                                  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" name="selectConditior">
                                      <option selected>select Main Condition</option>
-                                     <option value="1">Male</option>
-                                     <option value="2">Female</option>
-                                     <option value="3">Another World</option>
+                                     <ng-container *ngFor="let item of condition">
+                                     <option value="{{item.variable}}">{{item.variable}}</option>
+                                     </ng-container>
                                  </select>
                                  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" name="selectPrequislte">
                                      <option selected>Select Prerequislte</option>
-                                     <option value="1">Essential</option>
-                                     <option value="2">Requirement</option>
-                                     <option value="3">Necessity</option>
+                                     <ng-container *ngFor="let item of operatorr">
+                                     <option value="{{item.operator}}">{{item.operator}}</option>
+                                    </ng-container>
                                  </select>
                                  <input type="text" name="txtCondition" class="form-control" placeholder="Enter Additional Condition">
                              </div>
                              <label for="content"  style="font-weight: bold">Content <span class="text-primary">(see more variables)</span></label>
                              <textarea class="form-control" placeholder="Enter content..." rows="3"></textarea>
                          </div>
-                         <div class="btn-add btn-danger btn px-5 py-2 text-uppercase">Add</div>
+                         <div class="btn-add btn-danger btn px-5 py-2 text-uppercase" (click)="addRules()">Add</div>
                      </div>
                  </div>
-             </div>
+        </div>
 </div>

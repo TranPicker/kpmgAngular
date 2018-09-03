@@ -11,8 +11,8 @@ export class SettingService {
   private urlDeleteUser = 'http://192.168.10.41/employee/delete/';
   private urlGetRoleSetting = 'http://192.168.10.41/user/role';
   private urlAddUser = 'http://192.168.10.41/employee';
-  // Ytu
-  private urlGetYtu = 'http://kpmg.dev-altamedia.com/api/yitu';
+  // Yitu
+  private urlGetYitu = 'http://192.168.10.41/api/config/log/any-data';
 
   constructor(private http: HttpClient) {
   }
@@ -39,7 +39,7 @@ export class SettingService {
   }
 
   // ytu
-  getListYtu(): Observable<any> {
-    return this.http.get<any>(this.urlGetYtu);
+  getListYitu(): Observable<any> {
+    return this.http.get<any>(this.urlGetYitu);
   }
 }

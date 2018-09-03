@@ -16,7 +16,7 @@ export class SettingContentComponent implements OnInit {
   public roles: any = '';
   public users: any = '';
   // Ytu
-  public listYtu: any = '';
+  public listYitu: any = '';
   public adUser: User = new User();
 
   constructor(public settingService: SettingService) {
@@ -25,7 +25,7 @@ export class SettingContentComponent implements OnInit {
   ngOnInit() {
     this.getZones();
     this.getUsers();
-    this.getYtu();
+    this.getYitu();
   }
 
   getZones() {
@@ -77,10 +77,10 @@ export class SettingContentComponent implements OnInit {
   }
 
   // ytu
-  getYtu() {
-    this.settingService.getListYtu().subscribe(res => {
-      this.listYtu = res.data;
-      console.log(this.listYtu);
+  getYitu() {
+    this.settingService.getListYitu().subscribe(res => {
+      this.listYitu = res.data;
+      console.log(this.listYitu);
     }, err => {
       console.log(err);
     });

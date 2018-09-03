@@ -461,6 +461,11 @@ div.show-content-right {
 #moreDetailInforMemberStaff .title {
   font-size: 22px !important; }
 
+#table tr td .line {
+  width: 5px;
+  height: 61px !important;
+  float: left;
+  transform: translate(-10px, -5px); }
 #table tr:hover td:last-child {
   opacity: 1 !important; }
 

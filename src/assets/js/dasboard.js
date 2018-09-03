@@ -57,7 +57,6 @@ $(document).ready(function () {
 });
 
 function clickItem() {
-  console.log('click item work');
   $(document).on('click','.menu .item',function(){
     set();
   })

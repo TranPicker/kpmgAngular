@@ -118,38 +118,7 @@
                             </div>
                             <div class="tab-pane fade m-auto text-center w-100" id="yitu" role="tabpanel" aria-labelledby="overview-tab">
                                 <div class="content-table">
-                                    <div class="box box-primary mt-3">
-                                        <div class="box-header">
-                                            <h3 class="m-3" style="display: inline-block">Config</h3>
-                                            <a href="#" class="m-3 show_collapse" data-toggle="collapse" data-target="#config"><i class="fa fa-minus"></i></a>
-                                        </div>
-                                        <div id="config" class="collapse show">
-                                            <form>
-                                                <div class="p-3">
-                                                    <div class="form-group">
-                                                        <label for="id_linkyitu">Link Yitu</label>
-                                                        <input type="text" class="form-control" id="id_linkyitu"
-                                                               placeholder="Enter Link">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="id_timereplay">Time replay <code><a id="id_secondre">second</a></code></label>
-                                                        <input type="text" class="form-control" id="id_timereplay"
-                                                               placeholder="Enter time replay">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="id_timeoutre">Time out request <code><a id="id_secondtimeout">second</a></code></label>
-                                                        <input type="text" class="form-control" id="id_timeoutre"
-                                                               placeholder="Enter time out repeat">
-                                                    </div>
-                                                </div>
-                                                <div class="p-3">
-                                                    <button type="button" class="btn btn-edit">Update Demo</button>
-                                                    <button type="button" class="btn btn-update">Send Demo</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="box_history box-primary mt-4">
+                                    <div class="box_history mt-4">
                                         <div class="box-header" style="text-align: left">
                                             <h3 class="m-3" style="display: inline-block">History</h3>
                                         </div>
@@ -162,36 +131,37 @@
                                                         <th>Url <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
                                                         <th style="width: 14%">Time Request <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
                                                         <th style="width: 14%">Time Respone <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
-                                                        <th>Content <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                                                      <!-- <th>Content <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>-->
                                                         <th>Create At <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            1
-                                                        </td>
-                                                        <td>
-                                                            76775985300000
-                                                        </td>
-                                                        <td>
-                                                            http://192.168.10.38:11180/business/api/hit/alert
-                                                        </td>
-                                                        <td>
-                                                            2018-08-29 15:05:01
-                                                        </td>
-                                                        <td>
-                                                            2018-08-29 15:05:01
-                                                        </td>
-                                                        <td>
-                                                            dd
-                                                        </td>
-                                                        <td>
-                                                            2018-08-29 15:05:01
-                                                        </td>
+                                                    <ng-container *ngFor="let item of listYitu" >
+                                                      <tr>
+                                                          <td>
+                                                              {{item.id}}
+                                                          </td>
+                                                          <td>
+                                                              {{item.session_id}}
+                                                          </td>
+                                                          <td>
+                                                              {{item.url}}
+                                                          </td>
+                                                          <td>
+                                                              {{item.time_request}}
+                                                          </td>
+                                                          <td>
+                                                              {{item.time_response}}
+                                                          </td>
+                                                          <!-- <td>
+                                                              {{item.content}}
+                                                           </td>-->
 
-                                                    </tr>
-
+                                                          <td>
+                                                             {{item.created_at}}
+                                                          </td>
+                                                      </tr>
+                                                  </ng-container>
                                                     </tbody>
                                                 </table>
                                             </div>

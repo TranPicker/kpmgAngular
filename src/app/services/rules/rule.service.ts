@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
@@ -6,10 +6,23 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class RuleService {
-private urlGetRule = 'http://192.168.10.41/api/rule/any-data'
-  constructor(private http: HttpClient) { }
+  public urlGetRule = 'http://192.168.10.41/api/rule/any-data';
+  public urlAddRules = 'http://192.168.10.41/api/rule/store';
+  public urlGetCondition = 'http://192.168.10.41/api/config/condition/show';
+  public urlGetOperator = 'http://192.168.10.41/api/config/condition/operator';
 
-  getRuleChat(): Observable<any>{
-  return  this.http.get<any>(this.urlGetRule);
+  constructor(private http: HttpClient) {
+  }
+
+  getRuleChat(): Observable<any> {
+    return this.http.get<any>(this.urlGetRule);
+  }
+
+  getCondition(): Observable<any> {
+    return this.http.get<any>(this.urlGetCondition);
+  }
+
+  getOperator(): Observable<any> {
+    return this.http.get<any>(this.urlGetOperator);
   }
 }

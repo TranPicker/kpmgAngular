@@ -26,6 +26,7 @@ export class FeedsContentComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    setHeightElement('#external');
     $(document).on('click', '.remove_event', function () {
       const id = $(this).data('id');
       console.log(id);
