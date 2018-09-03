@@ -4,6 +4,7 @@ import {Staff} from '../../../../../models/staff/staff';
 import {Subscription} from 'rxjs';
 import {StaffService} from '../../../../../services/staff/staff.service';
 import {SearchProfileService} from '../../../../../services/searchProfile/search-profile.service';
+import {DetailPersonService} from '../../../../../services/detailPerson/detail-person.service';
 
 declare var paginationTableContent: any;
 declare var datas: any;
@@ -20,8 +21,9 @@ export class StaffContentComponent implements OnInit, OnDestroy {
   public subscription: Subscription;
   public functionsSearch: any = '';
   public title = 'Staff Management';
-
-  constructor(public staffService: StaffService, public searchProfileService: SearchProfileService) {
+  public infor: any = '';
+  public logs: any = '';
+  constructor(public staffService: StaffService, public searchProfileService: SearchProfileService, public detailPersonService: DetailPersonService) {
   }
 
   ngOnInit() {
@@ -33,7 +35,21 @@ export class StaffContentComponent implements OnInit, OnDestroy {
     this.getAllCustomer();
     this.getAllFunction();
   }
+  getInforPersonStaff(id) {
+    this.detailPersonService.getInfomation(id).subscribe(res => {
+      this.infor = res.data;
+    }, err => {
+      console.log(err);
+    });
+  }
 
+  getLogPersonStaff(id) {
+    this.detailPersonService.getLog(id).subscribe(res => {
+      this.logs = res;
+    }, error => {
+      console.log(error);
+    });
+  }
   getAllFunction() {
     this.subscription = this.searchProfileService.getFunctions().subscribe(res => {
       this.allFunction = res.data;
@@ -53,6 +69,7 @@ export class StaffContentComponent implements OnInit, OnDestroy {
   getAllCustomer() {
     this.subscription = this.staffService.getAllCustomer(this.functionsSearch).subscribe(res => {
       this.listCustomer = res.data;
+      console.log(this.listCustomer);
     }, error1 => {
       console.log('Loi nhe');
     });

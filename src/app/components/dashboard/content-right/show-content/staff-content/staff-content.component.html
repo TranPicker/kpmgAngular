@@ -41,21 +41,21 @@
                       <table class="table" style="margin-top: 10px;" id="table">
                           <thead>
                           <tr>
-                              <th style="padding-left: 65px;">Staff Name <img src="./../../../../../../../src/assets/images/icon/ico_sort.png"></th>
-                              <th>DOB <img src="./../../../../../../../src/assets/images/icon/ico_sort.png"></th>
-                              <th>Join Date <img src="./../../../../../../../src/assets/images/icon/ico_sort.png"></th>
-                              <th>Dept <img src="./../../../../../../../src/assets/images/icon/ico_sort.png"></th>
-                              <th>Function <img src="./../../../../../../../src/assets/images/icon/ico_sort.png"></th>
-                              <th>Top Zones <img src="./../../../../../../../src/assets/images/icon/ico_sort.png"></th>
+                              <th style="padding-left: 65px;">Staff Name <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                              <th>DOB <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                              <th>Join Date <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                              <th>Dept <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                              <th>Function <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
+                              <th>Top Zones <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
                               <th></th>
                           </tr>
                           </thead>
                           <tbody>
                               <tr *ngFor="let item of listCustomer">
-                                  <td style="padding-left: 50px;">
+                                  <td style="padding-left: 50px;" onclick="openNav('#member-detail')" (click)="getInforPersonStaff(item.id)"  style="cursor: pointer">
                                       <div class="rounded-circle dot"></div>
-                                      <img src="{{item.image[0].file}}" class="rounded-circle img" [attr.border-color]="item.color">
-                                      <div style="display: inline-block; margin-left: 10px;">
+                                      <img src="{{item.image[0].file}}" class="rounded-circle img" [style.border-color]="item.color" onclick="openNav('#member-detail'),closeNav('#list-profile')" style="cursor: pointer">
+                                      <div style="display: inline-block; margin-left: 10px;" onclick="openNav('#member-detail'),closeNav('#list-profile')">
                                           <span>{{item.name}}</span>
                                           <span style="color: #c5c0c0; display: block">{{item.department}} /{{item.person_id}} </span>
                                       </div>
@@ -76,8 +76,8 @@
                                       {{item.topzone}}
                                   </td>
                                   <td style="opacity: 0">
-                                      <div class="rounded-circle mail" data-toggle="modal" data-target="#modal-mail">
-                                          <img style="margin-top: 10px;border: none" src="./../../../../../../../src/assets/images/icon/ico_mail_black.png">
+                                      <div class="rounded-circle mail" data-toggle="modal" data-target="#modal-mai">
+                                          <img style="margin-top: 10px;border: none" src="./../../../../../../assets/images/icon/ico_mail_black.png">
                                       </div>
                                   </td>
                               </tr>
@@ -110,11 +110,134 @@
                       <button type="button" class="btn btn-primary" id="send-mail">Send</button>
                   </div>
               </div>
-              <!-- /.modal-content -->
           </div>
-          <!-- /.modal-dialog -->
       </div>
-      <!-- /.modal -->
-      <!-- End show content-->
-      <!--End content right-->
+
   </div>
+
+<!--Detail person-->
+<div id="member-detail" class="sidenav w-100">
+            <div class="sideBarSearch d-flex justify-content-end m-5">
+                <a href="javascript:void(0)" class="closebtn d-inline-block text-secondary" onclick="closeNav('#member-detail')">×</a>
+            </div>
+            <div class="p-5" >
+                <div class="member-infor-detail d-flex" >
+                    <img src="{{infor.file}}" [style.border-color]="infor.color" alt="Avatar Mr-bean" class="avatar mr-3">
+                    <div class="more-detail text-left">
+                        <span class="profile title-profile d-block h4 m-0" data-profile="tax" [style.color]="infor.color">{{infor.office_location}}</span>
+                        <div class="name d-block font-weight-bold h1 m-0">{{infor.name}}</div>
+                        <span class="position d-block h4 m-0">{{infor.department}} / {{infor.person_id}}</span>
+                        <span class="sub-name h4 m-0">{{infor.email}}</span>
+                    </div>
+                </div>
+                <div class="dob py-3 contact-detail mt-4 h4 d-flex justify-content-center">
+                    <div class="title mr-4">DOB</div>
+                    <div class="dateofbirth bold">{{infor.birthday}}</div>
+                </div>
+                <div class="contact py-3 contact-detail h4 d-flex justify-content-center">
+                    <div class="title mr-4">Contact</div>
+                    <div class="list-number d-inline-block">
+                        <div class="number bold d-block">{{infor.contract_no}}</div>
+                    </div>
+                </div>
+                <div class="top-favorite mt-4">
+                    <div class="my-4 favarite-title h4 text-left" data-profile="tax" [style.color]="infor.color" >Top 3 Favorite Zones</div>
+                    <!-- each favorite -->
+                    <ng-container *ngFor="let fv of infor.detailfavorite">
+                    <div class="each-favorite d-flex align-items-center h5">
+                        <div class="title">{{fv.favorite.name}}</div>
+                        <div class="progress-bar mr-2" [style.width.px]="fv.percent" data-profile="tax" [style.background]="infor.color"></div>
+                        <span class="number-percent" data-profile="tax" [style.color]="infor.color">{{fv.percent}}%</span>
+                    </div>
+                    <!-- each favorite -->
+                  </ng-container>
+                    <!-- each favorite -->
+                </div>
+                <!-- button Send Email-->
+                <button class="btn btn-email btn-lg w-100 font-weight-bold">Email</button>
+                <div class="more-detail-lg text-uppercase mt-5 h5" data-toggle="modal" data-target="#moreDetailInforMemberStaff" onclick="closeNav('#member-detail')" style="font-size: 14px;" (click)="getLogPersonStaff(infor.person_id)">
+                    More Details
+                    <img class="ml-3" src="./../../../../../../assets/images/icon/ico_right_slide.png" alt="">
+                </div>
+                <!-- button Send Email-->
+            </div>
+        </div>
+<!--More Detail Profile modal box-->
+        <div class="detail-member modal fade" id="moreDetailInforMemberStaff" tabindex="-1" role="dialog" aria-labelledby="moreDetailInforMemberTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header border-0 m-4 pr-5">
+                        <button type="button" class="close p-0" data-dismiss="modal" aria-label="Close">
+                            <span class="h1" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body h-100 p-0">
+                        <div class="container-fluid h-100">
+                            <div class="row h-100">
+                                <div class="col-4 left">
+                                    <div class="p-5 border-right" >
+                                        <div class="member-infor-detail d-flex" >
+                                            <img src="{{infor.file}}" alt="Avatar Mr-bean" class="avatar mr-4" [style.border-color]="infor.color">
+                                            <div class="more-detail text-left">
+                                                <span class="profile title-profile d-block h4 m-0" data-profile="tax" [style.color]="infor.color">{{infor.office_location}}</span>
+                                                <div class="name d-block font-weight-bold h1 m-0">{{infor.name}}</div>
+                                                <span class="position d-block h4 m-0">{{infor.department}} / {{infor.person_id}}</span>
+                                                <span class="sub-name text-muted h4 m-0">{{infor.email}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="dob py-3 contact-detail mt-4 h4">
+                                            <div class="title mr-4">DOB</div>
+                                            <div class="dateofbirth bold">{{infor.birthday}}</div>
+                                        </div>
+                                        <div class="contact py-3 contact-detail h4">
+                                            <div class="title mr-4">Contact</div>
+                                            <div class="list-number d-inline-block bold">
+                                                <div class="number d-block">{{infor.contract_no}}</div>
+
+                                            </div>
+                                        </div>
+                                        <div class="top-favorite mt-4">
+                                            <div class="my-4 favarite-title h4" data-profile="tax" [style.color]="infor.color" >Top 3 Favorite Zones</div>
+                                             <!-- each favorite -->
+                                               <ng-container *ngFor="let fv of infor.detailfavorite">
+                                               <div class="each-favorite d-flex align-items-center h5">
+                                                   <div class="title">{{fv.favorite.name}}</div>
+                                                   <div class="progress-bar mr-2" [style.width.px]="fv.percent" data-profile="tax" [style.background]="infor.color"></div>
+                                                   <span class="number-percent" data-profile="tax" [style.color]="infor.color">{{fv.percent}} %</span>
+                                               </div>
+                                               <!-- each favorite -->
+                                             </ng-container>
+
+                                        </div>
+                                        <!-- button Send Email-->
+                                        <button class="btn btn-email btn-lg w-100 font-weight-bold">Email</button>
+                                        <!-- button Send Email-->
+                                    </div>
+                                </div>
+                                <!--Right modal box detail profile-->
+                                <div class="col-8 right">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Day <img src="./../../../../../../assets/images/icon/ico_sort.png" alt=""></th>
+                                                <th scope="col">Time In <img src="./../../../../../../assets/images/icon/ico_sort.png" alt=""></th>
+                                                <th scope="col">Zones <img src="./../../../../../../assets/images/icon/ico_sort.png" alt=""></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let log of logs ">
+                                                <th scope="row">{{log.ngay}}</th>
+                                                <td>{{log.gio}}</td>
+                                                <td>{{log.zone_name}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--End right modal box detail profile-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--More Detail Profile modal box-->

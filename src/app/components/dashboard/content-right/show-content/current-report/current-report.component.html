@@ -1,6 +1,6 @@
 <div class="current-report pt-2 ml-4  d-inline-block p-3" *ngIf="currentTotal">
   <div class="current-time d-inline mr-3" >{{currentTotal.time}}</div>
-  <button class="current-total bg-dark d-inline-block text-white mr-3 py-1 rounded border-0" onclick="openNav('#list-profile'),closeNav('#member-detail')" id="current-people"  (click)="getAllCustomers()" >CURRENT: {{currentTotal.sum}}</button>
+  <button class="current-total bg-dark d-inline-block text-white mr-3 py-1 rounded border-0" style="cursor: pointer;" onclick="openNav('#list-profile'),closeNav('#member-detail')" id="current-people"  (click)="getAllCustomers()" >CURRENT: {{currentTotal.sum}}</button>
   <div class="current-detail d-inline">
   <ng-container *ngFor="let item of functions">
       <div class="audit d-inline-block mr-5"><i class="fas fa-circle ico-profile mr-2" [style.color]="item.color" (click)="getOneFunction(item.title)" ></i>{{item.count}}</div>
@@ -22,9 +22,9 @@
           <ul class="list-group list-group-flush">
             <ng-container *ngFor="let one of item.list">
               <!--One member-->
-              <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMemberCurrent" onclick="closeNav('#member-detail'),closeNav('#list-profile')" (click)="getInforPerson(one.id)">
+              <li class="list-group-item px-0" data-toggle="modal" data-target="#moreDetailInforMemberCurrent" onclick="closeNav('#member-detail'),closeNav('#list-profile')" (click)="getInforPerson(one.id,one.person_id)">
                   <img [attr.src]="one.file" class="avatar ml-2 mr-4" alt="Avatar image" data-profile="audit" [style.border-color]="item.color">
-                  <div class="member-infor">
+                  <div class="member-infor" style="cursor: pointer;">
                       <a  class="member-position d-block text-dark">{{one.name}}</a>
                       <span class="member-objet text-muted">{{one.department}} / {{one.person_id}}</span>
                   </div>

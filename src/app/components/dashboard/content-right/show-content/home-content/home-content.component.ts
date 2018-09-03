@@ -1,6 +1,7 @@
 import {Component, OnInit, OnChanges, AfterViewInit, ViewChild} from '@angular/core';
 import {HomeService} from '../../../../../services/home/home.service';
 import {SearchProfileService} from '../../../../../services/searchProfile/search-profile.service';
+import {CurrentReportService} from '../../../../../services/report/current-report.service';
 import {Subscription} from 'rxjs';
 import {CurrentReportComponent} from '../current-report/current-report.component';
 
@@ -22,10 +23,11 @@ export class HomeContentComponent implements OnInit, OnChanges, AfterViewInit {
   public subscription: Subscription;
   public functionsSearch: any = '';
   public title = 'Overview: Day';
+  public allCustomer = '';
 
   @ViewChild(CurrentReportComponent) currentReport;
 
-  constructor(public homeService: HomeService, public searchProfileService: SearchProfileService) {
+  constructor(public homeService: HomeService, public searchProfileService: SearchProfileService, public currentService: CurrentReportService) {
     this.getAllFunction();
   }
 
@@ -73,6 +75,11 @@ export class HomeContentComponent implements OnInit, OnChanges, AfterViewInit {
     });
   }
 
+  getAllCustomerHome(data) {
+    this.currentService.getAllCustomer(data).subscribe(res => {
+      console.log(res.data);
+    });
+  }
 
   ngOnChanges() {
 

@@ -12,12 +12,12 @@ export class DetailPersonService {
   }
 
   getInfomation(id): Observable<any> {
-    const url = this.urlGetInfo + 94;
+    const url = this.urlGetInfo + id;
     return this.http.get<any>(url);
   }
 
   getLog(id): Observable<any> {
-    const url = this.urlGetLog + 94;
+    const url = this.urlGetLog + id;
     console.log(url);
     return this.http.get<any>(url);
   }

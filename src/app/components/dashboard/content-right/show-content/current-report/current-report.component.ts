@@ -51,9 +51,9 @@ export class CurrentReportComponent implements OnInit, OnChanges, OnDestroy {
 
   }
 
-  getInforPerson(id) {
-    this.getLogPerson(94);
-    this.detailPersonService.getInfomation(94).subscribe(res => {
+  getInforPerson(id, person_id) {
+    this.getLogPerson(person_id);
+    this.detailPersonService.getInfomation(id).subscribe(res => {
       this.infor = res.data;
       console.log(this.infor);
     }, err => {
@@ -62,7 +62,7 @@ export class CurrentReportComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   getLogPerson(id) {
-    this.detailPersonService.getLog(94).subscribe(res => {
+    this.detailPersonService.getLog(id).subscribe(res => {
       this.logs = res;
     }, error => {
       console.log(error);

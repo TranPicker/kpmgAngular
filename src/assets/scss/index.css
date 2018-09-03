@@ -446,7 +446,7 @@ div.show-content-right {
   overflow: auto !important; }
 
 /*menu left*/
-.nav-item {
+.list-menu .nav-item {
   height: 57px; }
 
 #start_day, #end_day {
@@ -457,5 +457,11 @@ div.show-content-right {
 
 #moreDetailInforMemberCurrent .title {
   font-size: 22px !important; }
+
+#moreDetailInforMemberStaff .title {
+  font-size: 22px !important; }
+
+#table tr:hover td:last-child {
+  opacity: 1 !important; }
 
 /*# sourceMappingURL=index.css.map */
