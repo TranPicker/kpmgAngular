@@ -52,7 +52,7 @@
                                                     {{user.created_at}}
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-sm btn-edit"><i class="fa fa-edit"></i> Edit</button>
+                                                    <button type="button" class="btn btn-sm btn-edit" (click)="updateUser(user.user_id)"><i class="fa fa-edit" ></i> Edit</button>
                                                     <button type="button" class="btn btn-sm btn-delete" (click)="deleteUser(user.user_id)"><i class="fa fa-times"> Delete</i></button>
                                                 </td>
                                             </tr>
@@ -73,7 +73,7 @@
                             <div class="tab-pane fade m-auto text-center w-100" id="zone" role="tabpanel" aria-labelledby="overview-tab">
                                 <div class="content-table">
                                     <div>
-                                        <button type="button" class="btn btn-edit m-2" style="float: right" data-toggle="modal" data-target="#modalZone"><i class="fa fa-plus"></i> Add New Zone</button>
+                                        <button type="button" class="btn btn-edit m-2" style="float: right" data-toggle="modal" data-target="#modalZone" (click)="getTagAll()"><i class="fa fa-plus"></i> Add New Zone</button>
                                     </div>
                                     <div style="width: 95%; margin-bottom: 33px;">
                                         <table class="table table_setting" style="margin-top: 10px;" id="table_zone">
@@ -98,8 +98,8 @@
                                                     {{zone.name}}
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit"></i> Update</button>
-                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times"> Delete</i></button>
+                                                    <button type="button" class="btn btn-sm btn-update"><i class="fa fa-edit" ></i> Update</button>
+                                                    <button type="button" class="btn btn-sm btn-delete"><i class="fa fa-times" (click)="deleteZone(zone.id)"> Delete</i></button>
                                                 </td>
                                             </tr>
                                             </ng-container>
@@ -123,7 +123,7 @@
                                             <h3 class="m-3" style="display: inline-block">History</h3>
                                         </div>
                                             <div style="margin-bottom: 33px;">
-                                                <table class="table table_setting" style="margin-top: 10px;" id="table_yitu">
+                                                <table datatable class="table table_setting" style="margin-top: 10px;" id="table_yitu"  >
                                                     <thead>
                                                     <tr>
                                                         <th style="width: 9%;"># <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
@@ -264,7 +264,6 @@
 
         <div class="modal fade" id="modalZone" role="dialog">
             <div class="modal-dialog modal-lg">
-
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header" style="display: inline-block;">
@@ -294,13 +293,17 @@
                                                 <label>Description</label>
                                                 <textarea name="description" id="description" class="form-control"></textarea>
                                             </div>
-                                            <div class="form-group">
-                                                <label>Preference Tags </label>
-                                                <select class="js-example-basic-multiple myTags" id="favorite"
-                                                        style="width: 100%" name="states[]"
-                                                        multiple="multiple" onchange="validateSelectBox(this)">
-
-                                                </select>
+                                            <div class="form-group tag" id="tag-setting">
+                                                <label class="d-block">Preference Tags </label>
+                                                 <div class="ui multiple search selection dropdown" id="multi-select-tag">
+                                                   <input type="hidden" name="profile" #getdata>
+                                                   <div class="default text">Choose...</div>
+                                                   <div class="menu"  >
+                                                   <ng-container *ngFor="let tag of tags">
+                                                       <div class="item item-tag" [attr.data-value]="tag.key">{{tag.name}}</div>
+                                                    </ng-container>
+                                                   </div>
+                                                   </div>
                                             </div>
                                             <div class="form-group">
                                                 <label style="display: none" id="plus_score">Plus Score For Tags</label>

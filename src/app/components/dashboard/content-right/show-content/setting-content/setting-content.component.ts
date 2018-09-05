@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {SettingService} from '../../../../../services/setting/setting.service';
+import {Subject} from 'rxjs';
 import {User} from '../../../../../models/setting/user';
 import swal from 'sweetalert';
-
+import 'datatables.net';
 declare var $: any;
 
 
@@ -15,6 +16,8 @@ export class SettingContentComponent implements OnInit {
   public zones: any = '';
   public roles: any = '';
   public users: any = '';
+  // zone
+  public tags: any = '';
   // Ytu
   public listYitu: any = '';
   public adUser: User = new User();
@@ -26,20 +29,14 @@ export class SettingContentComponent implements OnInit {
     this.getZones();
     this.getUsers();
     this.getYitu();
-  }
+    $('#multi-select-tag').dropdown();
 
-  getZones() {
-    this.settingService.getZonesSetting().subscribe(res => {
-      this.zones = res.data;
-    }, err => {
-      console.log(err);
-    });
   }
 
   getUsers() {
     this.settingService.getUsersSetting().subscribe(res => {
       this.users = res.data;
-      this.getUsers();
+      console.log(this.users);
     }, err => {
       console.log(err);
     });
@@ -59,12 +56,20 @@ export class SettingContentComponent implements OnInit {
       array.push($(this).val());
     }).get();
     this.adUser.permission = array;
-    console.log(this.adUser);
     this.settingService.addUserSetting(this.adUser).subscribe(res => {
       swal('Add User Success!', '', 'success');
+      this.getUsers();
+      this.resetUserVaribleAdd();
     }, err => {
-      swal('Add User not Working!', '', 'error');
+      swal('Email is Exist!', '', 'error');
     });
+  }
+
+  resetUserVaribleAdd() {
+    this.adUser.full_name = '';
+    this.adUser.password = '';
+    this.adUser.email = '';
+    this.adUser.phone = '';
   }
 
   deleteUser(id) {
@@ -76,11 +81,45 @@ export class SettingContentComponent implements OnInit {
     });
   }
 
+  updateUser(id) {
+    console.log(id);
+  }
+
+  // Zones
+  getTagAll() {
+    this.settingService.getAllTag().subscribe(res => {
+      this.tags = res.data;
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  getZones() {
+    this.settingService.getZonesSetting().subscribe(res => {
+      this.zones = res.data;
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  addZone(tag) {
+    console.log(tag.value);
+  }
+
+  deleteZone(id) {
+    this.settingService.deleteZone(id).subscribe(res => {
+      this.getZones();
+      swal('Delete Success!', '', 'success');
+    }, err => {
+      swal('Not Delete!', '', 'error');
+    });
+  }
+
   // ytu
   getYitu() {
     this.settingService.getListYitu().subscribe(res => {
       this.listYitu = res.data;
-      console.log(this.listYitu);
+      console.log(this.listYitu)
     }, err => {
       console.log(err);
     });

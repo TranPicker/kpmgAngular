@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {RuleService} from '../../../../../../services/rules/rule.service';
 import {Rule} from '../../../../../../models/rules/rule';
+import swal from 'sweetalert';
+
+declare var $: any;
 
 @Component({
   selector: 'app-rules',
@@ -23,14 +26,24 @@ export class RulesComponent implements OnInit {
   getRules() {
     this.ruleService.getRuleChat().subscribe(res => {
       this.rules = res.data;
-      console.log(this.rules);
     }, err => {
       console.log(err);
     });
   }
 
   addRules() {
-    console.log('add rule working');
+    console.log('add Rules working');
+    this.ruleAdd.additional_condition = '' + this.ruleAdd.additional_condition;
+    this.ruleService.addRules(this.ruleAdd).subscribe(res => {
+      this.ruleAdd = new Rule();
+      this.getRules();
+      $('.close').click();
+      swal('Add Rules Success!', '', 'success');
+    }, error1 => {
+      console.log(error1);
+      swal('Field must has content!', '', 'error');
+    });
+
   }
 
   getConditions() {

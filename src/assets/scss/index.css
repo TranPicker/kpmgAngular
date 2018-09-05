@@ -28,7 +28,9 @@ html {
     /*font-family: KPMG;*/
     /*font-weight: 300;
     height: 100%;*/
-    background: #f1f1f1; }
+    background: #f1f1f1;
+    min-width: 1366px;
+    overflow-x: scroll; }
     html body #menuLeft {
       background-image: linear-gradient(-218deg, #6A11CB 0%, #2575FC 100%); }
       html body #menuLeft .brands-kpmg .name-brands {
@@ -299,36 +301,42 @@ i.icon.delete:before {
   top: unset;
   bottom: 80px;
   padding: 0 !important; }
-  #chat-box .chat img {
-    cursor: pointer !important; }
-  #chat-box .chat .title-chat {
-    padding: 18px; }
-    #chat-box .chat .title-chat .title-name {
-      font-size: 20px; }
-  #chat-box .chat .area-chat {
-    position: relative;
-    height: 80%; }
-    #chat-box .chat .area-chat .rules {
+  #chat-box .chat {
+    position: relative; }
+    #chat-box .chat img {
+      cursor: pointer !important; }
+    #chat-box .chat .title-chat {
+      padding: 18px; }
+      #chat-box .chat .title-chat .title-name {
+        font-size: 20px; }
+    #chat-box .chat .rules {
       position: absolute;
-      top: 7px;
-      right: 15px;
+      top: 71px;
+      right: 25px;
       color: #90959a;
       font-size: 19px;
+      cursor: pointer;
+      z-index: 100001; }
+    #chat-box .chat .area-chat {
+      margin-top: 49px;
+      position: relative;
+      height: 71%;
+      overflow-y: scroll;
+      margin-bottom: 5px; }
+      #chat-box .chat .area-chat .example-chat {
+        left: 14px;
+        bottom: 10px;
+        margin-top: 12px; }
+        #chat-box .chat .area-chat .example-chat img {
+          width: 30px !important;
+          height: 30px !important; }
+        #chat-box .chat .area-chat .example-chat .text {
+          font-size: 14px; }
+    #chat-box .chat .input-chat .chats {
+      width: 77%;
+      height: 35px; }
+    #chat-box .chat .input-chat img {
       cursor: pointer; }
-    #chat-box .chat .area-chat .example-chat {
-      position: absolute;
-      left: 14px;
-      bottom: 10px; }
-      #chat-box .chat .area-chat .example-chat img {
-        width: 30px;
-        height: 30px; }
-      #chat-box .chat .area-chat .example-chat .text {
-        font-size: 14px; }
-  #chat-box .chat .input-chat .chats {
-    width: 77%;
-    height: 35px; }
-  #chat-box .chat .input-chat img {
-    cursor: pointer; }
 
 #moreDetailInforMember .title {
   font-size: 22px !important; }
@@ -468,5 +476,22 @@ div.show-content-right {
   transform: translate(-10px, -5px); }
 #table tr:hover td:last-child {
   opacity: 1 !important; }
+
+#tag-setting .ui.multiple.dropdown {
+  width: 100% !important;
+  display: block; }
+  #tag-setting .ui.multiple.dropdown .label {
+    min-width: auto !important;
+    padding: 4px 10px;
+    color: white;
+    font-size: 17px;
+    font-weight: normal;
+    background: #3c8dbc;
+    padding-right: 22px !important; }
+    #tag-setting .ui.multiple.dropdown .label i.icon.delete {
+      right: 5px;
+      top: 4px; }
+      #tag-setting .ui.multiple.dropdown .label i.icon.delete:before {
+        content: url("./../images/icon/close.png") !important; }
 
 /*# sourceMappingURL=index.css.map */

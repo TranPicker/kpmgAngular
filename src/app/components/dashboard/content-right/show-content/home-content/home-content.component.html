@@ -24,6 +24,7 @@
           <app-chat></app-chat>
       </li>
    </ul>
+
    <div class="tab-content rounded" id="myTabContent">
      <div class="tab-pane fade show active h-100" id="live" role="tabpanel" aria-labelledby="live-tab">
           <!--Content tab-->
@@ -37,9 +38,8 @@
                    </div>
                </div>
               <!--Map-->
-              <div class="map mt-5 pt-5 w-100 text-center" id="map"  style="position: relative">
-                   <img src="assets/images/map_office.jpg" alt="map of Cluphouse" id="map-office"  title="Click on map to ZoomIn and Use mouse to move" style="position: absolute">
-                   <app-one-person class="invisible" [id]="95"></app-one-person >
+              <div class="map w-100 text-center" id="map"  style="position: relative" id="map-office">
+                 <canvas id="myCanvas" width="1600" height="480"></canvas>
               </div>
               <!--End Map-->
           <!--End Content tab-->
@@ -71,25 +71,25 @@
                         <a style="color: #b3aeae;"> Toltal number of visits: <a id="sumNum">157</a></a>
                         <div class="row">
                             <div class="col-6 col-md-3">
-                                <div align="center" class="box box--1">
+                                <div align="center" class="chart--box box--1 ">
                                     <p class="text-white box--1--txt">Audit</p>
                                     <p class="text-white box--1--num">20</p>
                                 </div>
                             </div>
                             <div class="col-6 col-md-3">
-                                <div align="center" class="box box--2">
+                                <div align="center" class="chart--box box--2">
                                     <p class="text-white box--1--txt">Tax</p>
                                     <p class="text-white box--1--num">42</p>
                                 </div>
                             </div>
                             <div class="col-6 col-md-3">
-                                <div align="center" class="box box--3">
+                                <div align="center" class="chart--box box--3 ">
                                     <p class="text-white box--1--txt">Advisory</p>
                                     <p class="text-white box--1--num">40</p>
                                 </div>
                             </div>
                             <div class="col-6 col-md-3">
-                                <div align="center" class="box box--4">
+                                <div align="center" class="chart--box box--4 ">
                                     <p class="text-white box--1--txt">Central Services</p>
                                     <p class="text-white box--1--num">55</p>
                                 </div>
@@ -118,25 +118,25 @@
                         <a style="color: #b3aeae;"> Toltal number of visits: <a id="sumNum2">602</a></a>
                         <div class="row">
                             <div class="col-6 col-md-3">
-                                <div align="center" class="box box--1">
+                                <div align="center" class="chart--box box--1">
                                     <p class="text-white box--1--txt">Audit</p>
                                     <p class="text-white box--1--num">200</p>
                                 </div>
                             </div>
                             <div class="col-6 col-md-3">
-                                <div align="center" class="box box--2">
+                                <div align="center" class="chart--box box--2">
                                     <p class="text-white box--1--txt">Tax</p>
                                     <p class="text-white box--1--num">102</p>
                                 </div>
                             </div>
                             <div class="col-6 col-md-3">
-                                <div align="center" class="box box--3">
+                                <div align="center" class="chart--box box--3">
                                     <p class="text-white box--1--txt">Advisory</p>
                                     <p class="text-white box--1--num">100</p>
                                 </div>
                             </div>
                             <div class="col-6 col-md-3">
-                                <div align="center" class="box box--4">
+                                <div align="center" class="chart--box box--4">
                                     <p class="text-white box--1--txt">Central Services</p>
                                     <p class="text-white box--1--num">200</p>
                                 </div>
@@ -167,7 +167,7 @@
                             <a style="color: #b3aeae;"> Top 3 Zones in : <a id="sumNum3">August</a></a>
                             <div class="row">
                                 <div class="col-6 col-md-4">
-                                    <div align="center" class="box box--5">
+                                    <div align="center" class="chart--box box--5">
                                         <p class="text-white box--1--txt">Bar</p>
                                         <div class="d-flex">
                                             <div class="border--icon"><img src="assets/images/icon/ico_bar.png" ></div>
@@ -177,7 +177,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-4">
-                                    <div align="center" class="box box--6">
+                                    <div align="center" class="chart--box box--6">
                                         <p class="text-white box--1--txt">Bar</p>
                                         <div class="d-flex">
                                             <div class="border--icon bor--icon2"><img src="assets/images/icon/ico_fun.png" ></div>
@@ -187,7 +187,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-4">
-                                    <div align="center" class="box box--7">
+                                    <div align="center" class="chart--box box--7">
                                         <p class="text-white box--1--txt">Bar</p>
                                         <div class="d-flex">
                                             <div class="border--icon bor--icon2"><img src="assets/images/icon/ico_collaborate.png"></div>
@@ -222,3 +222,130 @@
 </div>
 
 
+<!--imformation one person-->
+<div id="member-detail" class="sidenav w-100">
+            <div class="sideBarSearch d-flex justify-content-end m-5">
+                <a href="javascript:void(0)" class="closebtn d-inline-block text-secondary" onclick="closeNav('#member-detail')">×</a>
+            </div>
+            <div class="p-5" >
+                <div class="member-infor-detail d-flex" >
+                    <img src="{{infor.file}}" [style.border-color]="infor.color" alt="Avatar Mr-bean" class="avatar mr-3">
+                    <div class="more-detail text-left">
+                        <span class="profile title-profile d-block h4 m-0" data-profile="tax" [style.color]="infor.color">{{infor.office_location}}</span>
+                        <div class="name d-block font-weight-bold h1 m-0">{{infor.name}}</div>
+                        <span class="position d-block h4 m-0">{{infor.department}} / {{infor.person_id}}</span>
+                        <span class="sub-name h4 m-0">{{infor.email}}</span>
+                    </div>
+                </div>
+                <div class="dob py-3 contact-detail mt-4 h4 d-flex justify-content-center">
+                    <div class="title mr-4">DOB</div>
+                    <div class="dateofbirth bold">{{infor.birthday}}</div>
+                </div>
+                <div class="contact py-3 contact-detail h4 d-flex justify-content-center">
+                    <div class="title mr-4">Contact</div>
+                    <div class="list-number d-inline-block">
+                        <div class="number bold d-block">{{infor.contact_no}}</div>
+                    </div>
+                </div>
+                <div class="top-favorite mt-4">
+                    <div class="my-4 favarite-title h4 text-left" data-profile="tax" [style.color]="infor.color" >Top 3 Favorite Zones</div>
+                    <!-- each favorite -->
+                    <ng-container *ngFor="let fv of infor.topzone">
+                    <div class="each-favorite d-flex align-items-center h5">
+                        <div class="title">{{fv.name}}</div>
+                        <div class="progress-bar mr-2" [style.width.px]="fv.percent" data-profile="tax" [style.background]="infor.color"></div>
+                        <span class="number-percent" data-profile="tax" [style.color]="infor.color">{{fv.percent}}%</span>
+                    </div>
+                    <!-- each favorite -->
+                  </ng-container>
+                    <!-- each favorite -->
+                </div>
+                <!-- button Send Email-->
+                <button class="btn btn-email btn-lg w-100 font-weight-bold">Email</button>
+                <div class="more-detail-lg text-uppercase mt-5 h5" data-toggle="modal" data-target="#moreDetailInforMember" onclick="closeNav('#member-detail')" style="font-size: 14px;" (click)="getLogPerson(infor.person_id)">
+                    More Details
+                    <img class="ml-3" src="./../../../../../../assets/images/icon/ico_right_slide.png" alt="">
+                </div>
+                <!-- button Send Email-->
+            </div>
+        </div>
+<!--Modal Box detail porfile-->
+ <!--More Detail Profile modal box-->
+        <div class="detail-member modal fade" id="moreDetailInforMember" tabindex="-1" role="dialog" aria-labelledby="moreDetailInforMemberTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header border-0 m-4 pr-5">
+                        <button type="button" class="close p-0" data-dismiss="modal" aria-label="Close">
+                            <span class="h1" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body h-100 p-0">
+                        <div class="container-fluid h-100">
+                            <div class="row h-100">
+                                <div class="col-4 left">
+                                    <div class="p-5 border-right" >
+                                        <div class="member-infor-detail d-flex" >
+                                            <img src="{{infor.file}}" alt="Avatar Mr-bean" class="avatar mr-4" [style.border-color]="infor.color">
+                                            <div class="more-detail text-left">
+                                                <span class="profile title-profile d-block h4 m-0" data-profile="tax" [style.color]="infor.color">{{infor.office_location}}</span>
+                                                <div class="name d-block font-weight-bold h1 m-0">{{infor.name}}</div>
+                                                <span class="position d-block h4 m-0">{{infor.department}} / {{infor.person_id}}</span>
+                                                <span class="sub-name text-muted h4 m-0">{{infor.email}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="dob py-3 contact-detail mt-4 h4">
+                                            <div class="title mr-4">DOB</div>
+                                            <div class="dateofbirth bold">{{infor.birthday}}</div>
+                                        </div>
+                                        <div class="contact py-3 contact-detail h4">
+                                            <div class="title mr-4">Contact</div>
+                                            <div class="list-number d-inline-block bold">
+                                                <div class="number d-block">{{infor.contact_no}}</div>
+
+                                            </div>
+                                        </div>
+                                        <div class="top-favorite mt-4">
+                                            <div class="my-4 favarite-title h4" data-profile="tax" [style.color]="infor.color" >Top 3 Favorite Zones</div>
+                                             <!-- each favorite -->
+                                               <ng-container *ngFor="let fv of infor.topzone">
+                                               <div class="each-favorite d-flex align-items-center h5">
+                                                   <div class="title">{{fv.name}}</div>
+                                                   <div class="progress-bar mr-2" [style.width.px]="fv.percent" data-profile="tax" [style.background]="infor.color"></div>
+                                                   <span class="number-percent" data-profile="tax" [style.color]="infor.color">{{fv.percent}}%</span>
+                                               </div>
+                                               <!-- each favorite -->
+                                             </ng-container>
+
+                                        </div>
+                                        <!-- button Send Email-->
+                                        <button class="btn btn-email btn-lg w-100 font-weight-bold">Email</button>
+                                        <!-- button Send Email-->
+                                    </div>
+                                </div>
+                                <!--Right modal box detail profile-->
+                                <div class="col-8 right">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Day <img src="./../../../../../../assets/images/icon/ico_sort.png" alt=""></th>
+                                                <th scope="col">Time In <img src="./../../../../../../assets/images/icon/ico_sort.png" alt=""></th>
+                                                <th scope="col">Zones <img src="./../../../../../../assets/images/icon/ico_sort.png" alt=""></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let log of logs ">
+                                                <th scope="row">{{log.ngay}}</th>
+                                                <td>{{log.gio}}</td>
+                                                <td>{{log.zone_name}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--End right modal box detail profile-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--More Detail Profile modal box-->

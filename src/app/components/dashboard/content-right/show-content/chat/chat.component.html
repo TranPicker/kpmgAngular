@@ -6,18 +6,21 @@
              <img src="./../../../../../../assets/images/icon/close.png" alt="close icon" class="mr-3" onclick="closeChatBox('#chat-box')">
              <div class="title-name">F.R.E.D Meassage</div>
          </div>
-         <div class="area-chat">
+
             <app-rules></app-rules>
+         <div class="area-chat" id="are-chat">
+         <ng-container *ngFor="let message of messagesArr">
                 <div class="example-chat d-flex align-items-center">
-                    <img src="assets/images/KPMG.png" class="float-left  mr-3" alt="">
+                    <img src="assets/images/KPMG.png" class="float-left  mr-3 ml-2" alt="">
                     <div class="text">
                         <span class="d-block text-muted">3:28 PM</span>
-                        <p class="hello">Hi Marvie! Great to see you here again!<br> Have a great day ahead :D</p>
+                        <p class="hello">{{message.content}}</p>
                      </div>
                  </div>
+          </ng-container>
           </div>
           <div class="input-chat d-flex align-items-center">
-             <input class="chats mr-2 ml-4" name="chat" id="chat" placeholder="Hello Guys..."><img src="assets/images/icon/ico_send.png" alt="">
+             <input class="chats mr-2 ml-4" name="chat" id="chat" placeholder="Hello Guys..." autofocus #message (keydown.enter)="addMessage(message)"><img src="assets/images/icon/ico_send.png" alt="" (click)="addMessage(message)">
          </div>
     </div>
  </div>

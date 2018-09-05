@@ -44,10 +44,7 @@ $(document).ready(function () {
   $('#map-office').draggable();
   $('.avatar-office').draggable();
   // click map office zoomin
-  $('#map-office').click(function () {
-    if (zoomIn) zoomin();
-    else zoomout();
-  });
+;
   //set width progress bar
   setWidthProgressBar();
 
@@ -108,14 +105,6 @@ function setBackgroundProfile() {
 function mapAction() {
   $('#map-office').draggable();
   $('.avatar-office').draggable();
-  // click map office zoomin
-  $('#map-office').click(function () {
-    if (zoomIn) {
-      zoomin();
-    } else {
-      zoomout();
-    }
-  });
 }
 
 function setWidthProgressBar() {
@@ -134,21 +123,29 @@ function setHeightElement(ele) {
 
 function zoomin() {
   zoomIn = true;
-  var myImg = $("#map-office");
-  var currWidth = myImg.width();
-  if (currWidth === 2500) return false;
+  var myImg = $("#myCanvas");
+  var curWidth = myImg.width();
+  var curHeight = myImg.height();
+  if (curWidth === 2500) return false;
   else {
-    myImg.css("width", (currWidth + 100));
+    let width = curWidth + 50;
+    let height = width * curHeight / curWidth;
+    myImg.css("width", width);
+    myImg.css("height", height);
   }
 }
 
 function zoomout() {
   zoomIn = false;
-  var myImg = $("#map-office");
-  var currWidth = myImg.width();
-  if (currWidth === 100) return false;
+  var myImg = $("#myCanvas");
+  var curWidth = myImg.width();
+  var curHeight = myImg.height();
+  if (curWidth === 100) return false;
   else {
-    myImg.css("width", (currWidth - 100));
+    let width = curWidth - 50;
+    let height = width * curHeight / curWidth;
+    myImg.css("width", width);
+    myImg.css("height", height);
   }
 }
 
@@ -173,4 +170,3 @@ function closeChatBox(ele) {
 function closeFormCreate() {
   $('#close-create-rule').click();
 }
-

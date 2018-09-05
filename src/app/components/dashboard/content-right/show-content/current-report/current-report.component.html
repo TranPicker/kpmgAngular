@@ -69,16 +69,16 @@
                                         <div class="contact py-3 contact-detail h4">
                                             <div class="title mr-4">Contact</div>
                                             <div class="list-number d-inline-block bold">
-                                                <div class="number d-block">{{infor.contract_no}}</div>
+                                                <div class="number d-block">{{infor.contact_no}}</div>
 
                                             </div>
                                         </div>
                                         <div class="top-favorite mt-4">
                                             <div class="my-4 favarite-title h4" data-profile="tax" [style.color]="infor.color" >Top 3 Favorite Zones</div>
                                              <!-- each favorite -->
-                                               <ng-container *ngFor="let fv of infor.detailfavorite">
+                                               <ng-container *ngFor="let fv of infor.topzone">
                                                <div class="each-favorite d-flex align-items-center h5">
-                                                   <div class="title">{{fv.favorite.name}}</div>
+                                                   <div class="title">{{fv.name}}</div>
                                                    <div class="progress-bar mr-2" [style.width.px]="fv.percent" data-profile="tax" [style.background]="infor.color"></div>
                                                    <span class="number-percent" data-profile="tax" [style.color]="infor.color">{{fv.percent}} %</span>
                                                </div>

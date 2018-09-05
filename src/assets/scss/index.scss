@@ -45,7 +45,8 @@ html {
     /*font-weight: 300;
     height: 100%;*/
     background: #f1f1f1;
-
+    min-width: 1366px;
+    overflow-x: scroll;
     #menuLeft {
       background-image: linear-gradient(-218deg, #6A11CB 0%, #2575FC 100%);
 
@@ -69,7 +70,7 @@ html {
             display: block;
           }
         }
-        .sologan-brands{
+        .sologan-brands {
           text-transform: uppercase;
           font-size: 15px;
           word-spacing: 4px;
@@ -77,16 +78,15 @@ html {
         }
       }
 
-
       .list-menu {
         ul {
           .nav-item {
             font-size: 17px;
             margin-bottom: 15px;
             cursor: pointer;
-            .icon-nav{
-              width: 25px!important;
-              height: auto!important;
+            .icon-nav {
+              width: 25px !important;
+              height: auto !important;
             }
 
             &:hover, &.active {
@@ -113,7 +113,7 @@ html {
           cursor: pointer;
           margin-right: 35px;
           font-weight: bold;
-          i{
+          i {
             font-size: 24px;
           }
         }
@@ -129,10 +129,10 @@ html {
         position: relative;
 
         .search-btn {
-         #icon-search{
-           cursor: pointer;
-           transform: translateY(8px);
-         }
+          #icon-search {
+            cursor: pointer;
+            transform: translateY(8px);
+          }
         }
 
         #multi-select {
@@ -157,8 +157,8 @@ html {
             .nav-link {
               padding: 8px 75px;
               font-weight: bold;
-              :hover{
-                font-weight: bold!important;
+              :hover {
+                font-weight: bold !important;
               }
             }
 
@@ -225,6 +225,7 @@ html {
     }
   }
 }
+
 // css ui select
 .ui.multiple.dropdown > .label {
   -webkit-border-radius: 20px !important;
@@ -242,6 +243,7 @@ html {
 i.icon.delete:before {
   content: url("./../images/icon/close.png") !important;
 }
+
 // end css ui select
 
 //side bar
@@ -292,7 +294,7 @@ i.icon.delete:before {
 
       .sub-name {
         color: #6c757d8f;
-        font-size: 17px!important;
+        font-size: 17px !important;
       }
     }
   }
@@ -375,7 +377,7 @@ i.icon.delete:before {
           &:first-child {
             border-top: 0px solid #ffffff;
           }
-          &:last-child{
+          &:last-child {
             border-bottom: 1px solid #8080803d;
           }
         }
@@ -401,8 +403,8 @@ i.icon.delete:before {
         .member-infor-detail {
           .avatar {
             border: 2px solid red;
-            width: 80px!important;
-            height: 80px!important;
+            width: 80px !important;
+            height: 80px !important;
           }
 
           .more-detail {
@@ -498,6 +500,7 @@ i.icon.delete:before {
     }
   }
 }
+
 //css chat modal
 // end css modal box
 
@@ -506,9 +509,10 @@ i.icon.delete:before {
   height: 40px;
   border-radius: 50%;
 }
+
 .chat {
-  .icon-chat{
-    cursor: pointer!important;
+  .icon-chat {
+    cursor: pointer !important;
     transform: translateY(-3px);
   }
 }
@@ -523,8 +527,9 @@ i.icon.delete:before {
   padding: 0 !important;
 
   .chat {
-    img{
-      cursor: pointer!important;
+    position: relative;
+    img {
+      cursor: pointer !important;
     }
     .title-chat {
       padding: 18px;
@@ -534,28 +539,30 @@ i.icon.delete:before {
       }
 
     }
+    .rules {
+      position: absolute;
+      top: 71px;
+      right: 25px;
+      color: $normalColor;
+      font-size: 19px;
+      cursor: pointer;
+      z-index: 100001;
+    }
 
     .area-chat {
+      margin-top: 49px;
       position: relative;
-      height: 80%;
-
-      .rules {
-        position: absolute;
-        top: 7px;
-        right: 15px;
-        color: $normalColor;
-        font-size: 19px;
-        cursor: pointer;
-      }
+      height: 71%;
+      overflow-y: scroll;
+      margin-bottom: 5px;
 
       .example-chat {
-        position: absolute;
         left: 14px;
         bottom: 10px;
-
+        margin-top: 12px;
         img {
-          width: 30px;
-          height: 30px;
+          width: 30px !important;
+          height: 30px !important;
         }
 
         .text {
@@ -579,12 +586,14 @@ i.icon.delete:before {
     }
   }
 }
+
 // profile detail modal box
-#moreDetailInforMember{
-  .title{
-    font-size: 22px!important;
+#moreDetailInforMember {
+  .title {
+    font-size: 22px !important;
   }
 }
+
 //css modal box rules
 .rules-box {
   .modal-dialog {
@@ -638,124 +647,174 @@ i.icon.delete:before {
     }
   }
 }
-.delete.icon{
+
+.delete.icon {
   position: absolute;
   right: 20px;
 }
-.btn-create-rule{
+
+.btn-create-rule {
   padding: 10px 15% !important;
   border-radius: 10px;
 }
-.form-create{
+
+.form-create {
   padding: 10px 10px 30px 10px;
   border: 1px solid #efefef;
   margin: 25px 10% 25px 5%;
 }
-#inlineFormCustomSelect{
+
+#inlineFormCustomSelect {
   margin-right: 5% !important;
 }
+
 .rules-box .modal-dialog .btn-add {
   bottom: 50%;
   left: 85%;
-  border-radius: 10px;}
-.btn-wip{
+  border-radius: 10px;
+}
+
+.btn-wip {
   background: $btnColor;
-  color:white;
+  color: white;
   font-weight: bold;
 }
-.main-content{
+
+.main-content {
   padding-top: 82px;
 }
+
 #modalbox-rules {
-  .title{
+  .title {
     width: 182px;
-    font-size: 30px!important;
+    font-size: 30px !important;
     font-weight: bold;
   }
 }
-#rules-informaition{
-  display: inline!important;
-  width:100%;
+
+#rules-informaition {
+  display: inline !important;
+  width: 100%;
 }
+
 //nam
 /*nam*/
 /*staff*/
-html body #menuLeft .brands-kpmg .name-brands{
-  font-size: 2em!important;
+html body #menuLeft .brands-kpmg .name-brands {
+  font-size: 2em !important;
 }
-#myTabContent{
-  height: 100%!important;
+
+#myTabContent {
+  height: 100% !important;
 }
-html body #menuLeft .brands-kpmg .sologan-brands{
+
+html body #menuLeft .brands-kpmg .sologan-brands {
   font-size: 13px;
-  margin-left: 6px!important;
+  margin-left: 6px !important;
   word-spacing: normal;
-  margin-right: 0!important;
+  margin-right: 0 !important;
 }
-html body #content-right .title{
+
+html body #content-right .title {
   margin-bottom: 13px;
 }
-div.show-content-right{
-  margin-top: 5%!important;
+
+div.show-content-right {
+  margin-top: 5% !important;
 }
-#content-right{
-  padding-right: 3rem!important;
+
+#content-right {
+  padding-right: 3rem !important;
 }
-.dot{
+
+.dot {
   margin-right: 2%;
 }
+
 /*feed*/
-#clubhouse-tab, #external-tab{
+#clubhouse-tab, #external-tab {
   font-size: 17px;
 }
+
 .button_addfeed {
   width: 180px;
   border: 2px solid #dad6d6 !important;
   color: #999999 !important;
   font-weight: bold;
 }
+
 /*setting*/
-.btn-edit,.btn-delete,.btn-update{
+.btn-edit, .btn-delete, .btn-update {
   margin-right: 5px;
   color: #ffffff;
 }
 
-#rules{
-  overflow: auto!important;
+#rules {
+  overflow: auto !important;
 }
+
 /*menu left*/
-.list-menu .nav-item{
+.list-menu .nav-item {
   height: 57px;
 }
-#start_day,#end_day{
-  border: none!important;
+
+#start_day, #end_day {
+  border: none !important;
 }
-.bold{
-  font-weight: bold!important;
+
+.bold {
+  font-weight: bold !important;
 }
-#moreDetailInforMemberCurrent{
-  .title{
-    font-size: 22px!important;
+
+#moreDetailInforMemberCurrent {
+  .title {
+    font-size: 22px !important;
   }
 }
-#moreDetailInforMemberStaff{
-  .title{
-    font-size: 22px!important;
+
+#moreDetailInforMemberStaff {
+  .title {
+    font-size: 22px !important;
   }
 }
-#table{
-  tr{
-    td{
-      .line{
+
+#table {
+  tr {
+    td {
+      .line {
         width: 5px;
         height: 61px !important;
         float: left;
-        transform: translate(-10px,-5px);
+        transform: translate(-10px, -5px);
       }
     }
-    &:hover{
-      td:last-child{
-        opacity: 1!important;
+    &:hover {
+      td:last-child {
+        opacity: 1 !important;
+      }
+    }
+  }
+}
+
+#tag-setting {
+  .ui.multiple.dropdown {
+    width: 100% !important;
+    display: block;
+    .label {
+      min-width: auto !important;
+      padding: 4px 10px;
+      color: white;
+      font-size: 17px;
+      font-weight: normal;
+      background: #3c8dbc;
+      padding-right: 22px !important;
+      i.icon.delete {
+        right: 5px;
+        top: 4px;
+        &:before {
+          content: url("./../images/icon/close.png") !important;
+
+        }
       }
     }
   }

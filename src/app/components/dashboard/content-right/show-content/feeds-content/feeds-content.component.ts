@@ -72,6 +72,7 @@ export class FeedsContentComponent implements OnInit, OnDestroy {
     this.input.append('favorite', '1,2');
     this.input.append('file', this.feed.file);
     this.feedService.addFeed(this.input).subscribe(res => {
+      this.getFeedsMonth();
       swal('Add Success!', '', 'success');
     }, error => {
       console.log(error);
@@ -87,6 +88,7 @@ export class FeedsContentComponent implements OnInit, OnDestroy {
   deleteEvent(id) {
     this.feedService.deleteEvent(id).subscribe(res => {
       console.log(res);
+      this.getFeedsMonth();
       swal('Delete Success!', '', 'success');
     }, error1 => {
       console.log(error1);

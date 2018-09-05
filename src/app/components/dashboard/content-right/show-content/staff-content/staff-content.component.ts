@@ -60,7 +60,6 @@ export class StaffContentComponent implements OnInit, OnDestroy {
   }
 
   getFunctionSearch(data) {
-    console.log(data);
     data = data.replace(' ', '');
     this.functionsSearch = data;
     this.getAllCustomer();
@@ -69,7 +68,6 @@ export class StaffContentComponent implements OnInit, OnDestroy {
   getAllCustomer() {
     this.subscription = this.staffService.getAllCustomer(this.functionsSearch).subscribe(res => {
       this.listCustomer = res.data;
-      console.log(this.listCustomer);
     }, error1 => {
       console.log('Loi nhe');
     });

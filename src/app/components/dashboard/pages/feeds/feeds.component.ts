@@ -13,11 +13,5 @@ export class FeedsComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    $(window).resize(function () {
-      setHeightElement('#feed-content');
-      setHeightElement('#external');
-    });
-
   }
 }

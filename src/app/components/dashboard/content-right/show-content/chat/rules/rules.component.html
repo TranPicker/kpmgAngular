@@ -49,22 +49,20 @@
                          <div class="title ml-5 mb-5 text-capitalize" id="rules-informaition"><img src="./../../../../../../../assets/images/icon/ico_left_slide.png" class="mr-3 back" alt="" onclick="closeFormCreate()" >Rule Informations</div>
                          <div class="form-create">
                              <div class="form-group d-flex">
-                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" name="selectConditior">
-                                     <option selected>select Main Condition</option>
+                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" name="selectConditior"  [(ngModel)]="ruleAdd.main_condition">
                                      <ng-container *ngFor="let item of condition">
                                      <option value="{{item.variable}}">{{item.variable}}</option>
                                      </ng-container>
                                  </select>
-                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" name="selectPrequislte">
-                                     <option selected>Select Prerequislte</option>
+                                 <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect" name="selectPrequislte" [(ngModel)]="ruleAdd.prerequisite">
                                      <ng-container *ngFor="let item of operatorr">
                                      <option value="{{item.operator}}">{{item.operator}}</option>
                                     </ng-container>
                                  </select>
-                                 <input type="text" name="txtCondition" class="form-control" placeholder="Enter Additional Condition">
+                                 <input type="number" name="txtCondition" class="form-control" placeholder="Enter Additional Condition" [(ngModel)]="ruleAdd.additional_condition">
                              </div>
                              <label for="content"  style="font-weight: bold">Content <span class="text-primary">(see more variables)</span></label>
-                             <textarea class="form-control" placeholder="Enter content..." rows="3"></textarea>
+                             <textarea class="form-control" placeholder="Enter content..." rows="3" [(ngModel)]="ruleAdd.content"></textarea>
                          </div>
                          <div class="btn-add btn-danger btn px-5 py-2 text-uppercase" (click)="addRules()">Add</div>
                      </div>

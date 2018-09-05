@@ -1,15 +1,18 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-
+import {ConfigIpService} from '../configIP/config-ip.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchProfileService {
-  private urlGetAll = 'http://192.168.10.41/api/statitic/get_function';
+  public ip: any = '';
+  private urlGetAll = '/api/statitic/get_function';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public configIp: ConfigIpService) {
+    this.ip = configIp.getIp();
+    this.urlGetAll = this.ip + this.urlGetAll;
   }
 
   getFunctions(): Observable<any> {

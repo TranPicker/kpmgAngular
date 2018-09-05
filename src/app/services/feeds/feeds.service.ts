@@ -2,18 +2,23 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Feed} from '../../models/feed/feed';
-
+import {ConfigIpService} from '../configIP/config-ip.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FeedsService {
-  private urlGetAllFeed = 'http://192.168.10.41/api/feed_data/anyData';
-  private urlGetFeedMonth = 'http://192.168.10.41/api/feed_data/get_month';
-  private urlAddFeed = 'http://192.168.10.41/api/feed_data';
+  private ip: any = '';
+  private urlGetAllFeed = '/api/feed_data/anyData';
+  private urlGetFeedMonth = '/api/feed_data/get_month';
+  private urlAddFeed = '/api/feed_data';
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private configIp: ConfigIpService) {
+    this.ip = configIp.getIp();
+    this.urlGetAllFeed = this.ip + this.urlGetAllFeed;
+    this.urlGetFeedMonth = this.ip + this.urlGetFeedMonth;
+    this.urlAddFeed = this.ip + this.urlAddFeed;
   }
 
   getAllFeed(): Observable<any> {
