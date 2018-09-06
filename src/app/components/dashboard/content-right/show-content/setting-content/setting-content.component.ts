@@ -4,6 +4,7 @@ import {Subject} from 'rxjs';
 import {User} from '../../../../../models/setting/user';
 import swal from 'sweetalert';
 import 'datatables.net';
+
 declare var $: any;
 
 
@@ -21,6 +22,7 @@ export class SettingContentComponent implements OnInit {
   // Ytu
   public listYitu: any = '';
   public adUser: User = new User();
+  public upUser: User = new User();
 
   constructor(public settingService: SettingService) {
   }
@@ -65,6 +67,24 @@ export class SettingContentComponent implements OnInit {
     });
   }
 
+
+  updateUser(id) {
+    const array = [];
+    $('#list-permission-update input:checkbox:checked').map(function () {
+      array.push($(this).val());
+    }).get();
+    this.upUser.permission = array;
+    this.settingService.updateUserSetting(this.upUser).subscribe(res => {
+      swal('Update Success!', '', 'success');
+      this.getUsers();
+      this.resetPassword();
+    }, err => {
+      swal('Update Failure!', '', 'error');
+    });
+  }
+  resetPassword() {
+    this.upUser.password = '';
+  }
   resetUserVaribleAdd() {
     this.adUser.full_name = '';
     this.adUser.password = '';
@@ -81,10 +101,31 @@ export class SettingContentComponent implements OnInit {
     });
   }
 
-  updateUser(id) {
-    console.log(id);
+  getUserById(id) {
+    this.getRole();
+    this.settingService.getUSerSettingById(id).subscribe(res => {
+      this.assignUpDateUserVarible(res.data);
+    }, err => {
+      console.log(err);
+    });
   }
 
+  assignUpDateUserVarible(data) {
+    this.upUser.id = data.Employment.id;
+    this.upUser.full_name = data.Employment.full_name;
+    this.upUser.phone = data.Employment.phone;
+    this.upUser.email = data.Employment.email;
+    $('#list-permission-update input:checkbox').map(function () {
+      const that = $(this);
+      for (let i = 0; i < data.role.length; i++) {
+        const valueOfRole = '' + data.role[i];
+        if (that.val() === valueOfRole) {
+          that.attr('checked', true);
+          break;
+        }
+      }
+    });
+  }
   // Zones
   getTagAll() {
     this.settingService.getAllTag().subscribe(res => {
@@ -119,7 +160,7 @@ export class SettingContentComponent implements OnInit {
   getYitu() {
     this.settingService.getListYitu().subscribe(res => {
       this.listYitu = res.data;
-      console.log(this.listYitu)
+      console.log(this.listYitu);
     }, err => {
       console.log(err);
     });

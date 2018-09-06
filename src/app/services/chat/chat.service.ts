@@ -1,43 +1,25 @@
 import {Injectable} from '@angular/core';
 import * as io from 'socket.io-client';
 import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {ConfigIpService} from '../configIP/config-ip.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ChatService {
+  private ip: any = '';
+  private urlPostMessages = '/api/customer/bot';
 
-  private socket = io('http://192.168.11.240:6009');
-
-  newUserJoined() {
-    const observable = new Observable<{ user: String, message: String }>(observer => {
-      this.socket.on('new user joined', (data) => {
-        observer.next(data);
-      });
-      return () => {
-        this.socket.disconnect();
-      };
-    });
-
-    return observable;
+  constructor(private http: HttpClient, private configIp: ConfigIpService) {
+    this.ip = configIp.getIp();
+    this.urlPostMessages = this.ip + this.urlPostMessages;
   }
 
-
-  sendMessage(data) {
-    this.socket.emit('message', data);
-  }
-
-  newMessageReceived() {
-    const observable = new Observable<{ user: String, message: String }>(observer => {
-      this.socket.on('new message', (data) => {
-        observer.next(data);
-      });
-      return () => {
-        this.socket.disconnect();
-      };
+  sendMessage(data): Observable<any> {
+    return this.http.post(this.urlPostMessages, {
+      'message': data
     });
-
-    return observable;
   }
 }

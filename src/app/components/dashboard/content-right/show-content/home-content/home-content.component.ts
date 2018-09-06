@@ -53,7 +53,8 @@ export class HomeContentComponent implements OnInit, OnChanges, AfterViewInit {
     // search
     $('#multi-select').dropdown();
     drawChart();
-
+    setHeightElement('#map-office');
+    setHeightElement('#myTabContent');
     clickItem();
     this.getAllCustomerHome([]);
   }

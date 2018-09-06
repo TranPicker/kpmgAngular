@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ConfigIpService} from '../configIP/config-ip.service';
+import {User} from '../../models/setting/user';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class SettingService {
   private urlDeleteUser = '/employee/delete/';
   private urlGetRoleSetting = '/user/role';
   private urlAddUser = '/employee';
-  private urlUpdateUser = 'url';
+  private urlGetUserById = '/employee/get_id/';
+  private urlUpdateUser = '/employee/';
   // Zone
   private urlDeleteZone = '/api/config/zone/destroy/';
   private urlGetTagAll = '/api/tag/all';
@@ -21,18 +23,20 @@ export class SettingService {
   // Yitu
   private urlGetYitu = '/api/config/log/any-data';
 
-  constructor(private http: HttpClient , private configIp: ConfigIpService) {
+  constructor(private http: HttpClient, private configIp: ConfigIpService) {
     this.ip = configIp.getIp();
     this.urlGetZone = this.ip + this.urlGetZone;
     this.urlGetUsers = this.ip + this.urlGetUsers;
     this.urlDeleteUser = this.ip + this.urlDeleteUser;
     this.urlGetRoleSetting = this.ip + this.urlGetRoleSetting;
     this.urlAddUser = this.ip + this.urlAddUser;
+    this.urlGetUserById = this.ip + this.urlGetUserById;
     this.urlUpdateUser = this.ip + this.urlUpdateUser;
     this.urlDeleteZone = this.ip + this.urlDeleteZone;
     this.urlGetTagAll = this.ip + this.urlGetTagAll;
     this.urlAddZone = this.ip + this.urlAddZone;
     this.urlGetYitu = this.ip + this.urlGetYitu;
+
 
   }
 
@@ -42,6 +46,12 @@ export class SettingService {
 
   getUsersSetting(): Observable<any> {
     return this.http.get<any>(this.urlGetUsers);
+  }
+
+  getUSerSettingById(id): Observable<any> {
+    const url = this.urlGetUserById + id;
+    console.log(url);
+    return this.http.get(url);
   }
 
   getAllRoles(): Observable<any> {
@@ -57,8 +67,15 @@ export class SettingService {
     return this.http.post<any>(this.urlAddUser, data);
   }
 
-  updateUserSetting(data): Observable<any> {
-    return this.http.put<any>(this.urlUpdateUser, data);
+  updateUserSetting(data: User): Observable<any> {
+    const url = this.urlUpdateUser + data.id;
+    return this.http.put<any>(url, {
+      'full_name': data.full_name,
+      'phone': data.phone,
+      'email': data.email,
+      'password': data.password,
+      'permission': data.permission
+    });
   }
 
   // zone

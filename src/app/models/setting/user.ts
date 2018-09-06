@@ -1,4 +1,5 @@
 export class User {
+  id: string;
   full_name: string;
   phone: string;
   email: string;
@@ -6,6 +7,7 @@ export class User {
   permission: number[];
 
   constructor() {
+    this.id = null;
     this.full_name = '';
     this.phone = '';
     this.email = '';
