@@ -8,7 +8,7 @@
   background-size: cover !important;
   background-position: center center; }
 .wrap-login .form-signin {
-  width: 400px;
+  width: 460px;
   margin: auto;
   background: #4f37e0;
   -webkit-border-radius: 7px !important;
@@ -18,16 +18,18 @@
   padding-right: 70px !important; }
 .wrap-login .form-signin .logo {
   color: white;
-  font-weight: bold;
-  font-family: KPMG; }
+  /*font-weight: bold;*/
+}
 .wrap-login .form-signin .logo .brands-name {
-  font-size: 35px;
-  line-height: 30px;
+  font-size: 27px;
+  line-height: 29px;
   margin-top: 20px !important;
-  letter-spacing: 3px; }
+  font-family: KPMGBold;
+  /*letter-spacing: 1px; */
+}
 .wrap-login .form-signin .logo .brands-name:after {
   content: '';
-  width: 140px;
+  width: 190px;
   height: 1px;
   background: #fff;
   display: block;
@@ -35,17 +37,27 @@
   margin: 5px 0; }
 .wrap-login .form-signin .logo .sologan {
   font-size: 12px !important;
-  color: #c8cbe3;
-  letter-spacing: 2px;}
+  color: white;
+  font-family: KPMG;
+  word-spacing: 2px;
+  margin-left: 10px;
+  letter-spacing: 1px;
+}
 .wrap-login .form-signin input {
-  color: #90959a !important;
-  padding: 8px;
-  font-size: 19px;
+  color: #abafb3 !important;
+  padding: 8px 8px 8px 15px;
+  font-size: 15px;
   background: transparent !important; }
+.wrap-login .form-signin input::placeholder{
+  color: #abafb3;
+  font-size: 15px;
+}
 .wrap-login .form-signin button {
   font-size: 19px;
   background: #eceefd;
-  color: #90959a !important;
+  color: #484b4d !important;
+  font-weight: bold;
+  padding: 6px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px; }

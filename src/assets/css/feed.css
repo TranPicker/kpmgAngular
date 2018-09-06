@@ -16,19 +16,21 @@
 }
 .content{
     display: inline-block;
-    margin-left: 5px;
+    /*margin-left: 5px;*/
 }
 .content_event{
     background-color: rgba(218, 214, 214, 0.5);
     padding: 10px;
     border: 1px solid #ded5d5;
     position: relative;
-    white-space: nowrap;
-    overflow: hidden;
+    /*white-space: nowrap;*/
+    /*overflow: hidden;*/
 }
 .time{
-    position: absolute;
-    right: 40px;
+    /*position: absolute;*/
+    /*right: 40px;*/
+    float: right;
+    margin-right: 5px;
     color: #a5a5a5;
 }
 .button_addfeed{
@@ -165,7 +167,7 @@ a.fc-event{
     margin-right: 30px!important;
 }
 #clubhouse-tab,#external-tab{
-    font-size: 17px;
+    font-size: 15px;
 }
 thead.fc-head{
     color: #a5a5a5!important;

@@ -1,5 +1,5 @@
                     <div class="show-content-right mt-5">
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <ul class="nav nav-tabs fontsize-panel" id="myTab" role="tablist">
                             <li class="nav-item ">
                                 <a class="nav-link active text-uppercase" id="live-tab" data-toggle="tab" href="#live" role="tab" aria-controls="home" aria-selected="true" data-title="User Settings">user settings</a>
                             </li>
@@ -18,7 +18,7 @@
                             <div class="tab-pane fade show active m-auto text-center w-100" id="live" role="tabpanel" aria-labelledby="live-tab">
                                 <div class="content-table" id="content-table">
                                     <div>
-                                        <button type="button" class="btn btn-edit m-2" style="float: right" data-toggle="modal" data-target="#myModal" (click)="getRole()"><i class="fa fa-plus"></i> Add New User</button>
+                                        <button type="button" class="btn  m-2 btn-addSetting" style="float: right" data-toggle="modal" data-target="#myModal" (click)="getRole()"><i class="fa fa-plus"></i> Add New User</button>
                                     </div>
 
                                     <div style=" margin-bottom: 33px;">
@@ -73,7 +73,7 @@
                             <div class="tab-pane fade m-auto text-center w-100" id="zone" role="tabpanel" aria-labelledby="overview-tab">
                                 <div class="content-table">
                                     <div>
-                                        <button type="button" class="btn btn-edit m-2" style="float: right" data-toggle="modal" data-target="#modalZone" (click)="getTagAll()"><i class="fa fa-plus"></i> Add New Zone</button>
+                                        <button type="button" class="btn  m-2 btn-addSetting" style="float: right" data-toggle="modal" data-target="#modalZone" (click)="getTagAll()"><i class="fa fa-plus"></i> Add New Zone</button>
                                     </div>
                                     <div style="width: 95%; margin-bottom: 33px;">
                                         <table class="table table_setting" style="margin-top: 10px;" id="table_zone">

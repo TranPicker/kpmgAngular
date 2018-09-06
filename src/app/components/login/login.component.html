@@ -6,7 +6,7 @@
   </div>
 
   <div class="form-label-group mt-5">
-    <input type="email"  [(ngModel)]="user.email" id="inputEmail" name="inputEmail" #inputEmail="ngModel" class="form-control" placeholder="Email address" required autofocus="" >
+    <input type="email"  [(ngModel)]="user.email" id="inputEmail" name="inputEmail" #inputEmail="ngModel" class="form-control" placeholder="Username" required autofocus="" >
     <div *ngIf="inputEmail.invalid && (inputEmail.dirty || inputEmail.touched)">
         <div *ngIf="inputEmail.errors.required" class="text-danger"> Email Adress is required.</div>
      </div>
@@ -18,7 +18,7 @@
        <div *ngIf="inputPassword.errors.required" class="text-danger"> Name is required.</div>
     </div>
   </div>
-  <button class="btn btn-lg  btn-block  text-capitalize" type="submit" (click)="loginUser()" [disabled]="formLogin.invalid"> Log In</button>
-  <a href="#" class="mb-5 d-block mt-3"> Forgot your password?</a>
+  <button class="btn btn-lg  btn-block  text-capitalize" type="submit" (click)="loginUser()" [disabled]="formLogin.invalid"> LOG IN</button>
+  <a href="#" class="mb-5 d-block mt-3 text-light"> Forgot your password?</a>
 </form>
 </div>

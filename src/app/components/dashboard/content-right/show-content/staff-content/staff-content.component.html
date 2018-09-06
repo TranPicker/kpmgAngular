@@ -15,7 +15,7 @@
 <div class="show-content-right mt-5">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item">
-              <a class="nav-link text-uppercase active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="profile" aria-selected="true">OVERVIEW</a>
+              <a class="nav-link text-uppercase active fontsize-panel " id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="profile" aria-selected="true">OVERVIEW</a>
           </li>
            <li class="position-absolute" style="right:10px;top:-10px;">
                <app-chat></app-chat>
@@ -115,19 +115,19 @@
                 <div class="member-infor-detail d-flex" >
                     <img src="{{infor.file}}" [style.border-color]="infor.color" alt="Avatar Mr-bean" class="avatar mr-3">
                     <div class="more-detail text-left">
-                        <span class="profile title-profile d-block h4 m-0" data-profile="tax" [style.color]="infor.color">{{infor.office_location}}</span>
+                        <span class="profile title-profile d-block h5 m-0" data-profile="tax" [style.color]="infor.color">{{infor.office_location}}</span>
                         <div class="name d-block font-weight-bold h1 m-0">{{infor.name}}</div>
-                        <span class="position d-block h4 m-0">{{infor.department}} / {{infor.person_id}}</span>
+                        <span class="position d-block h5 m-0">{{infor.department}} / {{infor.person_id}}</span>
                         <span class="sub-name h4 m-0">{{infor.email}}</span>
                     </div>
                 </div>
-                <div class="dob py-3 contact-detail mt-4 h4 d-flex justify-content-center">
-                    <div class="title mr-4">DOB</div>
-                    <div class="dateofbirth bold">{{infor.birthday}}</div>
+                <div class="col-12 dob py-3 contact-detail mt-4 h4 d-flex justify-content-center">
+                    <div class="col-6 title mr-4">DOB</div>
+                    <div class="col-6 dateofbirth bold">{{infor.birthday}}</div>
                 </div>
-                <div class="contact py-3 contact-detail h4 d-flex justify-content-center">
-                    <div class="title mr-4">Contact</div>
-                    <div class="list-number d-inline-block">
+                <div class="col-12 contact py-3 contact-detail h4 d-flex justify-content-center">
+                    <div class=" col-6 title mr-4">Contact</div>
+                    <div class="col-6 list-number d-inline-block">
                         <div class="number bold d-block">{{infor.contact_no}}</div>
                     </div>
                 </div>
@@ -135,10 +135,10 @@
                     <div class="my-4 favarite-title h4 text-left" data-profile="tax" [style.color]="infor.color" >Top 3 Favorite Zones</div>
                     <!-- each favorite -->
                     <ng-container *ngFor="let fv of infor.topzone">
-                    <div class="each-favorite d-flex align-items-center h5">
-                        <div class="title">{{fv.name}}</div>
-                        <div class="progress-bar mr-2" [style.width.px]="fv.percent" data-profile="tax" [style.background]="infor.color"></div>
-                        <span class="number-percent" data-profile="tax" [style.color]="infor.color">{{fv.percent}}%</span>
+                    <div class="col-12 each-favorite d-flex align-items-center h5">
+                        <div class="col-6 title">{{fv.name}}</div>
+                        <div class="col-3 progress-bar mr-2" [style.width.px]="fv.percent" data-profile="tax" [style.background]="infor.color"></div>
+                        <span class="col-3 number-percent" data-profile="tax" [style.color]="infor.color">{{fv.percent}}%</span>
                     </div>
                     <!-- each favorite -->
                   </ng-container>
@@ -207,7 +207,7 @@
                                 </div>
                                 <!--Right modal box detail profile-->
                                 <div class="col-8 right">
-                                    <table class="table table-striped">
+                                    <table class="table table-striped color-table">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Day <img src="./../../../../../../assets/images/icon/ico_sort.png" alt=""></th>
@@ -217,7 +217,7 @@
                                         </thead>
                                         <tbody>
                                             <tr *ngFor="let log of logs ">
-                                                <th scope="row">{{log.ngay}}</th>
+                                                <th>{{log.ngay}}</th>
                                                 <td>{{log.gio}}</td>
                                                 <td>{{log.zone_name}}</td>
                                             </tr>

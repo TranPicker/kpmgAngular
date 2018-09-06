@@ -7,9 +7,14 @@ $btnColor: #bc204b;
 
 @font-face {
   font-family: 'KPMG';
-  src: url('KPMG-Light.eot');
-  src: url('KPMG-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/KPMG-Light.woff2') format('woff2'), url('KPMG-Light.woff') format('woff'), url('KPMG-Light.ttf') format('truetype'), url('KPMG-Light.svg#KPMG-Light') format('svg');
-  font-weight: 300;
+  src: url("../fonts/OpenSans-Light.ttf") format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KPMGBold';
+  src: url("../fonts/OpenSans-Bold.ttf") format("truetype");
+  font-weight: bold;
   font-style: normal;
 }
 
@@ -41,20 +46,22 @@ html {
   height: 100%;
 
   body {
-    /*font-family: KPMG;*/
+    font-family: KPMG !important;
     /*font-weight: 300;
     height: 100%;*/
     background: #f1f1f1;
     min-width: 1366px;
-    overflow-x: scroll;
     #menuLeft {
       background-image: linear-gradient(-218deg, #6A11CB 0%, #2575FC 100%);
-
+      width: 250px;
+      position: fixed;
+      left: 0px;
       .brands-kpmg {
         .name-brands {
           font-weight: bold;
           position: relative;
           font-size: 38px;
+          font-family: KPMGBold;
           &:hover {
             text-decoration: none;
           }
@@ -88,7 +95,9 @@ html {
               width: 25px !important;
               height: auto !important;
             }
-
+            a {
+              font-weight: bold;
+            }
             &:hover, &.active {
               background: #ffffff;
               border-radius: 5px;
@@ -107,7 +116,11 @@ html {
     }
 
     #content-right {
+      margin-left: 286px;
+      min-width: 1050px;
+      overflow-x: scroll;
       .acount-user {
+        transform: translateY(-30px);
         a {
           font-size: 16px;;
           cursor: pointer;
@@ -513,7 +526,7 @@ i.icon.delete:before {
 .chat {
   .icon-chat {
     cursor: pointer !important;
-    transform: translateY(-3px);
+    transform: translateY(-11px);
   }
 }
 
@@ -720,7 +733,7 @@ html body #content-right .title {
 }
 
 div.show-content-right {
-  margin-top: 5% !important;
+  margin-top: 3% !important;
 }
 
 #content-right {
@@ -732,9 +745,9 @@ div.show-content-right {
 }
 
 /*feed*/
-#clubhouse-tab, #external-tab {
-  font-size: 17px;
-}
+//#clubhouse-tab, #external-tab {
+//  font-size: 15px;
+//}
 
 .button_addfeed {
   width: 180px;
@@ -818,4 +831,42 @@ div.show-content-right {
       }
     }
   }
+}
+
+//Quang
+
+.fontsize-panel {
+  font-size: 15px !important;
+  font-family: KPMGBOld
+}
+
+.fc-left h2 {
+  font-size: 1.71428571rem !important;
+}
+
+.style-phol::placeholder {
+  color: #a7a9ab;
+}
+
+.color-fredrules {
+  color: #485063;
+}
+
+.color-table {
+  color: #4c587a;
+}
+
+.font-KPMGBold {
+  font-family: KPMGBOld
+}
+
+.table td, .table th {
+  border-top: none;
+}
+
+.btn-addSetting{
+  background: #e36877!important;
+  border-color: #e36877;
+  border-radius: 7px !important;
+  color: white;
 }
