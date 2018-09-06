@@ -209,8 +209,30 @@ html {
               .btn-zoom {
                 width: 50px !important;
                 position: absolute;
-                right: 10px;
+                right: 20px;
                 top: 0;
+                .size-map {
+                  width: 35px;
+                }
+                .maximise{
+                  border-bottom: 0px;
+                  position: relative;
+                  &:after{
+                    content: '';
+                    height: 1px;
+                    width: 75%;
+                    background: grey;
+                    display: block;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    bottom: -1px;
+                  }
+                }
+                .minimise{
+                  border-top: 0px;
+                }
+
               }
             }
 
@@ -565,7 +587,7 @@ i.icon.delete:before {
     .area-chat {
       margin-top: 49px;
       position: relative;
-      height: 71%;
+      height: 69%;
       overflow-y: scroll;
       margin-bottom: 5px;
 
@@ -591,6 +613,7 @@ i.icon.delete:before {
       .chats {
         width: 77%;
         height: 35px;
+        border-color: #90959a33;
       }
 
       img {
@@ -699,7 +722,7 @@ i.icon.delete:before {
 
 #modalbox-rules {
   .title {
-    width: 182px;
+    width: 200px;
     font-size: 30px !important;
     font-weight: bold;
   }
@@ -723,9 +746,9 @@ html body #menuLeft .brands-kpmg .name-brands {
 
 html body #menuLeft .brands-kpmg .sologan-brands {
   font-size: 13px;
-  margin-left: 6px !important;
+  margin: 15px 0 0 6px  !important;
   word-spacing: normal;
-  margin-right: 0 !important;
+
 }
 
 html body #content-right .title {
@@ -864,8 +887,8 @@ div.show-content-right {
   border-top: none;
 }
 
-.btn-addSetting{
-  background: #e36877!important;
+.btn-addSetting {
+  background: #e36877 !important;
   border-color: #e36877;
   border-radius: 7px !important;
   color: white;

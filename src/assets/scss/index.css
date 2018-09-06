@@ -133,8 +133,25 @@ html {
             html body #content-right .show-content-right .tab-content .tab-pane .btn-zoom-group .btn-zoom {
               width: 50px !important;
               position: absolute;
-              right: 10px;
+              right: 20px;
               top: 0; }
+              html body #content-right .show-content-right .tab-content .tab-pane .btn-zoom-group .btn-zoom .size-map {
+                width: 35px; }
+              html body #content-right .show-content-right .tab-content .tab-pane .btn-zoom-group .btn-zoom .maximise {
+                border-bottom: 0px;
+                position: relative; }
+                html body #content-right .show-content-right .tab-content .tab-pane .btn-zoom-group .btn-zoom .maximise:after {
+                  content: '';
+                  height: 1px;
+                  width: 75%;
+                  background: grey;
+                  display: block;
+                  position: absolute;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  bottom: -1px; }
+              html body #content-right .show-content-right .tab-content .tab-pane .btn-zoom-group .btn-zoom .minimise {
+                border-top: 0px; }
           html body #content-right .show-content-right .tab-content .tab-pane .map {
             height: 500px; }
             html body #content-right .show-content-right .tab-content .tab-pane .map::-webkit-scrollbar {
@@ -334,7 +351,7 @@ i.icon.delete:before {
     #chat-box .chat .area-chat {
       margin-top: 49px;
       position: relative;
-      height: 71%;
+      height: 69%;
       overflow-y: scroll;
       margin-bottom: 5px; }
       #chat-box .chat .area-chat .example-chat {
@@ -348,7 +365,8 @@ i.icon.delete:before {
           font-size: 14px; }
     #chat-box .chat .input-chat .chats {
       width: 77%;
-      height: 35px; }
+      height: 35px;
+      border-color: #90959a33; }
     #chat-box .chat .input-chat img {
       cursor: pointer; }
 
@@ -415,7 +433,7 @@ i.icon.delete:before {
   padding-top: 82px; }
 
 #modalbox-rules .title {
-  width: 182px;
+  width: 200px;
   font-size: 30px !important;
   font-weight: bold; }
 
@@ -433,9 +451,8 @@ html body #menuLeft .brands-kpmg .name-brands {
 
 html body #menuLeft .brands-kpmg .sologan-brands {
   font-size: 13px;
-  margin-left: 6px !important;
-  word-spacing: normal;
-  margin-right: 0 !important; }
+  margin: 15px 0 0 6px  !important;
+  word-spacing: normal; }
 
 html body #content-right .title {
   margin-bottom: 13px; }
