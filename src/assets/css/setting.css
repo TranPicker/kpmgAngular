@@ -89,3 +89,19 @@ label{
 .cursor_img{
   cursor: pointer;
 }
+.btn_add_page_setting{
+  background-color: #e36877;
+  border-color:#e36877 ;
+  border-radius: 7px!important;
+  color: white;
+}
+.btn_add_page_setting:hover{
+  background-color: #c82333;
+  border-color: #c82333;
+}
+.btn_modal, .btn_add_zone{
+  padding-left: 40px;
+  padding-right: 40px;
+  /*margin-right: 7px;*/
+}
+

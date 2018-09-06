@@ -69,18 +69,14 @@ function feedFunction(data) {
         // if (event.imageurl) {
         //     eventElement.find("div.fc-event-container").prepend("<img src='" + event.imageurl +"' width='30' height='30'>");
         // }
-        eventElement.append('<div class="content_event"><img style="float: right;height: 16px" src="assets/images/icon/close.png" class="remove_event"  data-id="'+event.id+'"><span class="time">' + event.start.format('HH:mma') + '-' + event.end.format('HH:mm  ') + '</span>' +
+        eventElement.append('<div class="content_event"><img style="float: right;height: 16px;cursor:pointer" src="assets/images/icon/close.png" class="remove_event"  data-id="'+event.id+'"><span class="time">' + event.start.format('HH:mma') + '-' + event.end.format('HH:mm  ') + '</span>' +
           '<div style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis"><div class="img_event mr-3"><img src="' + event.imageurl + '" width=' + 50 + ' height=' + 40 + '></div>' +
           '<div class="content"><div class="font-KPMGBold"><span>' + event.title + '</span></div><div><span>' + event.description + '</span></div></div></div>' +
           '</div>');
-        // eventElement.find(".remove_event").click(function () {
-        //   swal("You want to delete this event!")
-        //     .then((value) => {
-        //       $('#calendar').fullCalendar('removeEvents', event._id);
-        //       swal("Comlete!", 'Comlete!', 'success')
-        //     });
-        //
-        // });
+        eventElement.find(".remove_event").click(function () {
+          $('#calendar').fullCalendar('removeEvents', event._id);
+
+        });
       },
 
       // editable: true,
@@ -170,7 +166,9 @@ function feedFunction(data) {
         end: moment(end_day).format('YYYY-MM-DD') + ' 22:00',
         imageurl: img,
         description: description
-      });
+      },true);
+
+      $('#calendar').fullCalendar('destroy')
 
 
     });
@@ -194,6 +192,7 @@ function feedFunction(data) {
       $('button.fc-prev-button').css('display', 'block');
       $('button.fc-next-button').css('display', 'block');
       $('.fc-left h2').css('display', 'block');
+      $('.fc-left h2').removeClass('invisible')
       $('.fc-month-button').addClass("fc-state-active");
       $('.button_list').removeClass("fc-state-active");
       $('.fc-left h2').text(array[0]);
@@ -212,6 +211,7 @@ function feedFunction(data) {
 
 
 }
+
 
 
 var url = window.location.pathname;

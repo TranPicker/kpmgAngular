@@ -82,9 +82,11 @@ export class SettingContentComponent implements OnInit {
       swal('Update Failure!', '', 'error');
     });
   }
+
   resetPassword() {
     this.upUser.password = '';
   }
+
   resetUserVaribleAdd() {
     this.adUser.full_name = '';
     this.adUser.password = '';
@@ -126,6 +128,7 @@ export class SettingContentComponent implements OnInit {
       }
     });
   }
+
   // Zones
   getTagAll() {
     this.settingService.getAllTag().subscribe(res => {

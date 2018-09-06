@@ -18,7 +18,7 @@ declare var feedFunction: any;
 export class FeedsContentComponent implements OnInit, OnDestroy {
   public subcription1: Subscription;
   public subcription2: Subscription;
-  public dataMonth: any;
+  public dataMonth: any = '';
   public feed: Feed = new Feed();
   public input = new FormData();
 
@@ -27,10 +27,11 @@ export class FeedsContentComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     setHeightElement('#external');
+    const that = this;
     $(document).on('click', '.remove_event', function () {
       const id = $(this).data('id');
       console.log(id);
-      this.deleteEvent(id);
+      that.deleteEvent(id);
     });
     this.getAllFeed();
     this.getFeedsMonth();
@@ -73,6 +74,7 @@ export class FeedsContentComponent implements OnInit, OnDestroy {
     this.input.append('file', this.feed.file);
     this.feedService.addFeed(this.input).subscribe(res => {
       this.getFeedsMonth();
+      this.getAllFeed();
       swal('Add Success!', '', 'success');
     }, error => {
       console.log(error);
@@ -86,9 +88,11 @@ export class FeedsContentComponent implements OnInit, OnDestroy {
   }
 
   deleteEvent(id) {
+    console.log('delete working');
     this.feedService.deleteEvent(id).subscribe(res => {
-      console.log(res);
       this.getFeedsMonth();
+      $('#calendar').fullCalendar('destroy');
+      this.getAllFeed();
       swal('Delete Success!', '', 'success');
     }, error1 => {
       console.log(error1);

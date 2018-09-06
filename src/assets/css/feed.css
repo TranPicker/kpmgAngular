@@ -253,4 +253,7 @@ html body #menuLeft .brands-kpmg .name-brands {
     background-color: #e36877;
     border-color: #e36877;
 }
+#description::placeholder{
+  padding-top: 15%;
+}
 /*}*/

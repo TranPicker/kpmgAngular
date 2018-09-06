@@ -3,48 +3,38 @@ var auditColor = '#0191d8';
 var taxColor = '#bc1f4a';
 var advisoryColor = '#eaaa00';
 var centralsrvColor = '#c3007b';
-var datas='';
+var datas = '';
 $(document).ready(function () {
+  setIconActiveNavLink();
   // Set Title Page
   $('.nav-item').click(function () {
     var tt = $(this).children('.nav-link').data('title');
     $('#titlePage').text(tt);
   });
+
   $('.list-menu .nav-item').click(function () {
     $('.list-menu .nav-item').removeClass('active');
+    $(this).addClass('active');
+    setIconNormalNavLink();
+    setIconActiveNavLink();
+    setMouseoverMenuNav();
+    setMouseOutMenuNav();
     var srcActive = $(this).children('.nav-link').children('.icon-nav').data('link-active');
+    console.log(srcActive);
     $(this).children('.nav-link').children('.icon-nav').attr('src', srcActive);
-    $(this).addClass('active')
   })
+  setMouseoverMenuNav();
+  setMouseOutMenuNav();
 
-  $('.list-menu .nav-item').each(function () {
-    var srcActive = $(this).children('.nav-link').children('.icon-nav').data('link-active');
-    var srcNormal = $(this).children('.nav-link').children('.icon-nav').data('link-normal');
-    if ($(this).hasClass('active')) {
-      $(this).children('.nav-link').children('.icon-nav').attr('src', srcActive);
-    }
-    else {
-      $(this).children('.nav-link').mouseover(function () {
-        var src = $(this).children('.icon-nav').data('link-active');
-        $(this).children('.icon-nav').attr('src', src);
-        $('.list-menu .nav-itemv .icon-nav').css({'width': '25px!important', 'height': 'auto!important'});
-      });
-      $(this).children('.nav-link').mouseout(function () {
-        var src = $(this).children('.icon-nav').data('link-normal');
-        $(this).children('.icon-nav').attr('src', src);
-        $('.list-menu .nav-itemv .icon-nav').css({'width': '25px!important', 'height': 'auto!important'});
-      });
-    }
-  })
+
 
   $('#multi-select').dropdown();
   //click icon search
-
   // Dragable
   $('#map-office').draggable();
   $('.avatar-office').draggable();
   // click map office zoomin
-;
+  ;
   //set width progress bar
   setWidthProgressBar();
 
@@ -54,8 +44,36 @@ $(document).ready(function () {
 });
 
 function clickItem() {
-  $(document).on('click','.menu .item',function(){
+  $(document).on('click', '.menu .item', function () {
     set();
+  })
+}
+function setMouseoverMenuNav() {
+  $('.list-menu .nav-item').not('.active').children('.nav-link').mouseover(function () {
+    var src = $(this).children('.icon-nav').data('link-active');
+    $(this).children('.icon-nav').attr('src', src);
+    $('.list-menu .nav-item .icon-nav').css({'width': '25px!important', 'height': 'auto!important'});
+    setIconActiveNavLink();
+  });
+}
+function setMouseOutMenuNav(){
+  $('.list-menu .nav-item').not('.active').children('.nav-link').mouseout(function () {
+    var src = $(this).children('.icon-nav').data('link-normal');
+    $(this).children('.icon-nav').attr('src', src);
+    $('.list-menu .nav-item .icon-nav').css({'width': '25px!important', 'height': 'auto!important'});
+    setIconActiveNavLink();
+  });
+}
+function setIconActiveNavLink() {
+  $('.list-menu .nav-item.active').each(function () {
+    var src = $(this).children('.nav-link').children('.icon-nav').data('link-active');
+    $(this).children('.nav-link').children('.icon-nav').attr('src', src);
+  })
+}
+function setIconNormalNavLink() {
+  $('.list-menu .nav-item').each(function () {
+    var src = $(this).children('.nav-link').children('.icon-nav').data('link-normal');
+    $(this).children('.nav-link').children('.icon-nav').attr('src', src);
   })
 }
 
@@ -85,7 +103,7 @@ function setColorProfile(obj, css) {
 }
 
 
-function set () {
+function set() {
   setTimeout(function () {
     setBackgroundProfile();
   }, 50);
@@ -94,13 +112,14 @@ function set () {
 // set background profile
 function setBackgroundProfile() {
   $('.label').each(function () {
-    for(i =0; i < datas.length; i++){
-      if($(this).data('value') === datas[i].key){
-        $(this).css('background-color',datas[i].value)
+    for (i = 0; i < datas.length; i++) {
+      if ($(this).data('value') === datas[i].key) {
+        $(this).css('background-color', datas[i].value)
       }
     }
   });
 }
+
 // map
 function mapAction() {
   $('#map-office').draggable();

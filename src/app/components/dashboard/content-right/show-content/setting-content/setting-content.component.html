@@ -119,11 +119,9 @@
                             <div class="tab-pane fade m-auto text-center w-100" id="yitu" role="tabpanel" aria-labelledby="overview-tab">
                                 <div class="content-table">
                                     <div class="box_history mt-4">
-                                        <div class="box-header" style="text-align: left">
-                                            <h3 class="m-3" style="display: inline-block">History</h3>
-                                        </div>
+
                                             <div style="margin-bottom: 33px;">
-                                                <table datatable class="table table_setting" style="margin-top: 10px;" id="table_yitu"  >
+                                                <table datatable class="table table_setting" style="margin-top: 10px;width: 95%" id="table_yitu"  >
                                                     <thead>
                                                     <tr>
                                                         <th style="width: 9%;"># <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
@@ -165,7 +163,7 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <div class="navigation-table-content">
+                                            <div class="navigation-table-content" style="width: 95%">
                                                 <a class="caret next" id="next_yitu"><i style="font-size: 20px;float: right; color: #f0c9d6" class="fa fa-caret-right ic_next next_hover m-2"></i></a>
                                                 <span class="pagin m-2" id="pagin_yitu" style="float: right;margin: 0px 10px 0px">Page 1 of 1</span>
                                                 <a class="caret prev" id="prev_yitu"><i style="font-size: 20px;float: right; color: #f0c9d6;" class="fa fa-caret-left ic_prev m-2"></i></a>
@@ -254,7 +252,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addUser()">Add User</button>
+                        <button type="button" class="btn btn_add_page_setting btn_modal" data-dismiss="modal" (click)="addUser()">Add User</button>
                     </div>
                 </div>
 
@@ -397,7 +395,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Add Zone</button>
+                        <button type="button" class="btn btn_add_page_setting btn_add_zone" data-dismiss="modal">Add Zone</button>
                     </div>
                 </div>
 
