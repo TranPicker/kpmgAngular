@@ -26,7 +26,7 @@
           <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab" >
               <div class="content-table" id="content-table">
                   <div style="width: 95%;display: inline-block">
-                      <table class="table" style="margin-top: 10px;" id="table">
+                      <table class="table" style="margin-top: 10px;" id="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
                           <thead>
                           <tr>
                               <th style="padding-left: 65px;">Staff Name <img src="./../../../../../../assets/images/icon/ico_sort.png"></th>
@@ -75,7 +75,7 @@
                           </tbody>
                       </table>
                   </div>
-                  <div style="width: 95%" class="navigation-table-content">
+                  <div style="width: 50" class="navigation-table-content">
                       <a class="caret next"><i style="font-size: 20px;float: right; color: #f0c9d6" class="fa fa-caret-right ic_next next_hover"></i></a>
                       <span class="pagin" style="float: right;margin: 0px 10px 0px">Page 1 of 10</span>
                       <a class="caret prev"><i style="font-size: 20px;float: right; color: #f0c9d6;" class="fa fa-caret-left ic_prev"></i></a>

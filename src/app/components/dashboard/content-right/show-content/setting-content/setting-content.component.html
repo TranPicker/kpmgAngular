@@ -22,7 +22,7 @@
                                     </div>
 
                                     <div style=" margin-bottom: 33px;">
-                                        <table class="table table_setting" style="margin-top: 10px;width: 95%" id="table_user">
+                                        <table class="table table_setting" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" style="margin-top: 10px;width: 95%" id="table_user">
                                             <thead>
                                             <tr>
                                                 <th style="width: 9%"># <img  class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
@@ -76,7 +76,7 @@
                                         <button type="button" class="btn  m-2 btn-addSetting" style="float: right" data-toggle="modal" data-target="#modalZone" (click)="getTagAll()"><i class="fa fa-plus"></i> Add New Zone</button>
                                     </div>
                                     <div style="width: 95%; margin-bottom: 33px;">
-                                        <table class="table table_setting" style="margin-top: 10px;" id="table_zone">
+                                        <table class="table table_setting"  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  style="margin-top: 10px;" id="table_zone">
                                             <thead>
                                             <tr>
                                                 <th style="width: 9%;"># <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>
@@ -121,7 +121,7 @@
                                     <div class="box_history mt-4">
 
                                             <div style="margin-bottom: 33px;">
-                                                <table datatable class="table table_setting" style="margin-top: 10px;width: 95%" id="table_yitu"  >
+                                                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table_setting" style="margin-top: 10px;width: 95%" id="table_yitu"  >
                                                     <thead>
                                                     <tr>
                                                         <th style="width: 9%;"># <img class="cursor_img" src="./../../../../../../assets/images/icon/ico_sort.png"></th>

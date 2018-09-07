@@ -6,7 +6,6 @@ import {Subscription} from 'rxjs';
 import {CurrentReportComponent} from '../current-report/current-report.component';
 import {DetailPersonService} from '../../../../../services/detailPerson/detail-person.service';
 import {fabric} from 'fabric';
-import {logDeprecation} from 'sweetalert/typings/modules/options/deprecations';
 
 declare var $: any;
 declare var setHeightElement: any;
@@ -167,6 +166,7 @@ export class HomeContentComponent implements OnInit, OnChanges, AfterViewInit {
     this.getAllCustomerHome(arr);
     this.getPersonsOnMap(arr);
     this.removeAll();
+
   }
 
   setTitleLive() {

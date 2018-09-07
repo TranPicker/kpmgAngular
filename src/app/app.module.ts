@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { DataTablesModule } from 'angular-datatables';
 // Routing module
 import { AppRoutingModule } from './/app-routing.module';
 // Component
@@ -26,6 +27,7 @@ import { FeedsComponent } from './components/dashboard/pages/feeds/feeds.compone
 import { FeedsContentComponent } from './components/dashboard/content-right/show-content/feeds-content/feeds-content.component';
 import { SettingComponent } from './components/dashboard/pages/setting/setting.component';
 import { SettingContentComponent } from './components/dashboard/content-right/show-content/setting-content/setting-content.component';
+import {Data} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import { SettingContentComponent } from './components/dashboard/content-right/sh
     AppRoutingModule,
     CommonModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

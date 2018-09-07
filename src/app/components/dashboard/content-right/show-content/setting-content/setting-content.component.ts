@@ -3,7 +3,6 @@ import {SettingService} from '../../../../../services/setting/setting.service';
 import {Subject} from 'rxjs';
 import {User} from '../../../../../models/setting/user';
 import swal from 'sweetalert';
-import 'datatables.net';
 
 declare var $: any;
 
@@ -23,6 +22,9 @@ export class SettingContentComponent implements OnInit {
   public listYitu: any = '';
   public adUser: User = new User();
   public upUser: User = new User();
+  // Datatables
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(public settingService: SettingService) {
   }
@@ -32,6 +34,10 @@ export class SettingContentComponent implements OnInit {
     this.getUsers();
     this.getYitu();
     $('#multi-select-tag').dropdown();
+    this.dtOptions = {
+      pagingType: 'full_numbers'
+    };
+
 
   }
 
@@ -164,6 +170,7 @@ export class SettingContentComponent implements OnInit {
     this.settingService.getListYitu().subscribe(res => {
       this.listYitu = res.data;
       console.log(this.listYitu);
+      this.dtTrigger.next();
     }, err => {
       console.log(err);
     });

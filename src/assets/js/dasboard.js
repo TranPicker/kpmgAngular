@@ -5,6 +5,9 @@ var advisoryColor = '#eaaa00';
 var centralsrvColor = '#c3007b';
 var datas = '';
 $(document).ready(function () {
+ 
+
+
   setIconActiveNavLink();
   // Set Title Page
   $('.nav-item').click(function () {

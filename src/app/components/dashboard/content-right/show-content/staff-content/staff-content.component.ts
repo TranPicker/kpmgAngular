@@ -1,7 +1,7 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import './../../../../../../assets/js/staff.js';
 import {Staff} from '../../../../../models/staff/staff';
-import {Subscription} from 'rxjs';
+import {Subject, Subscription} from 'rxjs';
 import {StaffService} from '../../../../../services/staff/staff.service';
 import {SearchProfileService} from '../../../../../services/searchProfile/search-profile.service';
 import {DetailPersonService} from '../../../../../services/detailPerson/detail-person.service';
@@ -9,6 +9,7 @@ import {DetailPersonService} from '../../../../../services/detailPerson/detail-p
 declare var paginationTableContent: any;
 declare var datas: any;
 declare var $: any;
+declare var setHeightElement: any;
 
 @Component({
   selector: 'app-staff-content',
@@ -19,10 +20,14 @@ export class StaffContentComponent implements OnInit, OnDestroy {
   public allFunction: any;
   public listCustomer: Staff[] = [];
   public subscription: Subscription;
-  public functionsSearch: any = '';
+  public functionsSearch: any = [];
   public title = 'Staff Management';
   public infor: any = '';
   public logs: any = '';
+  // Datatables
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject<any>();
+
   constructor(public staffService: StaffService, public searchProfileService: SearchProfileService, public detailPersonService: DetailPersonService) {
   }
 
@@ -30,11 +35,15 @@ export class StaffContentComponent implements OnInit, OnDestroy {
     // search
     $('#multi-select').dropdown();
     paginationTableContent();
-
+    setHeightElement('#overview');
+    this.dtOptions = {
+      pagingType: 'full_numbers'
+    };
     // get data
     this.getAllCustomer();
     this.getAllFunction();
   }
+
   getInforPersonStaff(id) {
     this.detailPersonService.getInfomation(id).subscribe(res => {
       this.infor = res.data;
@@ -50,6 +59,7 @@ export class StaffContentComponent implements OnInit, OnDestroy {
       console.log(error);
     });
   }
+
   getAllFunction() {
     this.subscription = this.searchProfileService.getFunctions().subscribe(res => {
       this.allFunction = res.data;
@@ -60,14 +70,18 @@ export class StaffContentComponent implements OnInit, OnDestroy {
   }
 
   getFunctionSearch(data) {
-    data = data.replace(' ', '');
-    this.functionsSearch = data;
+    let arr = data.split(',');
+    if (!data) {
+      arr = [];
+    }
+    this.functionsSearch = arr;
     this.getAllCustomer();
   }
 
   getAllCustomer() {
     this.subscription = this.staffService.getAllCustomer(this.functionsSearch).subscribe(res => {
       this.listCustomer = res.data;
+      this.dtTrigger.next();
     }, error1 => {
       console.log('Loi nhe');
     });
@@ -75,6 +89,7 @@ export class StaffContentComponent implements OnInit, OnDestroy {
 
 
   ngOnDestroy() {
+    this.dtTrigger.unsubscribe();
     this.subscription.unsubscribe();
   }
 

@@ -118,7 +118,6 @@ html {
     #content-right {
       margin-left: 286px;
       min-width: 1050px;
-      overflow-x: scroll;
       .acount-user {
         transform: translateY(-30px);
         a {
@@ -892,4 +891,36 @@ div.show-content-right {
   border-color: #e36877;
   border-radius: 7px !important;
   color: white;
+}
+.content-table[_ngcontent-c4] {
+  overflow-y: unset!important;
+}
+
+.navigation-table-content[_ngcontent-c4] {
+  z-index: 0!important;
+}
+// Custom datatables
+table.dataTable thead .sorting {
+  background: transparent!important;
+}
+table.dataTable thead .sorting_asc {
+  background: transparent!important;
+}
+table.dataTable thead .sorting_desc {
+  background: transparent!important;
+}
+.dataTables_info{
+display: none!important;
+}
+table.dataTable thead th{
+  border-bottom: 2px solid #dee2e6!important;
+}
+table.dataTable.no-footer {
+  border-bottom: 1px solid transparent!important;
+}
+.dataTables_filter{
+  display: none!important;
+}
+.dataTables_length{
+  display: none;
 }
